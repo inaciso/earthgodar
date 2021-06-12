@@ -35,9 +35,10 @@
 				check = false;
 				console.log("markerFound, check: "+check);
 				
-				aText.setAttribute("rotation", {x: marker.object3D.rotation.x, y: marker.object3D.rotation.y, z: marker.object3D.rotation.z});
-				aText.setAttribute("position", {x:marker.object3D.position.x , y:marker.object3D.position.y +10, z:marker.object3D.position.z +10});
-				aText.setAttribute("rotation", {x: 0.78, y: 0.78, z: 0.78});
+				//aText.setAttribute("rotation", {x: marker.object3D.rotation.x, y: marker.object3D.rotation.y, z: marker.object3D.rotation.z});
+				aText.setAttribute("position", {x:marker.object3D.position.x , y:marker.object3D.position.y +10, z:marker.object3D.position.z +20});
+				
+				//aText.setAttribute("rotation", {x: 0.78, y: 0.78, z: 0.78});
 				console.log("aText: "+aText);
 				console.log("aText.getAttribute(position): "+marker.object3D.position.x);
 				console.log("aText.getAttribute(position): "+marker.object3D.position.y);
