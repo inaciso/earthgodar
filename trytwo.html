@@ -26,10 +26,12 @@
 
 			marker.addEventListener('markerLost', () => {
 				check = setInterval(() => {
-					this.el.object3D.visible = true; 
 
+					var markerPosition = marker.object3D.position;
+					marker.object3D.visible = true;
+					aMarker.object3D.visible = true;
 					// do what you want with the distance:
-					console.log("do what you want with the distance: ");
+					console.log("do what you want with the distance: "+marker.object3D+aMarker.object3D);
 				}, 100);
 			});
 		})
