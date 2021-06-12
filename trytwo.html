@@ -41,8 +41,9 @@
 				aText.setAttribute("position", tmpPosition);
 				aText.setAttribute("rotation", marker.object3D.rotation);
 				console.log("aText: "+aText);
-				console.log("aText.getAttribute(position): "+aText.position.getAttribute("y"));
-				console.log("aText.getAttribute(position): "+aText.position.getAttribute("z"));
+				console.log("aText.getAttribute(position): "+aText.getAttribute("position.x"));
+				console.log("aText.getAttribute(position): "+aText.getAttribute("position.y"));
+								console.log("aText.getAttribute(position): "+aText.getAttribute("position.z"));
 				console.log("aText.getAttribute(rotation): "+aText.getAttribute("rotation"));
 				aText.setAttribute("visible", true);
 			});
