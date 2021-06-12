@@ -18,6 +18,8 @@
 			const camera = document.querySelector('[camera]');
 			const marker = document.querySelector('a-marker');
 			const aText = document.querySelector('a-text');
+			console.log("aText: "+aText);
+			console.log("aText.text: "+aText.text);
 			//var timer = false;
 			var check = false;
 			
@@ -26,15 +28,15 @@
 				clearTimeout(check);
 				check = false;
 				console.log("markerFound, check: "+check);
-				aText.object3D.position = marker.object3D.position;
-				aText.object3D.rotation= marker.object3D.rotation;
-				aText.object3D.visible = true;
+				aText.text.position = marker.object3D.position;
+				aText.rotation= marker.object3D.rotation;
+				aText.text.visible = true;
 			});
 
 			marker.addEventListener('markerLost', () => {
 				console.log("markerLost, check: "+check);
 				marker.object3D.visible = true;
-				aText.object3D.visible = false;
+				aText.text.visible = false;
 				if(check == false){
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
