@@ -28,12 +28,13 @@
 				console.log("markerFound, check: "+check);
 				aText.object3D.position = marker.object3D.position;
 				aText.object3D.rotation= marker.object3D.rotation;
-				
+				aText.object3D.visible = true;
 			});
 
 			marker.addEventListener('markerLost', () => {
 				console.log("markerLost, check: "+check);
 				marker.object3D.visible = true;
+				aText.object3D.visible = false;
 				if(check == false){
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
@@ -68,7 +69,7 @@
 				>
             </a-entity>			
         </a-marker>
-		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)"  scale="15 15 15" position="-2 2 -4"></a-text>
+		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)"  scale="15 15 15" position="30 20 60"></a-text>
         <a-marker id="animated-marker" type='barcode' value='6'>
             <a-entity
                 animation-mixer
