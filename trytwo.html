@@ -23,8 +23,8 @@
 			
 
 			marker.addEventListener('markerFound', () => {
-				check = clearTimeout(check);
-				
+				clearTimeout(check);
+				check = false;
 				console.log("markerFound, check: "+check);
 			});
 
