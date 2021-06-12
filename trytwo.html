@@ -18,22 +18,20 @@
 			const camera = document.querySelector('[camera]');
 			const marker = document.querySelector('a-marker');
 			//const aMarker = document.querySelector('a-entity');
-			var timer = false;
+			//var timer = false;
 			let check;
 			
 
 			marker.addEventListener('markerFound', () => {
 				clearTimeout(check);
-				timer = false;
 			});
 
 			marker.addEventListener('markerLost', () => {
-				if(!timer){
+				if(!marker.object3D.visible){
 					timer = true;
 					marker.object3D.visible = true;
 					console.log(marker.object3D+".visible is "+marker.object3D.visible);
 					check = setTimeout(() => {
-						
 						var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
 						//aMarker.object3D.visible = true;
