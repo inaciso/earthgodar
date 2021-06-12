@@ -28,15 +28,15 @@
 				clearTimeout(check);
 				check = false;
 				console.log("markerFound, check: "+check);
-				aText.text.position = marker.object3D.position;
+				aText.position = marker.object3D.position;
 				aText.rotation= marker.object3D.rotation;
-				aText.text.visible = true;
+				aText.visible = true;
 			});
 
 			marker.addEventListener('markerLost', () => {
 				console.log("markerLost, check: "+check);
 				marker.object3D.visible = true;
-				aText.text.visible = false;
+				aText.visible = false;
 				if(check == false){
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
