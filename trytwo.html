@@ -29,13 +29,14 @@
 			});
 
 			marker.addEventListener('markerLost', () => {
+				marker.object3D.visible = true;
 				console.log("markerLost, check: "+check);
 				if(check == false){
-					marker.object3D.visible = true;
-					check = setTimeout(() => {
+						check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
 						console.log(marker.object3D+".visible is "+marker.object3D.visible);
+						check = false;
 					}, 3000);
 				}
 			});
