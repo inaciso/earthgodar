@@ -17,7 +17,15 @@
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" gesture-detector id="scene">
-
+<a-entity position="0 4.5 0" text="font: roboto; align: center; width: 10.5; color: white; value: roboto 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 4 0" text="font: aileronsemibold; align: center; width: 10.5; color: white; value: aileronsemibold 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 3.5 0" text="font: dejavu; align: center; width: 10.5; color: white; value: dejavu 0 1 2 3 4 5 6 7 8 9"></a-entity>      
+      <a-entity position="0 3 0" text="font: exo2bold; align: center; width: 10.5; color: white; value: exo2bold 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 2.5 0" text="font: exo2semibold; align: center; width: 10.5; color: white; value: exo2semibold 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 2 0" text="font: kelsonsans; align: center; width: 10.5; color: white; value: kelsonsans 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 1.5 0" text="font: monoid; align: center; width: 10.5; color: white; value: monoid 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 1 0" text="font: mozillavr; align: center; width: 10.5; color: white; value: mozillavr 0 1 2 3 4 5 6 7 8 9"></a-entity>
+      <a-entity position="0 0.5 0" text="font: sourcecodepro; align: center; width: 10.5; color: white; value: sourcecodepro 0 1 2 3 4 5 6 7 8 9"></a-entity>
         <a-assets>
             <a-asset-item id="animated-asset2" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthtwo.gltf"></a-asset-item>
         </a-assets>
@@ -26,7 +34,7 @@
             <a-asset-item id="animated-asset1" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthone.gltf"></a-asset-item>
         </a-assets>
 		
-        <a-marker id="animated-marker" type='barcode' value='0' smooth="true" smoothCount="10" smoothTolerance=".02" smoothThreshold="6" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+        <a-marker id="animated-marker" type='barcode' value='0' smooth="true" smoothCount="5" smoothTolerance=".02" smoothThreshold="6" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             <a-entity
                 animation-mixer
                 gltf-model="#animated-asset2"
