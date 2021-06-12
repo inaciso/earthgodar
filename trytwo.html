@@ -20,7 +20,7 @@
 			const aText = document.querySelector('a-text');
 			console.log("marker: "+marker);
 			console.log("marker.value: "+marker.value);
-			console.log("marker.id: "+aText.id);
+			console.log("marker.id: "+marker.id);
 			
 			console.log("aText: "+aText);
 			console.log("aText.id: "+aText.id);
@@ -79,7 +79,7 @@
 				>
             </a-entity>			
         </a-marker>
-		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)"  scale="15 15 15" position="30 20 60" geometry="primitive:plane"></a-text>
+		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)"  scale="15 15 15" position="-30 -20 -60" geometry="primitive:plane"></a-text>
         <a-marker id="animated-marker" type='barcode' value='6'>
             <a-entity
                 animation-mixer
