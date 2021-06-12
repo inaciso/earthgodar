@@ -24,8 +24,8 @@
 			
 			console.log("aText: "+aText);
 			console.log("aText.id: "+aText.id);
-			console.log("aText.getAttribute("'value'"): "+aText.getAttribute("value"));
-			console.log("aText.getAttribute("'position'"): "+aText.getAttribute("position");
+			console.log("aText.getAttribute(value): "+aText.getAttribute("value"));
+			console.log("aText.getAttribute(position): "+aText.getAttribute("position");
 			//var timer = false;
 			var check = false;
 			
@@ -34,11 +34,11 @@
 				clearTimeout(check);
 				check = false;
 				console.log("markerFound, check: "+check);
-				aText.setAttribute(position, marker.object3D.position);
-				aText.setAttribute(rotation, marker.object3D.rotation);
+				aText.setAttribute("position", marker.object3D.position);
+				aText.setAttribute("rotation", marker.object3D.rotation);
 				console.log("aText: "+aText);
-				console.log("aText.getAttribute("'position'"): "+aText.getAttribute("position");
-				console.log("aText.getAttribute("'position'"): "+aText.getAttribute("position");
+				console.log("aText.getAttribute(position): "+aText.getAttribute("postition");
+				console.log("aText.getAttribute(rotation): "+aText.getAttribute("rotation");
 			});
 
 			marker.addEventListener('markerLost', () => {
