@@ -38,7 +38,7 @@
 						marker.object3D.visible = false;
 						console.log(marker.object3D+".visible is "+marker.object3D.visible);
 						check = false;
-					}, 3000);
+					}, 1000);
 				}
 			});
 		})
@@ -56,7 +56,7 @@
             <a-asset-item id="animated-asset1" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthone.gltf"></a-asset-item>
         </a-assets>
 		
-        <a-marker id="animated-marker" type='barcode' value='0' smooth="true" smoothCount="5" smoothTolerance=".02" smoothThreshold="6" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+        <a-marker id="animated-marker" type='barcode' value='0' smooth="true" smoothCount="5" smoothTolerance=".01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
             <a-entity
                 animation-mixer
                 gltf-model="#animated-asset2"
