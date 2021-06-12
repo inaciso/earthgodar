@@ -37,15 +37,15 @@
 				var tmpPosition = marker.object3D.position;
 				tmpPosition = {x:marker.object3D.position.x + 1, y:marker.object3D.position.y + 1, z:marker.object3D.position.z + 1};
 				aText.setAttribute("rotation", {x: marker.object3D.rotation.x, y: marker.object3D.rotation.y, z: marker.object3D.rotation.z});
-				aText.setAttribute("position", {x:marker.object3D.position.x + 1, y:marker.object3D.position.y + 1.5, z:marker.object3D.position.z + 1.5});
+				aText.setAttribute("position", {x:marker.object3D.position.x + 1, y:marker.object3D.position.y + 1, z:marker.object3D.position.z + 1});
 				
 				console.log("aText: "+aText);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.x);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.y);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.z);
-				console.log("aText.getAttribute(position): "+aText.rotation.x);
-				console.log("aText.getAttribute(position): "+aText.rotation.y);
-				console.log("aText.getAttribute(position): "+tmpPosition.z);
+				console.log("aText.getAttribute(position): "+aText.getAttribute("rotation").x);
+				console.log("aText.getAttribute(position): "+aText.getAttribute("rotation").y);
+				console.log("aText.getAttribute(position): "+aText.getAttribute("rotation").z);
 				aText.setAttribute("visible", true);
 			});
 
