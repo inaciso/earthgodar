@@ -34,18 +34,19 @@
 				clearTimeout(check);
 				check = false;
 				console.log("markerFound, check: "+check);
-				var tmpPosition = marker.object3D.position;
-				tmpPosition = {x:marker.object3D.position.x + 1, y:marker.object3D.position.y + 1, z:marker.object3D.position.z + 1};
+				//var tmpPosition = marker.object3D.position;
+				aText.position.set(marker.object3D.position.x + 1, marker.object3D.position.y + 1.5, marker.object3D.position.z + 1);
 
-				aText.setAttribute("position", tmpPosition);
-				aText.setAttribute("rotation", marker.object3D.rotation);
+				//aText.setAttribute("position", tmpPosition);
+				//aText.setAttribute("rotation", marker.object3D.rotation);
+				aText.rotation.set(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
 				console.log("aText: "+aText);
-				console.log("aText.getAttribute(position): "+marker.object3D.position.x);
-				console.log("aText.getAttribute(position): "+marker.object3D.position.y);
-				console.log("aText.getAttribute(position): "+marker.object3D.position.z);
-				console.log("aText.getAttribute(position): "+tmpPosition.x);
-				console.log("aText.getAttribute(position): "+tmpPosition.y);
-				console.log("aText.getAttribute(position): "+tmpPosition.z);
+				console.log("aText.getAttribute(position): "+marker.object3D.rotation.x);
+				console.log("aText.getAttribute(position): "+marker.object3D.rotation.y);
+				console.log("aText.getAttribute(position): "+marker.object3D.rotation.z);
+				console.log("aText.getAttribute(position): "+aText.rotation.x);
+				console.log("aText.getAttribute(position): "+aText.rotation.y);
+				console.log("aText.getAttribute(position): "+aText.rotation.z);
 				aText.setAttribute("visible", true);
 			});
 
@@ -87,7 +88,7 @@
 				>
             </a-entity>			
         </a-marker>
-		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="2 2 2" position="30 20 60" visible = "false"></a-text>
+		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="2 2 2" position="30 20 60" rotation="45 45 45" visible = "false"></a-text>
         <a-marker id="animated-marker" type='barcode' value='6'>
             <a-entity
                 animation-mixer
