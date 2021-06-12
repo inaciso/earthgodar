@@ -27,7 +27,7 @@
 			});
 
 			marker.addEventListener('markerLost', () => {
-				if(!marker.object3D.visible){
+				if(marker.object3D.visible != true){
 					timer = true;
 					marker.object3D.visible = true;
 					console.log(marker.object3D+".visible is "+marker.object3D.visible);
