@@ -35,11 +35,11 @@
 				check = false;
 				console.log("markerFound, check: "+check);
 				//var tmpPosition = marker.object3D.position;
-				aText.position.set(marker.object3D.position.x + 1, marker.object3D.position.y + 1.5, marker.object3D.position.z + 1);
+				aText.object3D.position.set(marker.object3D.position.x + 1, marker.object3D.position.y + 1.5, marker.object3D.position.z + 1);
 
 				//aText.setAttribute("position", tmpPosition);
 				//aText.setAttribute("rotation", marker.object3D.rotation);
-				aText.rotation.set(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
+				aText.object3D.rotation.set(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
 				console.log("aText: "+aText);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.x);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.y);
