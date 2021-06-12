@@ -38,7 +38,7 @@
 				tmpPosition = {x:marker.object3D.position.x + 1, y:marker.object3D.position.y + 1, z:marker.object3D.position.z + 1};
 				aText.setAttribute("rotation", {x: marker.object3D.rotation.x, y: marker.object3D.rotation.y, z: marker.object3D.rotation.z});
 				aText.setAttribute("position", {x:marker.object3D.position.x + 1, y:marker.object3D.position.y + 1, z:marker.object3D.position.z + 1});
-				
+				aText.setAttribute("rotation", {x: 0.78, y: 0.78, z: 0.78});
 				console.log("aText: "+aText);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.x);
 				console.log("aText.getAttribute(position): "+marker.object3D.rotation.y);
@@ -87,7 +87,7 @@
 				>
             </a-entity>			
         </a-marker>
-		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="2 2 2" position="30 20 60" rotation="45 45 45" visible = "false" geometry="primitive: plane; width: auto; height: auto"></a-text>
+		<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="2 2 2" position="30 20 60" rotation="45 45 45" visible = "false" ></a-text>
         <a-marker id="animated-marker" type='barcode' value='6'>
             <a-entity
                 animation-mixer
