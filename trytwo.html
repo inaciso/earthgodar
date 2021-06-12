@@ -22,6 +22,7 @@
 
 			marker.addEventListener('markerFound', () => {
 				clearInterval(check);
+				marker.object3D.visible = false;
 			});
 
 			marker.addEventListener('markerLost', () => {
