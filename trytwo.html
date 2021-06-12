@@ -19,7 +19,8 @@
 			const marker = document.querySelector('a-marker');
 			const aText = document.querySelector('a-text');
 			console.log("aText: "+aText);
-			console.log("aText.text: "+aText.text);
+			console.log("aText.value: "+aText.value);
+			console.log("aText.position: "+aText.position);
 			//var timer = false;
 			var check = false;
 			
@@ -30,7 +31,9 @@
 				console.log("markerFound, check: "+check);
 				aText.position = marker.object3D.position;
 				aText.rotation= marker.object3D.rotation;
-				aText.visible = true;
+				console.log("aText: "+aText);
+				console.log("aText.rotation: "+aText.rotation);
+				console.log("aText.position: "+aText.position);
 			});
 
 			marker.addEventListener('markerLost', () => {
