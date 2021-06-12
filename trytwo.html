@@ -35,8 +35,9 @@
 				check = false;
 				console.log("markerFound, check: "+check);
 				var tmpPosition = marker.object3D.position;
-				tmpPosition.y = marker.object3D.position.y + 1;
-				tmpPosition.z = marker.object3D.position.z + 1;
+				tmpPosition.x = marker.object3D.position.x + 1;
+				tmpPosition.y = marker.object3D.position.y + 2;
+				tmpPosition.z = marker.object3D.position.z + 2;
 				aText.setAttribute("position", tmpPosition);
 				aText.setAttribute("rotation", marker.object3D.rotation);
 				console.log("aText: "+aText);
