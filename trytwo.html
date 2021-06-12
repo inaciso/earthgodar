@@ -17,23 +17,24 @@
 		window.addEventListener('load', () => {
 			const camera = document.querySelector('[camera]');
 			const marker = document.querySelector('a-marker');
-			const aMarker = document.querySelector('a-entity');
+			//const aMarker = document.querySelector('a-entity');
 			let check;
 
 			marker.addEventListener('markerFound', () => {
-				clearInterval(check);
-				marker.object3D.visible = false;
+				clearTimeout(check);
+
 			});
 
 			marker.addEventListener('markerLost', () => {
-				check = setInterval(() => {
-
+				marker.object3D.visible = true;
+				check = setTimeout(() => {
+					
 					var markerPosition = marker.object3D.position;
-					marker.object3D.visible = true;
-					aMarker.object3D.visible = true;
+					marker.object3D.visible = false;
+					//aMarker.object3D.visible = true;
 					// do what you want with the distance:
-					console.log("do what you want with the distance: "+marker.object3D+aMarker.object3D);
-				}, 100);
+					console.log(marker.object3D+".visible is "+marker.object3D.visible);
+				}, 3000);
 			});
 		})
 	</script>
