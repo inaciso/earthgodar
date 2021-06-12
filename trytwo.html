@@ -24,12 +24,12 @@
 
 			marker.addEventListener('markerFound', () => {
 				clearTimeout(check);
+				console.log("markerFound, check: "+check);
 			});
 
 			marker.addEventListener('markerLost', () => {
-			
-				if(marker.object3D.visible != true){
-					timer = true;
+				console.log("markerLost, check: "+check);
+				if(check != true){
 					marker.object3D.visible = true;
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
