@@ -27,6 +27,7 @@
 
 			marker.addEventListener('markerLost', () => {
 				marker.object3D.visible = true;
+				console.log(marker.object3D+".visible is "+marker.object3D.visible);
 				check = setTimeout(() => {
 					
 					var markerPosition = marker.object3D.position;
