@@ -27,6 +27,7 @@
 				check = false;
 				console.log("markerFound, check: "+check);
 				textTitle.position = marker.object3D.position;
+				console.log("textTitle.position: "+textTitle.position);
 			});
 
 			marker.addEventListener('markerLost', () => {
@@ -66,7 +67,7 @@
 				>
             </a-entity>			
         </a-marker>
-		<a-entity id="textTitle" position="20 20 20" text="align: center; value: hello world"></a-entity>
+		<a-text id="textTitle" value="ABCEFGHIGK"  negate="false" scale="2 2 1" position="-2 2 -4"></a-text>
         <a-marker id="animated-marker" type='barcode' value='6'>
             <a-entity
                 animation-mixer
