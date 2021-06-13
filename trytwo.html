@@ -17,6 +17,7 @@
 		window.addEventListener('load', () => {
 			const camera = document.querySelector('[camera]');
 			const marker = document.querySelector('a-marker');
+			const aSphere1 = querySelector('#sphere1'));
 			//const aText = document.querySelector('a-text');
 			//console.log("marker: "+marker);
 			//console.log("marker.value: "+marker.value);
@@ -34,7 +35,7 @@
 				clearTimeout(check);
 				check = false;
 				console.log("markerFound, check: "+check);
-				
+				aSphere1.object3D.position.set(marker.object3D.rotation.x +1.15358, marker.object3D.rotation.y + 10.074693, marker.object3D.rotation.z+0.448901);
 				//aText.setAttribute("rotation", {x: marker.object3D.rotation.x, y: marker.object3D.rotation.y, z: marker.object3D.rotation.z});
 				//aText.setAttribute("position", {x:marker.object3D.position.x , y:marker.object3D.position.y +10, z:marker.object3D.position.z +20});
 				
@@ -82,7 +83,7 @@
 				 <!--<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="6 6 6" position="1 1 1" rotation="0 0 0" visible = "true" ></a-text>-->
             </a-entity>			
         </a-marker>
-		<a-sphere position="1.15358 10.074693  0.448901" radius="1.25" color="#EF2D5E"></a-sphere>
+		<a-sphere id="sphere1" position="1.15358 10.074693  0.448901" radius="1.25" color="#EF2D5E"></a-sphere>
         <a-marker id="animated-marker" type='barcode' value='6'>
             <a-entity
                 animation-mixer
