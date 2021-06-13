@@ -17,15 +17,15 @@
 		window.addEventListener('load', () => {
 			const camera = document.querySelector('[camera]');
 			const marker = document.querySelector('a-marker');
-			const aText = document.querySelector('a-text');
-			console.log("marker: "+marker);
-			console.log("marker.value: "+marker.value);
-			console.log("marker.id: "+marker.id);
+			//const aText = document.querySelector('a-text');
+			//console.log("marker: "+marker);
+			//console.log("marker.value: "+marker.value);
+			//console.log("marker.id: "+marker.id);
 			
-			console.log("aText: "+aText);
-			console.log("aText.id: "+aText.id);
-			console.log("aText.getAttribute(value): "+aText.getAttribute("value"));
-			console.log("aText.getAttribute(position): "+aText.getAttribute("position"));
+			//console.log("aText: "+aText);
+			//console.log("aText.id: "+aText.id);
+			//console.log("aText.getAttribute(value): "+aText.getAttribute("value"));
+			//console.log("aText.getAttribute(position): "+aText.getAttribute("position"));
 			//var timer = false;
 			var check = false;
 			
@@ -36,16 +36,10 @@
 				console.log("markerFound, check: "+check);
 				
 				//aText.setAttribute("rotation", {x: marker.object3D.rotation.x, y: marker.object3D.rotation.y, z: marker.object3D.rotation.z});
-				aText.setAttribute("position", {x:marker.object3D.position.x , y:marker.object3D.position.y +10, z:marker.object3D.position.z +20});
+				//aText.setAttribute("position", {x:marker.object3D.position.x , y:marker.object3D.position.y +10, z:marker.object3D.position.z +20});
 				
 				//aText.setAttribute("rotation", {x: 0.78, y: 0.78, z: 0.78});
-				console.log("aText: "+aText);
-				console.log("aText.getAttribute(position): "+marker.object3D.position.x);
-				console.log("aText.getAttribute(position): "+marker.object3D.position.y);
-				console.log("aText.getAttribute(position): "+marker.object3D.position.z);
-				console.log("aText.getAttribute(position): "+aText.getAttribute("position").x);
-				console.log("aText.getAttribute(position): "+aText.getAttribute("position").y);
-				console.log("aText.getAttribute(position): "+aText.getAttribute("position").z);
+				
 				//aText.setAttribute("visible", true);
 			});
 
@@ -57,7 +51,7 @@
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
-						console.log(marker.object3D+".visible is "+marker.object3D.visible);
+						//console.log(marker.object3D+".visible is "+marker.object3D.visible);
 						check = false;
 					}, 1000);
 				}
@@ -81,11 +75,11 @@
             <a-entity
                 animation-mixer
                 gltf-model="#animated-asset2"
-                scale="0.25 0.25 0.25"
+                scale="1 1 1"
 				class="clickable"
 				gesture-handler="minScale: 0.1; maxScale: 5"
 				>
-				<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="6 6 6" position="1 1 1" rotation="0 0 0" visible = "true" ></a-text>
+				 <!--<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="6 6 6" position="1 1 1" rotation="0 0 0" visible = "true" ></a-text>-->
             </a-entity>			
         </a-marker>
 		
