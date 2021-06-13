@@ -11,6 +11,7 @@
 	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 	<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+	<script src="https://unpkg.com/aframe-state-component@6.6.0/dist/aframe-state-component.min.js"></script>
 	<script src="gesture-detector.js"></script>
 	<script src="gesture-handler.js"></script>
 	<script>
@@ -97,7 +98,7 @@
 						marker.object3D.visible = false;
 						//console.log(marker.object3D+".visible is "+marker.object3D.visible);
 						check = false;
-					}, 1000);
+					}, 1500);
 				}
 			});
 		})
@@ -113,6 +114,8 @@
 		  justify-content: flex-start;
 		  align-items: flex-end;
 		  z-index: 10;
+		  background: white;
+		  
 		}
 
 		.say-hi-button {
@@ -151,6 +154,7 @@
 			<a-sphere id="sphere2" position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
 			<a-sphere id="sphere3" position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
 			<a-sphere id="sphere4" position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
+			<a-sphere id="sphere5" position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" event-set__click="document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
         </a-marker>
 		
         <a-marker id="animated-marker" type='barcode' value='6'>
@@ -163,8 +167,6 @@
 
         <a-entity camera></a-entity>
         </a-scene>
-		<div class="textArea" id="textAreaId">
-		  <button class="say-hi-button"></button>
-		</div>
+
     </body>
 </html>
