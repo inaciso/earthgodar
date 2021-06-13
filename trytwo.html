@@ -19,13 +19,13 @@
 			const textArea1 = document.getElementById("textAreaId");
 			const aSphere1 = document.querySelector('#sphere1'); 
 			var justCounter = 0;
-			document.addEventListener("click", function () {
+			//document.addEventListener("click", function () {
 				  // here you can change also a-scene or a-entity properties, like
 				  // changing your 3D model source, size, position and so on
 				  // or you can just open links, trigger actions...
-				  alert("Hi there!");
-			});
-			aSphere1.addEventListener("click", function () {
+				  //alert("Hi there!");
+			//});
+			aSphere1.addEventListener("mouseenter", function () {
 				justCounter++;
 				textArea1.innerHTML = "clicked: "+ justCounter;
 				alert("clicked!");
