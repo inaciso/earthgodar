@@ -68,7 +68,11 @@
 			//var timer = false;
 			var check = false;
 			
+			marker.addEventListener("click", function () {
 
+				textArea1.innerHTML = "蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。";
+				alert("clicked!"+textArea1.innerHTML);
+			});
 			marker.addEventListener('markerFound', () => {
 				clearTimeout(check);
 				check = false;
@@ -154,7 +158,7 @@
 			<a-sphere id="sphere2" position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
 			<a-sphere id="sphere3" position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
 			<a-sphere id="sphere4" position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
-			<a-sphere id="sphere5" position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
+			<a-sphere id="sphere5" position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
         </a-marker>
 		
         <a-marker id="animated-marker" type='barcode' value='6'>
@@ -165,7 +169,7 @@
             </a-entity>
         </a-marker>
 
-        <a-entity camera><a-cursor></a-cursor></a-entity>
+        <a-entity camera></a-entity>
 		
         </a-scene>
 		<div class="textArea" id="textAreaId">
