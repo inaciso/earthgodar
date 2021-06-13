@@ -17,7 +17,10 @@
 		window.onload = function () {
 			const sayHi = document.querySelector(".say-hi-button");
 			const textArea1 = document.getElementById("textAreaId");
-			const aSphere1 = document.querySelector('#sphere1'); 
+			const aSphere1 = document.getElementById("sphere1"); 
+			const aSphere2 = document.getElementById("sphere2");  
+			const aSphere3 = document.getElementById("sphere3");
+			const aSphere4 = document.getElementById("sphere4");
 			var justCounter = 0;
 			//document.addEventListener("click", function () {
 				  // here you can change also a-scene or a-entity properties, like
@@ -25,10 +28,25 @@
 				  // or you can just open links, trigger actions...
 				  //alert("Hi there!");
 			//});
-			aSphere1.addEventListener("mousedown", function () {
+			aSphere1.addEventListener("click", function () {
 				justCounter++;
-				textArea1.innerHTML = "mousedown: "+ justCounter;
-				alert("clicked!"+justCounter+);
+				textArea1.innerHTML = "蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。";
+				alert("clicked!"+textArea1.innerHTML);
+			});
+			aSphere2.addEventListener("click", function () {
+				justCounter++;
+				textArea1.innerHTML = "蓮蓬社稷之神<br>背面蓮蓬社稷之神背面較為粗糙，以前可能嵌入於石神壇內。";
+				alert("clicked!"+textArea1.innerHTML);
+			});
+			aSphere3.addEventListener("click", function () {
+				justCounter++;
+				textArea1.innerHTML = "外露的石基<br>社稷之神背面是建築物外露的石基礎，兩者的關係有待考證。";
+				alert("clicked!"+textArea1.innerHTML);
+			});
+			aSphere4.addEventListener("click", function () {
+				justCounter++;
+				textArea1.innerHTML = "蓮峰社稷之神<br>蓮峰社稷之神建造年份應晚於蓮蓬社稷之神，具體年代不詳。";
+				alert("clicked!"+textArea1.innerHTML);
 			});
 			
 		};
@@ -90,7 +108,7 @@
 		  bottom: 0;
 		  left: 0;
 		  width: 100%;
-		  height: 5em;
+		  height: 50em;
 		  display: flex;
 		  justify-content: flex-start;
 		  align-items: flex-end;
@@ -129,7 +147,10 @@
 				>
 				 <!--<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="6 6 6" position="1 1 1" rotation="0 0 0" visible = "true" ></a-text>-->
             </a-entity>		
-			<a-sphere id="sphere1" position="1.15358 0.448901 0.074693" radius="0.25" color="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
+			<a-sphere id="sphere1" position="1.15358 0.448901 0.074693" radius="0.15" color="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
+			<a-sphere id="sphere2" position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
+			<a-sphere id="sphere3" position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
+			<a-sphere id="sphere4" position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"></a-sphere>
         </a-marker>
 		
         <a-marker id="animated-marker" type='barcode' value='6'>
