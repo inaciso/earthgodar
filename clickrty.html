@@ -9,9 +9,27 @@
 	<script src="https://unpkg.com/aframe-state-component@6.6.0/dist/aframe-state-component.min.js"></script>
 	<script src="gesture-detector.js"></script>
 	<script src="gesture-handler.js"></script>
-    
-    <!-- import events.js script -->
-    <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
+    <script>
+		AFRAME.registerComponent('markerhandler', {
+
+			init: function() {
+				const animatedMarker = document.querySelector("#animated-marker");
+				const aEntity = document.querySelector("#animated-model");
+				console.log("clickListener init")
+				// every click, we make our model grow in size :)
+				animatedMarker.addEventListener('click', function(ev, target){
+					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+					if (aEntity && intersectedElement === aEntity) {
+						console.log("clicked");
+						const scale = aEntity.getAttribute('scale');
+						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+						aEntity.setAttribute('scale', scale);
+					}
+				});
+		}});
+
+	</script>
+
     
     <body style="margin : 0px; overflow: hidden;">
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
