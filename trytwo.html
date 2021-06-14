@@ -8,57 +8,44 @@
 		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 		<meta http-equiv="pragma" content="no-cache" />
     </head>
-	<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+	<!--<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> v1.1.0 may have problem on click  -->
+	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 	<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	<script src="https://unpkg.com/aframe-state-component@6.6.0/dist/aframe-state-component.min.js"></script>
 	<script src="gesture-detector.js"></script>
 	<script src="gesture-handler.js"></script>
 	<script>
-		  AFRAME.registerComponent("event-listener", {
-			/*init: function() {
-				this.el.addEventListener('click', function(ev, target){
-					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-					if (e.target&& intersectedElement === e.target) {
-						const scale = e.target.getAttribute('scale');
-						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
-						e.target.setAttribute('scale', scale);
-					}
-				});
-			  this.el.addEventListener("mouseenter", function(e) {
-				console.log(e.target)
-				e.target.setAttribute('scale', {x: 1.5, y: 1.5, z: 1.5});
-				});
-			  this.el.addEventListener("mouseleave", function(e) {
-				console.log(e.target)
-				e.target.setAttribute('scale', {x: 1, y: 1, z: 1});
-				});
-			  }*/
-			  init: function() {
-				const animatedMarker = document.querySelector("#animated-marker");
-				const aEntity = document.querySelector("#animated-model");
+		AFRAME.registerComponent('markerhandler', {
 
+			init: function() {
+				
+				const aSphere5 = document.querySelector("#sphere5");
+				
+				console.log("aSphere5 clickListener init")
 				// every click, we make our model grow in size :)
-				animatedMarker.addEventListener('click', function(ev, target){
+				aSphere5.addEventListener('click', function(ev, target){
+					console.log("aSphere5 click and wait for testing: "+aSphere5);
 					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-					if (aEntity && intersectedElement === aEntity) {
-						const scale = aEntity.getAttribute('scale');
+					if (aSphere5 && intersectedElement === aSphere5) {
+						console.log("clicked");
+						const scale = aSphere5.getAttribute('scale');
 						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
-						aEntity.setAttribute('scale', scale);
-						console.log('clicked'+aEntity)
+						aSphere5.setAttribute('scale', scale);
 					}
 				});
-				}
-		  });
-    </script>
+
+		}});
+
+	</script>
 	<script>
 		window.onload = function () {
-			const sayHi = document.querySelector(".say-hi-button");
-			const textArea1 = document.getElementById("textAreaId");
-			const aSphere1 = document.getElementById("sphere1"); 
-			const aSphere2 = document.getElementById("sphere2");  
-			const aSphere3 = document.getElementById("sphere3");
-			const aSphere4 = document.getElementById("sphere4");
+			//const sayHi = document.querySelector(".say-hi-button");
+			//const textArea1 = document.getElementById("textAreaId");
+			//const aSphere1 = document.getElementById("sphere1"); 
+			//const aSphere2 = document.getElementById("sphere2");  
+			//const aSphere3 = document.getElementById("sphere3");
+			//const aSphere4 = document.getElementById("sphere4");
 			//document.addEventListener("click", function () {
 				  // here you can change also a-scene or a-entity properties, like
 				  // changing your 3D model source, size, position and so on
@@ -105,11 +92,11 @@
 			//var timer = false;
 			var check = false;
 			
-			marker.addEventListener("click", function () {
+			//marker.addEventListener("click", function () {
 
-				textArea1.innerHTML = "蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。";
-				alert("clicked!"+textArea1.innerHTML);
-			});
+				//textArea1.innerHTML = "蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。";
+				//alert("clicked!"+textArea1.innerHTML);
+			//});
 			marker.addEventListener('markerFound', () => {
 				clearTimeout(check);
 				check = false;
