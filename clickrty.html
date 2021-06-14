@@ -10,7 +10,7 @@
 	<script src="gesture-detector.js"></script>
 	<script src="gesture-handler.js"></script>
     <script>
-		AFRAME.registerComponent('clickhandler', {
+		/*AFRAME.registerComponent('clickhandler', {
 
 			init: function() {
 				const animatedMarker = document.querySelector("#animated-marker");
@@ -54,7 +54,7 @@
 				document.querySelector("#sphere1").addEventListener('click', function(ev, target){
 					console.log("aSphere1 click and wait for testing: ");
 				});
-		}});
+		}});*/
 
 	</script>
 	<script>
@@ -230,6 +230,7 @@
 
 				  // SET DEBUG BOX
 				  debugBox.setAttribute("position", clickPosUpdated);
+				  document.querySelector("#sphere4").setAttribute("position", {x: clickPosUpdated.x, y: clickPosUpdated.y, z:clickPosUpdated.z});
 				});
 			  },
 			});
@@ -260,7 +261,7 @@
 				<a-sphere id="sphere4" clickhandler position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
 				
         </a-marker>
-		<a-box scale="1 1 1" id="debug-box"></a-box>
+		<a-box scale="1 1 1" id="debug-box" color="#1F98F3></a-box>
 		
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera >
