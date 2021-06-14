@@ -39,7 +39,18 @@
 						aSphere5.setAttribute('scale', scale);
 					}
 				});
-
+				document.querySelector("#sphere4").addEventListener('click', function(ev, target){
+					console.log("aSphere4 click and wait for testing: "+aSphere4);
+				});
+				document.querySelector("#sphere3").addEventListener('click', function(ev, target){
+					console.log("aSphere3 click and wait for testing: "+aSphere3);
+				});
+				document.querySelector("#sphere2").addEventListener('click', function(ev, target){
+					console.log("aSphere2 click and wait for testing: "+aSphere2);
+				});
+				document.querySelector("#sphere1").addEventListener('click', function(ev, target){
+					console.log("aSphere1 click and wait for testing: "+aSphere1);
+				});
 		}});
 
 	</script>
@@ -154,6 +165,10 @@
 				 cursor="rayOrigin: mouse" 
 				 emitevents="true"
                 scale="3">
+				<a-sphere id="sphere1" clickhandler position="1.15358 0.448901 0.074693" radius="0.15" color="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere2" clickhandler position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere3" clickhandler position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere4" clickhandler position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
 				<a-sphere id="sphere5" clickhandler position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" ></a-sphere>
             </a-entity>
 			
