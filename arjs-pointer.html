@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta -->
+    <title>arJS Pointer Test</title>
+    <meta name="author" content="kvaba.com" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+	<script>
+	var model,
+	  scene,
+	  marker,
+	  interactable,
+	  userIsTouching = false,
+	  debugBox;
+
+	window.onload = function () {
+	  model = document.getElementById("model");
+	  scene = document.querySelector("a-scene");
+	  marker = document.querySelector("a-marker");
+	  debugBox = document.getElementById("debug-box");
+	  interactable = document.querySelectorAll(".interactable");
+	  chests = document.querySelectorAll(".chest");
+	};
+
+	AFRAME.registerComponent("raycaster-listen", {
+	  init: function () {
+		// Use events to figure out what raycaster is listening so we don't have to
+		// hardcode the raycaster.
+		let el = this.el;
+		let myRaycaster;
+
+		let canvas = this.el.sceneEl.canvas;
+		let clickPosUpdated = new THREE.Vector3();
+		let distanceMultiplierX = 0.6;
+		let distanceMultiplierY = 0.45;
+		let isMobile = this.el.sceneEl.isMobile;
+
+		this.el.addEventListener("raycaster-intersected", (evt) => {
+		  this.raycaster = evt.detail.el;
+		  myRaycaster = this.raycaster;
+		});
+		this.el.addEventListener("raycaster-intersected-cleared", (evt) => {
+		  this.raycaster = null;
+		  myRaycaster = null;
+		});
+
+		canvas.addEventListener("touchstart", function (evt) {
+		  console.log(evt);
+		  // GET MOUSE XY
+		  var _canvasSize = canvas.getBoundingClientRect(),
+			w = _canvasSize.width,
+			h = _canvasSize.height,
+			offsetW = _canvasSize.left,
+			offsetH = _canvasSize.top;
+		  var cx = void 0,
+			cy = void 0;
+		  if (isMobile) {
+			var touches = evt.touches;
+			if (!touches || touches.length !== 1) {
+			  return;
+			}
+			var touch = touches[0];
+			cx = touch.clientX;
+			cy = touch.clientY;
+		  } else {
+			cx = evt.clientX;
+			cy = evt.clientY;
+		  }
+		  cx = cx - offsetW;
+		  cy = cy - offsetH;
+		  var mouseX = (cx / w) * 2 - 1;
+		  var mouseY = -(cy / h) * 2 + 1;
+
+		  // RAYCAST
+		  let intersection = myRaycaster.components.raycaster.getIntersection(el);
+		  if (!intersection) {
+			return;
+		  }
+		  // console.log(intersection.point);
+
+		  // CALCULATE UDPATED POS
+		  clickPosUpdated.x = intersection.point.x + intersection.distance * distanceMultiplierX * mouseX;
+		  clickPosUpdated.y = intersection.point.y + intersection.distance * distanceMultiplierY * mouseY;
+		  clickPosUpdated.z = intersection.point.z;
+		  console.log("clickPosUpdated", clickPosUpdated);
+
+		  // SET DEBUG BOX
+		  debugBox.setAttribute("position", clickPosUpdated);
+		});
+	  },
+	});
+
+	AFRAME.registerComponent("keep-model-visible", {
+	  schema: {
+		delay: { type: "number", default: 25000 },
+	  },
+
+	  init: function () {
+		var model = this;
+		var data = this.data;
+		// data.delay = the time set by the component parameter
+
+		model.el.sceneEl.addEventListener("markerFound", function () {
+		  markerVisibilityFlag = true;
+		  // clearTimeout(visibilityTimeout);
+
+		  console.log("DOCUMENT READY");
+		});
+
+		model.el.sceneEl.addEventListener("markerLost", function () {
+		  marker.object3D.visible = true;
+		  // marker.setAttribute('position', {x: 0, y: 0, z: 0})
+		  // marker.setAttribute('rotation', {x: 90, y: 0, z: 0})
+		});
+	  },
+	});
+
+	AFRAME.registerComponent("marker-detected", {
+	  init: function () {
+		var el = this.el;
+		el.sceneEl.addEventListener("markerFound", function () {
+		  document.getElementById("overlay").style.visibility = "hidden";
+		});
+	  },
+	});
+
+	</script>
+	<style>
+		body,
+		html {
+		  margin: 0px;
+		  overflow: hidden;
+		  font-family: Arial, Helvetica, sans-serif;
+		}
+
+		#overlay {
+		  position: absolute;
+		  width: 100vw;
+		  height: 100vh;
+		  top: 0;
+		  left: 0;
+		  background-image: url("https://kvabacdn.fra1.cdn.digitaloceanspaces.com/common/noMarkerFramePortrait.png");
+		  background-position: center;
+		  background-size: cover;
+		  text-align: center;
+		  color: white;
+		}
+
+		#overlay p {
+		  margin-top: 20vh;
+		}
+
+		#ui-container {
+		  position: absolute;
+		  bottom: 1rem;
+		  left: 0;
+		  width: 100vw;
+		  z-index: 10;
+		  height: 80px;
+		  display: flex;
+		  justify-content: center;
+		}
+
+		#shoot-btn {
+		  stroke-width: 7px;
+		  stroke: white;
+		  fill: #052156;
+		}
+
+		.hidden {
+		  display: none !important;
+		}
+
+		#img-preview-container {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  background-color: #052156;
+		  display: block;
+		  width: 100vw;
+		  height: 100vh;
+		  z-index: 30;
+		}
+
+		#message-box {
+		  position: absolute;
+		  background-color: white;
+		  width: 80%;
+		  height: 80%;
+		  left: 7%;
+		  top: 5%;
+		  z-index: 99;
+		  display: none;
+		  padding: 3%;
+		  padding-top: 1rem;
+		  line-height: 1.2;
+		  text-align: center;
+		  border: 2px solid red;
+		  border-radius: 10px;
+		  font-size: x-large;
+		}
+		#handler {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  z-index: 1024;
+		}
+		#timer {
+		  position: absolute;
+		  text-align: center;
+		  top: 15px;
+		  left: 50%;
+		  transform: translate(-1.5rem, 0);
+		  width: 3rem;
+		  /* height:3rem; */
+		  line-height: 1.2rem;
+		  display: none;
+		  z-index: 9999;
+		  background-color: white;
+		  border: 3px solid black;
+		  border-radius: 0.5rem;
+		}
+
+		.btn-red {
+		  background-color: #c62d1f;
+		  border-radius: 28px;
+		  display: inline-block;
+		  cursor: pointer;
+		  color: #ffffff;
+		  font-family: Arial;
+		  font-size: 17px;
+		  padding: 16px 31px;
+		  text-decoration: none;
+		  text-shadow: 0px 1px 0px #810e05;
+		}
+
+		.btn-red:hover {
+		  background-color: #f24437;
+		}
+
+		.btn-red:active {
+		  position: relative;
+		  top: 1px;
+		}
+
+		.btn-blue {
+		  background-color: #7892c2;
+		  border-radius: 28px;
+		  display: inline-block;
+		  cursor: pointer;
+		  color: #ffffff;
+		  font-family: Arial;
+		  font-size: 17px;
+		  padding: 16px 31px;
+		  text-decoration: none;
+		  text-shadow: 0px 1px 0px #283966;
+		}
+
+		.btn-blue:hover {
+		  background-color: #476e9e;
+		}
+
+		.btn-blue:active {
+		  position: relative;
+		  top: 1px;
+		}
+
+	</style>
+  <body>
+    <div id="overlay">
+      <p>
+        Насочете камерата към маркера
+      </p>
+    </div>
+    <a-scene embedded renderer=" colorManagement: true;  logarithmicDepthBuffer: true" arjs="debugUIEnabled: false;  detectionMode: mono_and_matrix; patternRatio: 0.5" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-marker id="marker" type="barcode" value="5" smooth="true" marker-detected keep-model-visible>
+        <a-plane raycaster-listen class="collidable" color="#CCC" height="20" width="20" rotation="-90 0 0" material="opacity:0.001"></a-plane>
+      </a-marker>
+
+      <a-box scale=".1 .1 .1" id="debug-box"></a-box>
+      <a-entity camera>
+        <a-entity id="ray-rot-x">
+          <a-entity raycaster="objects: .collidable; showLine: false; far: 30; useWorldCoordinates: true" id="ray-rot-y"></a-entity>
+        </a-entity>
+        <a-entity cursor="fuse: false" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat; opacity:.05"> </a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
