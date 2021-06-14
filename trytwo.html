@@ -16,7 +16,7 @@
 	<script src="gesture-handler.js"></script>
 	<script>
 		  AFRAME.registerComponent("event-listener", {
-			init: function() {
+			/*init: function() {
 				this.el.addEventListener('click', function(ev, target){
 					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
 					if (e.target&& intersectedElement === e.target) {
@@ -33,8 +33,8 @@
 				console.log(e.target)
 				e.target.setAttribute('scale', {x: 1, y: 1, z: 1});
 				});
-			  }
-			  /*init: function() {
+			  }*/
+			  init: function() {
 				const animatedMarker = document.querySelector("#animated-marker");
 				const aEntity = document.querySelector("#animated-model");
 
@@ -45,8 +45,9 @@
 						const scale = aEntity.getAttribute('scale');
 						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
 						aEntity.setAttribute('scale', scale);
+						console.log('clicked'+aEntity)
 					}
-				});*/
+				});
 		  });
     </script>
 	<script>
@@ -193,7 +194,7 @@
 				<a-sphere id="sphere2" position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
 				<a-sphere id="sphere3" position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
 				<a-sphere id="sphere4" position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
-				<a-sphere id="sphere5" event-listener position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
+				<a-sphere id="sphere5" position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
 			</a-entity>		
 			
         </a-marker>
