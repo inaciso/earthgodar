@@ -197,6 +197,8 @@
 		
         <a-marker id="animated-marker" type='barcode' value='0' smooth="true" smoothCount="1" smoothTolerance=".01" smoothThreshold="5">  
             <a-entity
+				id="animated-model"
+				raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"
 				animation-mixer
 				clickhandler 
                 gltf-model="#animated-asset2"
