@@ -13,18 +13,19 @@
 		AFRAME.registerComponent('clickhandler', {
 
 			init: function() {
-				/*const animatedMarker = document.querySelector("#animated-marker");
+				const animatedMarker = document.querySelector("#animated-marker");
 				const aEntity = document.querySelector("#animated-model");
 
 				// every click, we make our model grow in size :)
 				animatedMarker.addEventListener('click', function(ev, target){
+					console.log("marker click and wait for testing: ");
 					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
 					if (aEntity && intersectedElement === aEntity) {
 						const scale = aEntity.getAttribute('scale');
 						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
 						aEntity.setAttribute('scale', scale);
 					}
-				});*/
+				});
 				const aSphere5 = document.querySelector("#sphere5");
 				
 				console.log("aSphere5 clickListener init")
@@ -40,16 +41,16 @@
 					}
 				});
 				document.querySelector("#sphere4").addEventListener('click', function(ev, target){
-					console.log("aSphere4 click and wait for testing: "+aSphere4);
+					console.log("aSphere4 click and wait for testing: ");
 				});
 				document.querySelector("#sphere3").addEventListener('click', function(ev, target){
-					console.log("aSphere3 click and wait for testing: "+aSphere3);
+					console.log("aSphere3 click and wait for testing: ");
 				});
 				document.querySelector("#sphere2").addEventListener('click', function(ev, target){
-					console.log("aSphere2 click and wait for testing: "+aSphere2);
+					console.log("aSphere2 click and wait for testing: ");
 				});
 				document.querySelector("#sphere1").addEventListener('click', function(ev, target){
-					console.log("aSphere1 click and wait for testing: "+aSphere1);
+					console.log("aSphere1 click and wait for testing: ");
 				});
 		}});
 
