@@ -19,7 +19,7 @@
 			init: function() {
 				this.el.addEventListener('click', function(ev, target){
 					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-					if (e.target&& intersectedElement === e.target.) {
+					if (e.target&& intersectedElement === e.target) {
 						const scale = e.target.getAttribute('scale');
 						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
 						e.target.setAttribute('scale', scale);
