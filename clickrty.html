@@ -10,10 +10,10 @@
 	<script src="gesture-detector.js"></script>
 	<script src="gesture-handler.js"></script>
     <script>
-		AFRAME.registerComponent('markerhandler', {
+		AFRAME.registerComponent('clickhandler', {
 
 			init: function() {
-				const animatedMarker = document.querySelector("#animated-marker");
+				/*const animatedMarker = document.querySelector("#animated-marker");
 				const aEntity = document.querySelector("#animated-model");
 
 				// every click, we make our model grow in size :)
@@ -24,12 +24,12 @@
 						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
 						aEntity.setAttribute('scale', scale);
 					}
-				});
+				});*/
 				const aSphere5 = document.querySelector("#sphere5");
 				
 				console.log("aSphere5 clickListener init")
 				// every click, we make our model grow in size :)
-				aSphere5.addEventListener('click', function(ev, target){
+				document.querySelector("#sphere5").addEventListener('click', function(ev, target){
 					console.log("aSphere5 click and wait for testing: "+aSphere5);
 					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
 					if (aSphere5 && intersectedElement === aSphere5) {
@@ -107,7 +107,7 @@
 				clearTimeout(check);
 				check = false;
 				console.log("markerFound, check: "+check);
-				//document.querySelector("#sphere5").setAttribute("position", {x: marker.object3D.position.x, y: marker.object3D.position.y, z:marker.object3D.position.z});
+				document.querySelector("#sphere5").setAttribute("position", {x: marker.object3D.position.x, y: marker.object3D.position.y, z:marker.object3D.position.z});
 				//console.log("marker.x: "+marker.object3D.rotation.x+" marker.y: "+marker.object3D.rotation.y+" marker.z: "+marker.object3D.rotation.z);
 				//
 				
@@ -154,10 +154,11 @@
 				 cursor="rayOrigin: mouse" 
 				 emitevents="true"
                 scale="3">
-				<a-sphere id="sphere5" markerhandler position="0 0 0" radius="2" color="#FF3FF3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
+				
             </a-entity>
 			
         </a-marker>
+		<a-sphere id="sphere5" clickhandler position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>
 		
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera></a-entity>
