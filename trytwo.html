@@ -170,9 +170,9 @@
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
 						distance = cameraPosition.distanceToSquared(allSpheres[i].object3D.position);
-						console.log("distance for "+ i +"is: "+ distance);
+						console.log("distance for "+ i +" is: "+ distance);
 						if (distance < shortDistance){
-							shortDistance = allSpheres[i];
+							shortDistance = distance;
 							shortSphere = i;
 						}
 					}
