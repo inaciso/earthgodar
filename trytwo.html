@@ -168,13 +168,13 @@
 					const allSpheres = document.querySelectorAll('a-sphere');
 					let cameraPosition = camera.object3D.position;
 					let markerPosition = marker.object3D.position;
-					var distance = cameraPosition.distanceTo(markerPosition);
+					var distance = cameraPosition.distanceToSquared(markerPosition);
 					console.log("distance btn marker and camera is: "+ distance);
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
-						 distance = cameraPosition.distanceToSquared(allSpheres[i].object3D.position);
+						 distance = cameraPosition.distanceToSquared(allSpheres[i].object3D.localToWorld() );
 						console.log("distance for "+ i +" is: "+ distance);
 						if (distance < shortDistance){
 							shortDistance = distance;
@@ -185,7 +185,7 @@
 						for (let i = 0; i < allSpheres.length; i++){
 							if(i == shortSphere){
 								allSpheres[i].object3D.visible = true;
-								textArea1.innerHTML = allSpheres[i].
+								textArea1.innerHTML = allSpheres[i].htmlText;
 							}else{
 								allSpheres[i].object3D.visible = false;
 							}
