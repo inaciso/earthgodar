@@ -161,10 +161,27 @@
 			
 			var myTimer = setInterval(()=>{
 				let markerRotation = marker.object3D.rotation;
-				console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
+				//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 			}, 500);
 			const allSpheres = document.querySelectorAll('a-sphere');
-			
+			let cameraPosition = camera.object3D.position;
+			let shortDistance = 999999999999;
+			var shortSphere = 0;
+			for (let i = 0; i < allSpheres.length; i++) {
+				let spherePosition = allSpheres[i].position;
+				distance = cameraPosition.distanceTo(pherePosition);
+				if (distance < shortDistance){
+					shortDistance = allSpheres[i];
+					shortSphere = i;
+				}
+			}
+			for (let i = 0; i < allSpheres.length; i++){
+				if(i == shortSphere){
+					allSpheres[i].visible = true;
+				}else{
+					allSpheres[i].visible = false;
+				}
+			}
 		})
 	</script>
 	<style>
@@ -216,11 +233,11 @@
 				gesture-handler="minScale: 0.1; maxScale: 5"
 			>
 				 <!--<a-text id="textTitle" value="蓮峰社稷之神(蓮峰廟內)" font="custom-msdf.json" color="#1f1d1d" align = "center" negate="false" scale="6 6 6" position="1 1 1" rotation="0 0 0" visible = "true" ></a-text>-->
-				<a-sphere id="sphere1" class="clickable"  position="1.15358 0.448901 0.074693" radius="0.15" color="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
-				<a-sphere id="sphere2" class="clickable"  position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
-				<a-sphere id="sphere3" class="clickable"  position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
-				<a-sphere id="sphere4" class="clickable"  position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
-				<a-sphere id="sphere5" class="clickable"  position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere1" distanceTo="0" position="1.15358 0.448901 0.074693" radius="0.15" color="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere2" distanceTo="0" position="1.15358 0.203961 -0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere3" distanceTo="0" position="0.875878 0.339605 -0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere4" distanceTo="0" position="-0.275307 0.476584 0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
+				<a-sphere id="sphere5" distanceTo="0" position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"></a-sphere>
 				<!--<a-sphere id="sphere5" position="0 0.2 1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" event-set__mouseenter="alert('clicked!'); document.getElementById('textAreaId').innerHTML = '蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。'"></a-sphere>-->
 				
 			</a-entity>		
