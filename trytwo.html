@@ -120,7 +120,8 @@
 			//console.log("aText.getAttribute(position): "+aText.getAttribute("position"));
 			//var timer = false;
 			var check = false;
-			
+			var godName = "蓮蓬社稷之神";
+			textArea1.innerHTML = godName;
 			//marker.addEventListener("click", function () {
 
 				//textArea1.innerHTML = "蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。";
@@ -153,6 +154,7 @@
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
+						textArea1.innerHTML = "請對準QR碼以顯示土地公。";
 						//console.log(marker.object3D+".visible is "+marker.object3D.visible);
 						check = false;
 					}, 1500);
@@ -165,24 +167,33 @@
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					const allSpheres = document.querySelectorAll('a-sphere');
 					let cameraPosition = camera.object3D.position;
-					let shortDistance = 999999999999;
-					var shortSphere = 0;
+					let markerPosition = marker.object3D.position;
+					var distance = cameraPosition.distanceTo(markerPosition);
+					let shortDistance = distance;
+					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
-						distance = cameraPosition.distanceToSquared(allSpheres[i].object3D.position);
+						 distance = cameraPosition.distanceToSquared(allSpheres[i].object3D.position);
 						console.log("distance for "+ i +" is: "+ distance);
 						if (distance < shortDistance){
 							shortDistance = distance;
 							shortSphere = i;
 						}
 					}
-					
-					for (let i = 0; i < allSpheres.length; i++){
-						if(i == shortSphere){
-							allSpheres[i].object3D.visible = true;
-						}else{
-							allSpheres[i].object3D.visible = false;
+					if(shortSphere >= 0){
+						for (let i = 0; i < allSpheres.length; i++){
+							if(i == shortSphere){
+								allSpheres[i].object3D.visible = true;
+								textArea1.innerHTML = 
+							}else{
+								allSpheres[i].object3D.visible = false;
+							}
 						}
+					}else{
+						textArea1.innerHTML = godName;
+						allSpheres.forEach(function(item, index, arr) {
+							arr[index].visible = false;
+						});
 					}
 				}
 			}, 500);
