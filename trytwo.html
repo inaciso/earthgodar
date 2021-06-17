@@ -169,6 +169,7 @@
 					let cameraPosition = camera.object3D.position;
 					let markerPosition = marker.object3D.position;
 					var distance = cameraPosition.distanceTo(markerPosition);
+					console.log("distance btn marker and camera is: "+ distance);
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
