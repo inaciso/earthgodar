@@ -160,28 +160,31 @@
 			});
 			
 			var myTimer = setInterval(()=>{
-				let markerRotation = marker.object3D.rotation;
-				//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
+				if(marker.object3D.visible){
+					//let markerRotation = marker.object3D.rotation;
+					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
+					const allSpheres = document.querySelectorAll('a-sphere');
+					let cameraPosition = camera.object3D.position;
+					let shortDistance = 999999999999;
+					var shortSphere = 0;
+					for (let i = 0; i < allSpheres.length; i++) {
+						//let spherePosition = allSpheres[i].position;
+						distance = cameraPosition.distanceTo(allSpheres[i].position);
+						if (distance < shortDistance){
+							shortDistance = allSpheres[i];
+							shortSphere = i;
+						}
+					}
+					for (let i = 0; i < allSpheres.length; i++){
+						if(i == shortSphere){
+							allSpheres[i].visible = true;
+						}else{
+							allSpheres[i].visible = false;
+						}
+					}
+				}
 			}, 500);
-			const allSpheres = document.querySelectorAll('a-sphere');
-			let cameraPosition = camera.object3D.position;
-			let shortDistance = 999999999999;
-			var shortSphere = 0;
-			for (let i = 0; i < allSpheres.length; i++) {
-				//let spherePosition = allSpheres[i].position;
-				distance = cameraPosition.distanceTo(allSpheres[i].position);
-				if (distance < shortDistance){
-					shortDistance = allSpheres[i];
-					shortSphere = i;
-				}
-			}
-			for (let i = 0; i < allSpheres.length; i++){
-				if(i == shortSphere){
-					allSpheres[i].visible = true;
-				}else{
-					allSpheres[i].visible = false;
-				}
-			}
+			
 		})
 	</script>
 	<style>
