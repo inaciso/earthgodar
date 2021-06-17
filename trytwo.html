@@ -167,8 +167,8 @@
 					//let markerRotation = marker.object3D.rotation;
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					const allSpheres = document.querySelectorAll('a-sphere');
-					let cameraPosition = camera.object3D.position;
-					let markerPosition = marker.object3D.position;
+					let cameraPosition = marker.object3D.localToWorld(camera.object3D.position);
+					let markerPosition = marker.object3D.localToWorld(marker.object3D.position);
 					var distance = markerPosition.distanceToSquared(cameraPosition);
 					console.log("distance btn marker and camera is: "+ distance);
 					let shortDistance = distance;
@@ -182,6 +182,7 @@
 							shortSphere = i;
 						}
 					}
+					console.log("distance for "+ i +" is the shortest ");
 					if(shortSphere >= 0){
 						for (let i = 0; i < allSpheres.length; i++){
 							if(i == shortSphere){
