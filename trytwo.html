@@ -170,16 +170,18 @@
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
 						distance = cameraPosition.distanceToSquared(allSpheres[i].object3D.position);
+						console.log("distance for "+ i +"is: "+ distance);
 						if (distance < shortDistance){
 							shortDistance = allSpheres[i];
 							shortSphere = i;
 						}
 					}
+					
 					for (let i = 0; i < allSpheres.length; i++){
 						if(i == shortSphere){
-							allSpheres[i].visible = true;
+							allSpheres[i].object3D.visible = true;
 						}else{
-							allSpheres[i].visible = false;
+							allSpheres[i].object3D.visible = false;
 						}
 					}
 				}
