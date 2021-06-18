@@ -168,21 +168,26 @@
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					const allSpheres = document.querySelectorAll('a-sphere');
 					let cameraPosition = camera.object3D.position;
+					console.log("cameraPosition .x: "+ cameraPosition.x+ " .y: "+cameraPosition.y +" .z: "+cameraPosition.z);
 					let markerPosition = marker.object3D.position;
+					console.log("markerPosition .x: "+ markerPosition.x+ " .y: "+markerPosition.y +" .z: "+markerPosition.z);
+					
 					var distance = markerPosition.distanceToSquared(cameraPosition);
 					console.log("distance btn marker and camera is: "+ distance);
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
-						 distance = markerPosition.distanceToSquared(allSpheres[i].object3D.localToWorld(allSpheres[i].object3D.position));
+						let tmpPosition = marker.object3D.localToWorld(allSpheres[i].object3D.position);
+						 distance = markerPosition.distanceToSquared(tmpPosition);
+						 console.log("allSpheres["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						console.log("distance for "+ i +" is: "+ distance);
-						if (distance < shortDistance){
+						if (distance <= shortDistance){
 							shortDistance = distance;
 							shortSphere = i;
 						}
 					}
-					console.log("distance for "+ shortSphere +" is the shortest ");
+					console.log("distance for "+ shortSphere +" is the shortest:" + shortDistance);
 					if(shortSphere >= 0){
 						for (let i = 0; i < allSpheres.length; i++){
 							if(i == shortSphere){
