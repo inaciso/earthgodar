@@ -179,8 +179,10 @@
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
+						console.log("allSpheres[i]: "+allSpheres[i]);
 						let spherePosition=new THREE.Vector3();
-						let tmpSphere = allSpheres[i];
+						let tmpSphere = new THREE.Object3D();
+						tmpSphere = allSpheres[i];
 						tmpSphere.getWorldPosition(spherePosition);
 						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
