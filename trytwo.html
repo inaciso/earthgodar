@@ -177,9 +177,9 @@
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
-						//let spherePosition = allSpheres[i].position;
-						let tmpPosition = new THREE.Vector3(markerPosition.x + allSpheres[i].x, markerPosition.y + allSpheres[i].y, markerPosition.z + allSpheres[i].z);
-						console.log("allSpheres["+ i +"]: .x: "+allSpheres[i].x  + " .y: "+allSpheres[i].y+ " .z: "+allSpheres[i].z);
+						let spherePosition = allSpheres[i].getAttribute("position");
+						let tmpPosition = new THREE.Vector3(markerPosition.x + spherePosition.x, markerPosition.y + spherePosition.y, markerPosition.z + spherePosition.z);
+						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
 						 distance = markerPosition.distanceToSquared(tmpPosition);
 						 console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
