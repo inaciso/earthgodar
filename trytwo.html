@@ -178,9 +178,11 @@
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
-						let tmpPosition = new THREE.Vector3(markerPosition.x + allSpheres[i].x, markerPosition.y + allSpheres[i].y, markerPosition.z + allSpheres[i].z);	
+						let tmpPosition = new THREE.Vector3(markerPosition.x + allSpheres[i].x, markerPosition.y + allSpheres[i].y, markerPosition.z + allSpheres[i].z);
+						console.log("allSpheres["+ i +"]: .x: "+allSpheres[i].x  + " .y: "+allSpheres[i].y+ " .z: "+allSpheres[i].z);
+						
 						 distance = markerPosition.distanceToSquared(tmpPosition);
-						 console.log("allSpheres["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
+						 console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						console.log("distance for "+ i +" is: "+ distance);
 						if (distance <= shortDistance){
 							shortDistance = distance;
