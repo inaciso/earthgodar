@@ -180,7 +180,8 @@
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						let spherePosition=new THREE.Vector3();
-						allSpheres[i].getWorldPosition(spherePosition);
+						let tmpSphere = allSpheres[i];
+						tmpSphere.getWorldPosition(spherePosition);
 						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
