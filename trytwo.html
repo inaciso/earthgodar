@@ -183,7 +183,7 @@
 						let spherePosition=new THREE.Vector3();
 						let tmpSphere = new THREE.Object3D();
 						tmpSphere = allSpheres[i];
-						tmpSphere.getWorldPosition(spherePosition);
+						allSpheres[i].object3D.getWorldPosition(spherePosition);
 						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
