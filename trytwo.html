@@ -167,10 +167,10 @@
 					//let markerRotation = marker.object3D.rotation;
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					const allSpheres = document.querySelectorAll('a-sphere');
-					let cameraPosition; 
+					let cameraPosition =new THREE.Vector3(); 
 					camera.object3D.getWorldPosition(cameraPosition);
 					console.log("cameraPosition .x: "+ cameraPosition.x+ " .y: "+cameraPosition.y +" .z: "+cameraPosition.z);
-					let markerPosition;
+					let markerPosition=new THREE.Vector3();
 					marker.object3D.getWorldPosition(markerPosition);
 					console.log("markerPosition .x: "+ markerPosition.x+ " .y: "+markerPosition.y +" .z: "+markerPosition.z);
 					
@@ -179,7 +179,7 @@
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
-						let spherePosition;
+						let spherePosition=new THREE.Vector3();
 						allSpheres[i].getWorldPosition(spherePosition);
 						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
