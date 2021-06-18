@@ -178,7 +178,11 @@
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
-						let tmpPosition = marker.object3D.localToWorld(allSpheres[i].object3D.position);
+						let tmpPosition = marker.object3D.position;
+						tmpPosition.x +=  allSpheres[i].position.x;
+						tmpPosition.y +=  allSpheres[i].position.y;
+						tmpPosition.z +=  allSpheres[i].position.z;
+						
 						 distance = markerPosition.distanceToSquared(tmpPosition);
 						 console.log("allSpheres["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						console.log("distance for "+ i +" is: "+ distance);
