@@ -181,7 +181,7 @@
 						let tmpPosition = new THREE.Vector3(markerPosition.x + spherePosition.x, markerPosition.y + spherePosition.y, markerPosition.z + spherePosition.z);
 						//console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
-						 distance = cameraPosition.distanceToSquared(tmpPosition);
+						 distance = markerPosition.distanceToSquared(tmpPosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						//console.log("distance for "+ i +" is: "+ distance);
 						if (distance <= shortDistance){
