@@ -167,9 +167,9 @@
 					//let markerRotation = marker.object3D.rotation;
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					const allSpheres = document.querySelectorAll('a-sphere');
-					let cameraPosition = a-scene.localToWorld(camera.object3D.position);
+					let cameraPosition = aScene.localToWorld(camera.object3D.position);
 					console.log("cameraPosition .x: "+ cameraPosition.x+ " .y: "+cameraPosition.y +" .z: "+cameraPosition.z);
-					let markerPosition = a-scene.localToWorld(marker.object3D.position);
+					let markerPosition = aScene.localToWorld(marker.object3D.position);
 					console.log("markerPosition .x: "+ markerPosition.x+ " .y: "+markerPosition.y +" .z: "+markerPosition.z);
 					
 					var distance = markerPosition.distanceToSquared(cameraPosition);
@@ -177,9 +177,9 @@
 					let shortDistance = distance;
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
-						let spherePosition = a-scene.localToWorld(allSpheres[i].getAttribute("position"));
+						let spherePosition = aScene.localToWorld(allSpheres[i].getAttribute("position"));
 						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
-						//console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
+						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
 						 distance = markerPosition.distanceToSquared(spherePosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
