@@ -178,11 +178,7 @@
 					var shortSphere = -1;
 					for (let i = 0; i < allSpheres.length; i++) {
 						//let spherePosition = allSpheres[i].position;
-						let tmpPosition = new Vector3(0, 0, 0 );
-						tmpPosition.x =  markerPosition.x + allSpheres[i].x;
-						tmpPosition.y =  markerPosition.y + allSpheres[i].y;
-						tmpPosition.z =  markerPosition.z + allSpheres[i].z;
-						
+						let tmpPosition = new THREE.Vector3(markerPosition.x + allSpheres[i].x, markerPosition.y + allSpheres[i].y, markerPosition.z + allSpheres[i].z);	
 						 distance = markerPosition.distanceToSquared(tmpPosition);
 						 console.log("allSpheres["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						console.log("distance for "+ i +" is: "+ distance);
