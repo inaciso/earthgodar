@@ -189,9 +189,10 @@
 						
 						
 						//allSpheres[i].setAttribute("rotation", sphereRotation);
-						allSpheres[i].object3D.rotation.x = marker.object3D.rotation.x;
-						allSpheres[i].object3D.rotation.y = marker.object3D.rotation.y;
-						allSpheres[i].object3D.rotation.z = marker.object3D.rotation.z;
+						marker.object3D.getWorldPosition(allSpheres[i].object3D.position);
+						allSpheres[i].object3D.position.x += 0;
+						allSpheres[i].object3D.position.y += 0.2;
+						allSpheres[i].object3D.position.z += 1;
 						console.log("allSpheres["+i +"].rotation is .x: "+ allSpheres[i].object3D.rotation.x + " .y: "+allSpheres[i].object3D.rotation.y +" .z: "+allSpheres[i].object3D.rotation.z);
 						let spherePosition=new THREE.Vector3();
 						//let tmpSphere = new THREE.Object3D();
