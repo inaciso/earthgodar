@@ -189,18 +189,18 @@
 						
 						
 						//allSpheres[i].setAttribute("rotation", sphereRotation);
-						//allSpheres[i].object3D.rotation.x = marker.object3D.rotation.x;
-						//allSpheres[i].object3D.rotation.y = marker.object3D.rotation.y;
-						//allSpheres[i].object3D.rotation.z = marker.object3D.rotation.z;
+						allSpheres[i].object3D.rotation.x = marker.object3D.rotation.x;
+						allSpheres[i].object3D.rotation.y = marker.object3D.rotation.y;
+						allSpheres[i].object3D.rotation.z = marker.object3D.rotation.z;
 						console.log("allSpheres["+i +"].rotation is .x: "+ allSpheres[i].object3D.rotation.x + " .y: "+allSpheres[i].object3D.rotation.y +" .z: "+allSpheres[i].object3D.rotation.z);
 						let spherePosition=new THREE.Vector3();
 						//let tmpSphere = new THREE.Object3D();
 						//tmpSphere = allSpheres[i];
-						allSpheres[i].object3D.getWorldPosition(spherePosition);
-						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
+						//allSpheres[i].object3D.getWorldPosition(spherePosition);
+						//let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						//console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
-						 distance = cameraPosition.distanceToSquared(spherePosition);
+						 //distance = cameraPosition.distanceToSquared(spherePosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						//console.log("distance for "+ i +" is: "+ distance);
 						if (distance <= shortDistance){
