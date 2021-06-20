@@ -194,6 +194,7 @@
 						//allSpheres[i].setAttribute("rotation", sphereRotation);
 						marker.object3D.getWorldPosition(allSpheres[i].object3D.position);
 						let getDefaultPosition = allSpheres[i].getAttribute("defaultPosition");
+						console.log("getDefaultPosition is .x: "+ getDefaultPosition.x + " .y: "+getDefaultPosition.y +" .z: "+getDefaultPosition.z);
 						allSpheres[i].object3D.position.x += getDefaultPosition.x;
 						allSpheres[i].object3D.position.y += getDefaultPosition.y;
 						allSpheres[i].object3D.position.z += getDefaultPosition.z;
