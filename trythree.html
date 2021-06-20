@@ -157,7 +157,10 @@
 						//var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
 						textArea1.innerHTML = "請對準QR碼以顯示土地公。";
-						
+						allSpheres.forEach(function(item, index, arr) {
+							arr[index].visible = false;
+							
+						});
 						//console.log(marker.object3D+".visible is "+marker.object3D.visible);
 						check = false;
 					}, 3000);
@@ -194,15 +197,16 @@
 						allSpheres[i].object3D.position.x += getDefaultPosition.x;
 						allSpheres[i].object3D.position.y += getDefaultPosition.y;
 						allSpheres[i].object3D.position.z += getDefaultPosition.z;
+						allSpheres[i].object3D.visible = true;
 						console.log("allSpheres["+i +"].rotation is .x: "+ allSpheres[i].object3D.rotation.x + " .y: "+allSpheres[i].object3D.rotation.y +" .z: "+allSpheres[i].object3D.rotation.z);
 						let spherePosition=new THREE.Vector3();
 						//let tmpSphere = new THREE.Object3D();
 						//tmpSphere = allSpheres[i];
-						//allSpheres[i].object3D.getWorldPosition(spherePosition);
+						allSpheres[i].object3D.getWorldPosition(spherePosition);
 						//let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						//console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
-						 //distance = cameraPosition.distanceToSquared(spherePosition);
+						 distance = cameraPosition.distanceToSquared(spherePosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
 						//console.log("distance for "+ i +" is: "+ distance);
 						if (distance <= shortDistance){
@@ -214,11 +218,14 @@
 					if(shortSphere >= 0){
 						for (let i = 0; i < allSpheres.length; i++){
 							if(i == shortSphere){
-								allSpheres[i].object3D.visible = true;
 								textArea1.innerHTML = allSpheres[i].getAttribute("htmlText");
-								
+								let tmpText = "background:" + allSpheres[i].getAttribute("defaultColor") +";";
+								//console.log("tmpText"+ tmpText);
+								textArea1.setAttribute("style",  tmpText);
+								allSpheres[i].setAttribute("color", defaultColor);
 							}else{
 								//allSpheres[i].object3D.visible = false;
+								allSpheres[i].setAttribute("color", "gray");
 							}
 						}
 					}else{
@@ -226,7 +233,7 @@
 						
 						allSpheres.forEach(function(item, index, arr) {
 							//arr[index].visible = false;
-							
+							allSpheres[i].setAttribute("color", "gray");
 						});
 					}
 				}
@@ -289,11 +296,11 @@
         </a-marker>
 
         <a-entity camera></a-entity>
-		<a-sphere id="sphere1" defaultPosition="x: 1.15358 y: 0.448901 z: 0.074693" radius="0.15" color="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。"></a-sphere>
-		<a-sphere id="sphere2" defaultPosition="x: 1.15358 y:0.203961 z:-0.174803" radius="0.15" color="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="蓮蓬社稷之神<br>背面蓮蓬社稷之神背面較為粗糙，以前可能嵌入於石神壇內。"></a-sphere>
-		<a-sphere id="sphere3" defaultPosition="x: 0.875878 y: 0.339605 z:-0.402114" radius="0.15" color="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="外露的石基<br>社稷之神背面是建築物外露的石基礎，兩者的關係有待考證。"></a-sphere>
-		<a-sphere id="sphere4" defaultPosition="x: -0.275307 y:0.476584 z:0.169126" radius="0.15" color="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"htmlText="蓮峰社稷之神<br>蓮峰社稷之神建造年份應晚於蓮蓬社稷之神，具體年代不詳。"></a-sphere>
-		<a-sphere id="sphere5" defaultPosition="x:0 y:0.2 z:1" radius="0.15" color="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。"></a-sphere>
+		<a-sphere id="sphere1" defaultPosition="x: 1.15358 y: 0.448901 z: 0.074693" radius="0.15" defaultColor="#EF2D5E" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="蓮蓬社稷之神可能是蓮蓬山慈護宮──蓮峰廟前身──的遺物。<br>蓮峰普濟學校內《鼎建紀事碑》記載“五嶺之南，皆瀕大海，而澳門尤為南交極塞，明萬曆間，彝人叩準盧居聚，其族須載貨與海外諸番往來，遂以其地為聚貨之鄉……歲在壬寅，澳中諸君數十輩，偶集於入澳之蓮蓬山，覽其奇勝，謀建廟於側……其外為天后殿，其內為觀音殿，其後為無祀壇，其左為社、為客堂、為僧舍，統曰慈護宮。”上文的“社”可能指社公。"></a-sphere>
+		<a-sphere id="sphere2" defaultPosition="x: 1.15358 y:0.203961 z:-0.174803" radius="0.15" defaultColor="#FF5733" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="蓮蓬社稷之神<br>背面蓮蓬社稷之神背面較為粗糙，以前可能嵌入於石神壇內。"></a-sphere>
+		<a-sphere id="sphere3" defaultPosition="x: 0.875878 y: 0.339605 z:-0.402114" radius="0.15" defaultColor="#F3F01F" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="外露的石基<br>社稷之神背面是建築物外露的石基礎，兩者的關係有待考證。"></a-sphere>
+		<a-sphere id="sphere4" defaultPosition="x: -0.275307 y:0.476584 z:0.169126" radius="0.15" defaultColor="#1F98F3" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;"htmlText="蓮峰社稷之神<br>蓮峰社稷之神建造年份應晚於蓮蓬社稷之神，具體年代不詳。"></a-sphere>
+		<a-sphere id="sphere5" defaultPosition="x:0 y:0.2 z:1" radius="0.15" defaultColor="#18DC53" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;" htmlText="蓮峰社稷之神<br>蓮峰廟內近化寶爐共有兩座土地公，分別是碩大的蓮峰社稷之神和旁邊體型較小的蓮蓬社稷之神。"></a-sphere>
 		<a-entity cursor="rayOrigin:mouse"></a-entity>
         </a-scene>
 		<div class="textArea" id="textAreaId">
