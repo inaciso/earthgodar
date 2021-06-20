@@ -185,8 +185,8 @@
 					var shortSphere = -1;
 					
 					//let markerRotation = marker.object3D.rotation;
-					let sphereRotation = new THREE.Vector3(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
-					console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
+					//let sphereRotation = new THREE.Vector3(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
+					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					for (let i = 0; i < allSpheres.length; i++) {
 						//console.log("allSpheres[i]: "+allSpheres[i]);
 						
@@ -198,7 +198,7 @@
 						allSpheres[i].object3D.position.y += getDefaultPosition.y;
 						allSpheres[i].object3D.position.z += getDefaultPosition.z;
 						allSpheres[i].object3D.visible = true;
-						console.log("allSpheres["+i +"].rotation is .x: "+ allSpheres[i].object3D.rotation.x + " .y: "+allSpheres[i].object3D.rotation.y +" .z: "+allSpheres[i].object3D.rotation.z);
+						console.log("allSpheres["+i +"].position is .x: "+ allSpheres[i].object3D.position.x + " .y: "+allSpheres[i].object3D.position.y +" .z: "+allSpheres[i].object3D.position.z);
 						let spherePosition=new THREE.Vector3();
 						//let tmpSphere = new THREE.Object3D();
 						//tmpSphere = allSpheres[i];
