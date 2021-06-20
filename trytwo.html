@@ -185,7 +185,7 @@
 						//tmpSphere = allSpheres[i];
 						allSpheres[i].object3D.getWorldPosition(spherePosition);
 						let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
-						console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
+						//console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
 						 distance = cameraPosition.distanceToSquared(spherePosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
@@ -201,12 +201,16 @@
 							if(i == shortSphere){
 								allSpheres[i].object3D.visible = true;
 								textArea1.innerHTML = allSpheres[i].getAttribute("htmlText");
+								let tmpText = "color:" + allSpheres[i].getAttribute("color");
+								console.log("tmpText"+ tmpText);
+								textArea1.setAttribute("style",  tmpText);
 							}else{
 								allSpheres[i].object3D.visible = false;
 							}
 						}
 					}else{
 						textArea1.innerHTML = godName;
+						
 						allSpheres.forEach(function(item, index, arr) {
 							arr[index].visible = false;
 						});
