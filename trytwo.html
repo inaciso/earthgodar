@@ -156,6 +156,7 @@
 						//var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
 						textArea1.innerHTML = "請對準QR碼以顯示土地公。";
+						textArea1.setAttribute("color",  "black");
 						//console.log(marker.object3D+".visible is "+marker.object3D.visible);
 						check = false;
 					}, 3000);
@@ -201,9 +202,9 @@
 							if(i == shortSphere){
 								allSpheres[i].object3D.visible = true;
 								textArea1.innerHTML = allSpheres[i].getAttribute("htmlText");
-								let tmpText = "color:" + allSpheres[i].getAttribute("color");
-								console.log("tmpText"+ tmpText);
-								textArea1.setAttribute("style",  tmpText);
+								//let tmpText = "color:" + allSpheres[i].getAttribute("color");
+								//console.log("tmpText"+ tmpText);
+								textArea1.setAttribute("color",  allSpheres[i].getAttribute("color"));
 							}else{
 								allSpheres[i].object3D.visible = false;
 							}
@@ -213,6 +214,7 @@
 						
 						allSpheres.forEach(function(item, index, arr) {
 							arr[index].visible = false;
+							textArea1.setAttribute("color",  "black");
 						});
 					}
 				}
