@@ -197,7 +197,7 @@
 						let getDefaultPositionY = allSpheres[i].getAttribute("data-defaultPositionY");
 						let getDefaultPositionZ = allSpheres[i].getAttribute("data-defaultPositionZ");
 						console.log("getDefaultPosition is .x: "+ getDefaultPositionX + " .y: "+getDefaultPositionY +" .z: "+getDefaultPositionZ);
-						let spherePosition=new THREE.Vector3(allSpheres[i].object3D.position.x + getDefaultPositionX, allSpheres[i].object3D.position.y + getDefaultPosition, allSpheres[i].object3D.position.z + getDefaultPositionZ);
+						let spherePosition=new THREE.Vector3(allSpheres[i].object3D.position.x + getDefaultPositionX, allSpheres[i].object3D.position.y + getDefaultPositionY, allSpheres[i].object3D.position.z + getDefaultPositionZ);
 						allSpheres[i].setAttribute("position", spherePosition)
 						allSpheres[i].object3D.visible = true;
 						console.log("allSpheres["+i +"].position is .x: "+ allSpheres[i].object3D.position.x + " .y: "+allSpheres[i].object3D.position.y +" .z: "+allSpheres[i].object3D.position.z);
