@@ -192,12 +192,13 @@
 						
 						
 						//allSpheres[i].setAttribute("rotation", sphereRotation);
+						
 						marker.object3D.getWorldPosition(allSpheres[i].object3D.position);
-						let getDefaultPositionX = allSpheres[i].getAttribute("data-defaultPositionX")+allSpheres[i].object3D.position.x;
-						let getDefaultPositionY = allSpheres[i].getAttribute("data-defaultPositionY")+allSpheres[i].object3D.position.y;
-						let getDefaultPositionZ = allSpheres[i].getAttribute("data-defaultPositionZ")+allSpheres[i].object3D.position.z;
+						let getDefaultPositionX = Number(allSpheres[i].getAttribute("data-defaultPositionX"))+markerPosition.x;
+						let getDefaultPositionY = Number(allSpheres[i].getAttribute("data-defaultPositionY"))+markerPosition.y;
+						let getDefaultPositionZ = Number(allSpheres[i].getAttribute("data-defaultPositionZ"))+markerPosition.z;
 						console.log("getDefaultPosition is .x: "+ getDefaultPositionX + " .y: "+getDefaultPositionY +" .z: "+getDefaultPositionZ);
-						let spherePosition=new THREE.Vector3(getDefaultPositionX,  getDefaultPositionY,  getDefaultPositionZ);
+						let spherePosition=new THREE.Vector3();
 						//allSpheres[i].setAttribute("position", spherePosition);
 						allSpheres[i].object3D.position.set(getDefaultPositionX, getDefaultPositionY, getDefaultPositionZ);
 						allSpheres[i].object3D.visible = true;
