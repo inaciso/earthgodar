@@ -187,6 +187,8 @@
 					let markerRotation = new THREE.Vector3();
 					marker.object3D.getWorldDirection(markerRotation);
 					let myAxis = new THREE.Vector3(0, 0, 1);
+					let myOrgin = new THree.Vector3(0,0,0);
+					let myRadian = myOrgin.angleTo(markerRotation);
 					//let sphereRotation = new THREE.Vector3(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					for (let i = 0; i < allSpheres.length; i++) {
@@ -204,7 +206,7 @@
 						//allSpheres[i].setAttribute("position", spherePosition);
 						allSpheres[i].object3D.position.set(getDefaultPositionX, getDefaultPositionY, getDefaultPositionZ);
 						
-						allSpheres[i].object3D.rotateOnWorldAxis(myAxis, markerRotation);
+						allSpheres[i].object3D.rotateOnWorldAxis(myAxis, myRadian);
 						allSpheres[i].object3D.visible = true;
 						//console.log("allSpheres["+i +"].position is .x: "+ allSpheres[i].object3D.position.x + " .y: "+allSpheres[i].object3D.position.y +" .z: "+allSpheres[i].object3D.position.z);
 						let spherePosition=new THREE.Vector3();
