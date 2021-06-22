@@ -198,21 +198,21 @@
 						let getDefaultPositionY = Number(allSpheres[i].getAttribute("data-defaultPositionY"))+markerPosition.y;
 						let getDefaultPositionZ = Number(allSpheres[i].getAttribute("data-defaultPositionZ"))+markerPosition.z;
 						//console.log("getDefaultPosition is .x: "+ getDefaultPositionX + " .y: "+getDefaultPositionY +" .z: "+getDefaultPositionZ);
-						let spherePosition=new THREE.Vector3();
+						
 						//allSpheres[i].setAttribute("position", spherePosition);
 						allSpheres[i].object3D.position.set(getDefaultPositionX, getDefaultPositionY, getDefaultPositionZ);
 						allSpheres[i].object3D.visible = true;
 						//console.log("allSpheres["+i +"].position is .x: "+ allSpheres[i].object3D.position.x + " .y: "+allSpheres[i].object3D.position.y +" .z: "+allSpheres[i].object3D.position.z);
-						
+						let spherePosition=new THREE.Vector3(getDefaultPositionX, getDefaultPositionY, getDefaultPositionZ);
 						//let tmpSphere = new THREE.Object3D();
 						//tmpSphere = allSpheres[i];
-						allSpheres[i].object3D.getWorldPosition(spherePosition);
+						//allSpheres[i].object3D.getWorldPosition(spherePosition);
 						//let tmpPosition = new THREE.Vector3(spherePosition.x,  spherePosition.y, spherePosition.z);
 						//console.log("allSpheres["+ i +"]: .x: "+spherePosition.x  + " .y: "+spherePosition.y+ " .z: "+spherePosition.z);
 						
 						 distance = cameraPosition.distanceToSquared(spherePosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
-						//console.log("distance for "+ i +" is: "+ distance);
+						console.log("distance for "+ i +" is: "+ distance);
 						if (distance <= shortDistance){
 							shortDistance = distance;
 							shortSphere = i;
