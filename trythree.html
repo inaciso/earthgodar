@@ -193,16 +193,16 @@
 						
 						//allSpheres[i].setAttribute("rotation", sphereRotation);
 						
-						marker.object3D.getWorldPosition(allSpheres[i].object3D.position);
+						//marker.object3D.getWorldPosition(allSpheres[i].object3D.position);
 						let getDefaultPositionX = Number(allSpheres[i].getAttribute("data-defaultPositionX"))+markerPosition.x;
 						let getDefaultPositionY = Number(allSpheres[i].getAttribute("data-defaultPositionY"))+markerPosition.y;
 						let getDefaultPositionZ = Number(allSpheres[i].getAttribute("data-defaultPositionZ"))+markerPosition.z;
-						console.log("getDefaultPosition is .x: "+ getDefaultPositionX + " .y: "+getDefaultPositionY +" .z: "+getDefaultPositionZ);
+						//console.log("getDefaultPosition is .x: "+ getDefaultPositionX + " .y: "+getDefaultPositionY +" .z: "+getDefaultPositionZ);
 						let spherePosition=new THREE.Vector3();
 						//allSpheres[i].setAttribute("position", spherePosition);
 						allSpheres[i].object3D.position.set(getDefaultPositionX, getDefaultPositionY, getDefaultPositionZ);
 						allSpheres[i].object3D.visible = true;
-						console.log("allSpheres["+i +"].position is .x: "+ allSpheres[i].object3D.position.x + " .y: "+allSpheres[i].object3D.position.y +" .z: "+allSpheres[i].object3D.position.z);
+						//console.log("allSpheres["+i +"].position is .x: "+ allSpheres[i].object3D.position.x + " .y: "+allSpheres[i].object3D.position.y +" .z: "+allSpheres[i].object3D.position.z);
 						
 						//let tmpSphere = new THREE.Object3D();
 						//tmpSphere = allSpheres[i];
@@ -218,7 +218,7 @@
 							shortSphere = i;
 						}
 					}
-					//console.log("distance for "+ shortSphere +" is the shortest:" + shortDistance);
+					console.log("distance for "+ shortSphere +" is the shortest:" + shortDistance);
 					if(shortSphere >= 0){
 						for (let i = 0; i < allSpheres.length; i++){
 							if(i == shortSphere){
