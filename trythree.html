@@ -220,13 +220,13 @@
 						
 						 distance = cameraPosition.distanceToSquared(spherePosition);
 						 //console.log("tmpPosition["+ i +"]: .x: "+ tmpPosition.x + " .y: "+tmpPosition.y + " .z: "+tmpPosition.z);
-						console.log("distance for "+ i +" is: "+ distance);
+						//console.log("distance for "+ i +" is: "+ distance);
 						if (distance <= shortDistance){
 							shortDistance = distance;
 							shortSphere = i;
 						}
 					}
-					console.log("distance for "+ shortSphere +" is the shortest:" + shortDistance);
+					//console.log("distance for "+ shortSphere +" is the shortest:" + shortDistance);
 					if(shortSphere >= 0){
 						for (let i = 0; i < allSpheres.length; i++){
 							if(i == shortSphere){
