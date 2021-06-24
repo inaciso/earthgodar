@@ -188,7 +188,7 @@
 					marker.object3D.getWorldDirection(markerRotation);
 					console.log("markerRotation: "+ markerRotation);
 					let myAxis = new THREE.Vector3(0, 0, 1);
-					let myOrigin = new THREE.Vector3(0,0,markerRotation.z);
+					let myOrigin = new THREE.Vector3(markerRotation.x,0,0);
 					var myRadian = 0;
 					myRadian = myOrigin.angleTo(markerRotation);
 					console.log("myRadian: "+ myRadian* 114.59155903);
