@@ -186,11 +186,11 @@
 					
 					let markerRotation = new THREE.Vector3();
 					marker.object3D.getWorldDirection(markerRotation);
-					//console.log("markerRotation: "+ markerRotation* 0.00872665);
+					console.log("markerRotation: "+ markerRotation);
 					let myAxis = new THREE.Vector3(0, 0, 1);
 					let myOrgin = new THREE.Vector3(0,0,0);
 					let myRadian = myOrgin.angleTo(markerRotation);
-					console.log("myRadian: "+ myRadian* 0.00872665);
+					console.log("myRadian: "+ myRadian);
 					//let sphereRotation = new THREE.Vector3(marker.object3D.rotation.x, marker.object3D.rotation.y, marker.object3D.rotation.z);
 					//console.log(marker.object3D+".rotation is "+marker.object3D.rotation.x+", "+marker.object3D.rotation.y+", "+marker.object3D.rotation.z);
 					for (let i = 0; i < allSpheres.length; i++) {
