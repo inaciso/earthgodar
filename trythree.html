@@ -175,6 +175,7 @@
 					let heightHalf = (window.innerHeight/2);
 					let camera1 = new THREE.Camera();
 					camera1 = camera;
+					camera1.updateProjectionMatrix();
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
