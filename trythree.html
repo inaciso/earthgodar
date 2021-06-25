@@ -170,7 +170,7 @@
 				console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
-					vector.setFromMatrixPosition(allSpheres[i].matrixWorld );
+					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (renderer.domElement.width/2);
 					let heightHalf = (renderer.domElement.height/2);
 					vector.project(camera);
