@@ -173,8 +173,8 @@
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (window.innerWidth/2);
 					let heightHalf = (window.innerHeight/2);
-					camera.updateMatrixWorld();
-					vector.project(camera);
+					camera.camera.updateMatrixWorld();
+					vector.project(camera.camera);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let distanceSquareBtnTwoPoint = Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2);
