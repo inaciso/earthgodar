@@ -174,11 +174,13 @@
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (window.innerWidth/2);
 					let heightHalf = (window.innerHeight/2);
-					//camera1.updateMatrixWorld();
-					console.log("camera:"+camera.getObject3D('camera')+" vector:" + vector);
-					vector.project(camera.getObject3D('camera'));
+					let camera1 = camera.getObject3D('camera');
+					camera1.updateMatrixWorld();
+					
+					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
+					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " . and widthHaft:"+ widthHalf + ", heightHalf:"+ heightHalf );
 					let distanceSquareBtnTwoPoint = Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2);
 					let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					if(distanceSquareBtnTwoPoint <= sphereRadiusSquare){
