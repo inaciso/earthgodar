@@ -175,8 +175,8 @@
 					let widthHalf = (window.innerWidth/2);
 					let heightHalf = (window.innerHeight/2);
 					//camera1.updateMatrixWorld();
-					console.log("camera:"+camera+" vector:" + vector);
-					vector.project(camera);
+					console.log("camera:"+camera.getObject3D('camera')+" vector:" + vector);
+					vector.project(camera.getObject3D('camera'));
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let distanceSquareBtnTwoPoint = Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2);
