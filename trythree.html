@@ -168,13 +168,14 @@
 			});
 			document.addEventListener("click",(e)=>{
 				console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
+				let camera1 = new THREE.Camera();
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (window.innerWidth/2);
 					let heightHalf = (window.innerHeight/2);
-					//camera.camera.updateMatrixWorld();
-					vector.project(aScene);
+					camera1.updateMatrixWorld();
+					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let distanceSquareBtnTwoPoint = Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2);
