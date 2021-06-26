@@ -149,7 +149,7 @@
 			});
 
 			marker.addEventListener('markerLost', () => {
-				console.log("markerLost, check: "+check);
+				//console.log("markerLost, check: "+check);
 				marker.object3D.visible = true;
 				//aText.setAttribute("visible", false);
 				if(check == false){
@@ -167,15 +167,16 @@
 				}
 			});
 			document.addEventListener("click",(e)=>{
-				console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
-				let camera1 = new THREE.Camera();
+				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
+				//let camera1 = new THREE.Camera();
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (window.innerWidth/2);
 					let heightHalf = (window.innerHeight/2);
-					camera1.updateMatrixWorld();
-					vector.project(camera1);
+					//camera1.updateMatrixWorld();
+					console.log("camera:"+camera+" vector:" + vector);
+					vector.project(camera);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let distanceSquareBtnTwoPoint = Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2);
@@ -192,10 +193,10 @@
 					
 					let cameraPosition =new THREE.Vector3(); 
 					camera.object3D.getWorldPosition(cameraPosition);
-					console.log("cameraPosition .x: "+ cameraPosition.x+ " .y: "+cameraPosition.y +" .z: "+cameraPosition.z);
+					//console.log("cameraPosition .x: "+ cameraPosition.x+ " .y: "+cameraPosition.y +" .z: "+cameraPosition.z);
 					let markerPosition=new THREE.Vector3();
 					marker.object3D.getWorldPosition(markerPosition);
-					console.log("markerPosition .x: "+ markerPosition.x+ " .y: "+markerPosition.y +" .z: "+markerPosition.z);
+					//console.log("markerPosition .x: "+ markerPosition.x+ " .y: "+markerPosition.y +" .z: "+markerPosition.z);
 					
 					var distance = markerPosition.distanceToSquared(cameraPosition);
 					//console.log("distance btn marker and camera is: "+ distance);
