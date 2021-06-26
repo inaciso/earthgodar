@@ -172,8 +172,8 @@
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
-					let widthHalf = (window.innerWidth/2);
-					let heightHalf = (window.innerHeight/2);
+					let widthHalf = (this.canvas.width/2);
+					let heightHalf = (this.canvas.height/2);
 					let camera1 = camera.getObject3D('camera');
 					camera1.updateMatrixWorld();
 					
