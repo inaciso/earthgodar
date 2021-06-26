@@ -183,6 +183,7 @@
 					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and widthHaft:"+ widthHalf + ", heightHalf:"+ heightHalf );
 					let distanceSquareBtnTwoPoint = Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2);
 					let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
+					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+sphereRadiusSquare);
 					if(distanceSquareBtnTwoPoint <= sphereRadiusSquare){
 						console.log("clicked: allSpheres["+i+"] at "+e.clientX+ ", "+ e.clientY);
 					}
