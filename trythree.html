@@ -111,7 +111,7 @@
 			const aScene = document.querySelector('a-scene');
 			const textArea1 = document.getElementById("textAreaId");
 			const allSpheres = document.querySelectorAll('a-sphere');
-			document.body.style.margin = "0px 0px 0px 0px";
+			//document.body.style.margin = "0px 0px 0px 0px";
 			//const aText = document.querySelector('a-text');
 			//console.log("marker: "+marker);
 			//console.log("marker.value: "+marker.value);
@@ -175,7 +175,7 @@
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (window.innerWidth/2);
 					let heightHalf = (window.innerHeight/2);
-					heightHalf = 1152/2;
+					//heightHalf = 1152/2;
 					let camera1 = camera.getObject3D('camera');
 					//camera1.updateMatrixWorld();
 					
@@ -183,6 +183,8 @@
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
+					let diff1 = vector.y - window.innerHeight;
+					console.log("dif: "+diff1);
 					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2));
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
@@ -293,15 +295,9 @@
 			background: white;
 			opacity: 0.5;
 		}
-		body 
-		{
-			 margin-top:0px;
-			 margin-left:0px;
-			 margin-right:0px;
 
-		}
 		</style>
-    <body style='margin-top: 0px; margin-left: 0px; margin-right: 0px;  overflow: hidden;'>
+    <body style='margin : 0px;  overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; " gesture-detector id="scene">
 
