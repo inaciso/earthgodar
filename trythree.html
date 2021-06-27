@@ -170,6 +170,7 @@
 			document.addEventListener("click",(e)=>{
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
+				document.body.style.margin = "0px 0px 0px 0px";
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
