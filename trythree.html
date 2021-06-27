@@ -184,7 +184,8 @@
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					let diff1 = vector.y - window.innerHeight;
-					console.log("dif: "+diff1);
+					let diff2 = vector.y - e.clientY;
+					console.log("dif: "+diff1 + "," +diff2);
 					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2));
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
