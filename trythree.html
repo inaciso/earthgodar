@@ -180,7 +180,7 @@
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
-					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and widthHaft:"+ widthHalf + ", heightHalf:"+ heightHalf );
+					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and window.innerWidth:"+ window.innerWidth + ", window.innerHeight"+ window.innerHeight );
 					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2));
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
