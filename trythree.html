@@ -170,12 +170,12 @@
 			document.addEventListener("click",(e)=>{
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
-				document.body.style.margin = "0px 0px 0px 0px";
+				
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
 					let widthHalf = (window.innerWidth/2);
-					let heightHalf = (window.innerHeight/2);
+					let heightHalf = ((window.innerHeight-376.5)/2);
 					//heightHalf = 1152/2;
 					let camera1 = camera.getObject3D('camera');
 					//camera1.updateMatrixWorld();
