@@ -170,10 +170,10 @@
 			document.addEventListener("click",(e)=>{
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
-				let fullWidth = window.innerWidth;
-				let fullHeight = window.innerHeight;
-				let widthHalf = (1536/2);
-				let heightHalf = (1152/2);
+				let fullWidth = document.getElementById("arjs-video").style.width;
+				let fullHeight = document.getElementById("arjs-video").style.height;
+				let widthHalf = (fullWidth/2);
+				let heightHalf = (fullHeight/2);
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
