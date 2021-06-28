@@ -194,7 +194,7 @@
 					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((mouseX-vector.x), 2) + Math.pow((mouseY-vector.y), 2));
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
-					if(distanceSquareBtnTwoPoint <= allSpheres[i].getAttribute("radius")){
+					if(distanceSquareBtnTwoPoint <= 100*allSpheres[i].getAttribute("radius")){
 						console.log("clicked: allSpheres["+i+"] at "+mouseX+ ", "+ mouseY);
 					}
 				}
