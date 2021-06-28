@@ -170,12 +170,14 @@
 			document.addEventListener("click",(e)=>{
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
-				
+				let fullWidth = window.innerWidth;
+				let fullHeight = window.innerHeight;
+				let widthHalf = (1536/2);
+				let heightHalf = (1152/2);
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
-					let widthHalf = (window.innerWidth/2);
-					let heightHalf = ((window.innerHeight)/2);
+
 					//heightHalf = 1152/2;
 					let camera1 = camera.getObject3D('camera');
 					//camera1.updateMatrixWorld();
@@ -187,7 +189,7 @@
 					let diff1 = vector.y - window.innerHeight;
 					let diff2 = vector.y - e.clientY;
 					console.log("dif: "+diff1 + "," +diff2);
-					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY-vector.y), 2));
+					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY+376.5-vector.y), 2));
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
 					if(distanceSquareBtnTwoPoint <= allSpheres[i].getAttribute("radius")){
