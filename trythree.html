@@ -170,8 +170,8 @@
 			document.addEventListener("click",(e)=>{
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
-				let fullWidth = document.getElementById("arjs-video").style.width;
-				let fullHeight = document.getElementById("arjs-video").style.height;
+				let fullWidth = document.getElementById("arjs-video").offsetHeight;
+				let fullHeight = document.getElementById("arjs-video").offsetWidth;
 				let widthHalf = (fullWidth/2);
 				let heightHalf = (fullHeight/2);
 				for (let i = 0; i < allSpheres.length; i++) {
@@ -185,8 +185,8 @@
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
-					mouseX = e.clientX + document.getElementById("arjs-video").style.margin-left;
-					mouseY = e.clientY + document.getElementById("arjs-video").style.margin-top;
+					mouseX = e.clientX + document.getElementById("arjs-video").style.marginLeft;
+					mouseY = e.clientY + document.getElementById("arjs-video").style.marginTop;
 					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					let diff1 = vector.x - mouseX;
 					let diff2 = vector.y - mouseY;
