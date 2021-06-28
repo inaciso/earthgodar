@@ -185,15 +185,17 @@
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
-					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
-					let diff1 = vector.y - window.innerHeight;
-					let diff2 = vector.y - e.clientY;
-					console.log("dif: "+diff1 + "," +diff2);
-					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((e.clientX-vector.x), 2) + Math.pow((e.clientY+376.5-vector.y), 2));
+					mouseX = e.clientX + document.getElementById("arjs-video").style.margin-left;
+					mouseY = e.clientY + document.getElementById("arjs-video").style.margin-top;
+					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
+					let diff1 = vector.x - mouseX;
+					let diff2 = vector.y - mouseY;
+					console.log("dif X: "+diff1 + ", Y:" +diff2);
+					let distanceSquareBtnTwoPoint = Math.sqrt(Math.pow((mouseX-vector.x), 2) + Math.pow((mouseY-vector.y), 2));
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
 					if(distanceSquareBtnTwoPoint <= allSpheres[i].getAttribute("radius")){
-						console.log("clicked: allSpheres["+i+"] at "+e.clientX+ ", "+ e.clientY);
+						console.log("clicked: allSpheres["+i+"] at "+mouseX+ ", "+ mouseY);
 					}
 				}
 			});
