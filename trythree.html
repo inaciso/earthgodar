@@ -182,7 +182,7 @@
 					
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
-					vector.y = - ( (vector.y+376.5) * heightHalf ) + heightHalf;
+					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+e.clientX+ ", "+ e.clientY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					let diff1 = vector.y - window.innerHeight;
 					let diff2 = vector.y - e.clientY;
