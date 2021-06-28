@@ -123,6 +123,7 @@
 			//console.log("aText.getAttribute(position): "+aText.getAttribute("position"));
 			//var timer = false;
 			var check = false;
+			var wasClicked = false;
 			var godName = "蓮蓬社稷之神";
 			textArea1.innerHTML = godName;
 			//marker.addEventListener("click", function () {
@@ -170,10 +171,15 @@
 			document.addEventListener("click",(e)=>{
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
+				clearTimeout(wasClicked);
+				wasClicked = false;
 				let fullWidth = parseFloat(document.getElementById("arjs-video").offsetWidth);
 				let fullHeight = parseFloat(document.getElementById("arjs-video").offsetHeight);
 				let widthHalf = (fullWidth/2);
 				let heightHalf = (fullHeight/2);
+				let sphereRadius = 100*allSpheres[i].getAttribute("radius");
+				let shortestClickDistance = sphereRadius;
+				let shortestI = -1;
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
@@ -195,12 +201,19 @@
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
 					if(distanceSquareBtnTwoPoint <= 100*allSpheres[i].getAttribute("radius")){
-						console.log("clicked: allSpheres["+i+"] at "+mouseX+ ", "+ mouseY);
+						
+						if(distanceSquareBtnTwoPoint < shortestClickDistance){
+							
+							shortestI = i;
+						}
 					}
 				}
+				wasClicked = setTimeout(() => {
+					wasClicked = false;
+				},3000);
 			});
 			var myTimer = setInterval(()=>{
-				if(marker.object3D.visible){
+				if(marker.object3D.visible && wasClicked != false){
 					
 					
 					
