@@ -206,8 +206,8 @@
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
-					let mouseX = e.clientX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
-					let mouseY = e.clientY - parseFloat(document.getElementById("arjs-video").style.marginTop);
+					let mouseX = fuseX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
+					let mouseY = fuseY - parseFloat(document.getElementById("arjs-video").style.marginTop);
 					//console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					//let diff1 = vector.x - mouseX;
 					//let diff2 = vector.y - mouseY;
