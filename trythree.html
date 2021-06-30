@@ -200,7 +200,7 @@
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					mouseX = e.clientX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
 					mouseY = e.clientY - parseFloat(document.getElementById("arjs-video").style.marginTop);
-					console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
+					//console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					//let diff1 = vector.x - mouseX;
 					//let diff2 = vector.y - mouseY;
 					//console.log("dif X: "+diff1 + ", Y:" +diff2);
@@ -219,6 +219,7 @@
 					wasClicked = setTimeout(() => {
 						wasClicked = false;
 						shortestI = -1;
+						console.log("wasClicked TImer timeour");
 					},3000);
 				}
 			};
