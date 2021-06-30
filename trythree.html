@@ -176,7 +176,7 @@
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
 				clearTimeout(wasClicked);
-				wasClicked = false;
+				wasClicked = true;
 				let fullWidth = parseFloat(document.getElementById("arjs-video").offsetWidth);
 				let fullHeight = parseFloat(document.getElementById("arjs-video").offsetHeight);
 				let widthHalf = (fullWidth/2);
@@ -217,7 +217,7 @@
 				},3000);
 			};
 			var myTimer = setInterval(()=>{
-				if(marker.object3D.visible && wasClicked != false){
+				if(marker.object3D.visible && wasClicked == true){
 					
 					
 					
