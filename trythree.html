@@ -124,6 +124,7 @@
 			//var timer = false;
 			var check = false;
 			var wasClicked = false;
+			var shortestI = -1;
 			var godName = "蓮蓬社稷之神";
 			textArea1.innerHTML = godName;
 			//marker.addEventListener("click", function () {
@@ -177,13 +178,14 @@
 				//let camera1 = new THREE.Camera();
 				clearTimeout(wasClicked);
 				wasClicked = false;
+				shortestI = -1;
 				let fullWidth = parseFloat(document.getElementById("arjs-video").offsetWidth);
 				let fullHeight = parseFloat(document.getElementById("arjs-video").offsetHeight);
 				let widthHalf = (fullWidth/2);
 				let heightHalf = (fullHeight/2);
 				let sphereRadius = 100*allSpheres[0].getAttribute("radius");
 				let shortestClickDistance = sphereRadius;
-				let shortestI = -1;
+				
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
