@@ -173,13 +173,14 @@
 			document.addEventListener('touchstart', handleInteraction);
 			document.addEventListener('click', handleInteraction);
 			function handleInteraction(e){
-				
-				 if (event.type == 'touchstart'){
-					let fuseX = e.touches[0].clientX;
-					let fuseY = e.touches[0].clientY;
+				let fuseX = 0;
+				let fuseY = 0;
+				 if (e.type == 'touchstart'){
+					fuseX = e.touches[0].clientX;
+					fuseY = e.touches[0].clientY;
 				 }else{
-					let fuseX = e.clientX;
-				    let fuseY = e.clientY;
+					fuseX = e.clientX;
+				    fuseY = e.clientY;
 					
 				 }
 				//e.preventDefault();
