@@ -210,6 +210,7 @@
 						wasClicked = true;
 						if(distanceSquareBtnTwoPoint < shortestClickDistance){
 							shortestI = i;
+							shortestClickDistance = distanceSquareBtnTwoPoint;
 						}
 					}
 				}
@@ -220,10 +221,11 @@
 					},3000);
 				}
 			};
+			
 			var myTimer = setInterval(()=>{
 				if(marker.object3D.visible && wasClicked !=false){
 					var shortSphere = shortestI;
-					if(shortSphere==-1){
+					if(shortSphere== -1){
 					
 						let cameraPosition =new THREE.Vector3(); 
 						camera.object3D.getWorldPosition(cameraPosition);
@@ -284,16 +286,16 @@
 					}
 					//console.log("distance for "+ shortSphere +" is the shortest:" + shortDistance);
 					if(shortSphere >= 0){
-						for (let i = 0; i < allSpheres.length; i++){
-							if(i == shortSphere){
-								textArea1.innerHTML = allSpheres[i].getAttribute("htmlText");
-								let tmpText = "background:" + allSpheres[i].getAttribute("data-defaultColor") +";";
+						for (let j = 0; j < allSpheres.length; j++){
+							if(j == shortSphere){
+								textArea1.innerHTML = allSpheres[j].getAttribute("htmlText");
+								let tmpText = "background:" + allSpheres[j].getAttribute("data-defaultColor") +";";
 								//console.log("tmpText"+ tmpText);
 								textArea1.setAttribute("style",  tmpText);
-								allSpheres[i].setAttribute("color", allSpheres[i].getAttribute("data-defaultColor"));
+								allSpheres[j].setAttribute("color", allSpheres[j].getAttribute("data-defaultColor"));
 							}else{
 								//allSpheres[i].object3D.visible = false;
-								allSpheres[i].setAttribute("color", "gray");
+								allSpheres[j].setAttribute("color", "gray");
 							}
 						}
 					}else{
