@@ -207,16 +207,18 @@
 					//let sphereRadiusSquare = Math.pow(allSpheres[i].getAttribute("radius"),2);
 					//console.log("distanceSquareBtnTwoPoint:" + distanceSquareBtnTwoPoint +" , sphereRadiusSquare:"+allSpheres[i].getAttribute("radius"));
 					if(distanceSquareBtnTwoPoint <= sphereRadius){
-						
+						wasClicked = true;
 						if(distanceSquareBtnTwoPoint < shortestClickDistance){
-							
 							shortestI = i;
 						}
 					}
 				}
-				wasClicked = setTimeout(() => {
-					wasClicked = false;
-				},3000);
+				if(wasClicked){
+					wasClicked = setTimeout(() => {
+						wasClicked = false;
+						shortestI = -1;
+					},3000);
+				}
 			};
 			var myTimer = setInterval(()=>{
 				if(marker.object3D.visible && wasClicked !=false){
