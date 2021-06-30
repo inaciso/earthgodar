@@ -170,10 +170,18 @@
 				}
 			});
 
-			//document.addEventListener('touchstart', handleInteraction);
+			document.addEventListener('touchstart', handleInteraction);
 			document.addEventListener('click', handleInteraction);
 			function handleInteraction(e){
 				
+				 if (event.type == 'touchstart'){
+					let fuseX = e.touches[0].clientX;
+					let fuseY = e.touches[0].clientY;
+				 }else{
+					let fuseX = e.clientX;
+				    let fuseY = e.clientY;
+					
+				 }
 				//e.preventDefault();
 				//console.log("mouseclick aScene: "+e.clientX+ ", "+ e.clientY);
 				//let camera1 = new THREE.Camera();
@@ -198,8 +206,8 @@
 					vector.project(camera1);
 					vector.x = ( vector.x * widthHalf ) + widthHalf;
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
-					mouseX = e.clientX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
-					mouseY = e.clientY - parseFloat(document.getElementById("arjs-video").style.marginTop);
+					let mouseX = e.clientX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
+					let mouseY = e.clientY - parseFloat(document.getElementById("arjs-video").style.marginTop);
 					//console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					//let diff1 = vector.x - mouseX;
 					//let diff2 = vector.y - mouseY;
