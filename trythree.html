@@ -159,6 +159,7 @@
 					check = setTimeout(() => {
 						//var markerPosition = marker.object3D.position;
 						marker.object3D.visible = false;
+						textArea1.setAttribute("style",  "background: white;");
 						textArea1.innerHTML = "請對準QR碼以顯示土地公。";
 						allSpheres.forEach(function(item, index, arr) {
 							arr[index].visible = false;
@@ -225,10 +226,14 @@
 					}
 				}
 				if(wasClicked){
+					document.removeEventListener('touchstart', handleInteraction);
+					document.removeEventListener('click', handleInteraction);
 					wasClicked = setTimeout(() => {
 						wasClicked = false;
 						shortestI = -1;
 						//console.log("wasClicked TImer timeour");
+						document.addEventListener('touchstart', handleInteraction);
+						document.addEventListener('click', handleInteraction);
 					},5000);
 				}
 			};
@@ -311,9 +316,10 @@
 						}
 					}else{
 						textArea1.innerHTML = godName;
-						
+						textArea1.setAttribute("style",  "background: white;");
 						allSpheres.forEach(function(item, index, arr) {
 							//arr[index].visible = false;
+							
 							arr[index].setAttribute("color", "gray");
 						});
 					}
@@ -335,7 +341,7 @@
 			z-index: 10;
 			background: white;
 			opacity: 0.5;
-			padding:auto;
+			padding:0.5%;
 		}
 
 		</style>
