@@ -213,7 +213,8 @@
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let mouseX = fuseX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
 					let mouseY = fuseY - parseFloat(document.getElementById("arjs-video").style.marginTop);
-					console.log("dif btn last and now Vector3: "+ Math.sqrt(Math.pow((lastVector.x-vector.x), 2) + Math.pow((lastVector.y-vector.y), 2)));
+					console.log("dif btn last and now Vector3: "+ Math.sqrt(Math.pow((lastVector.x-vector.x), 2) + Math.pow((lastVector.y-vector.y), 2))+" @scale: " + marker.object3D.scale.x +" , "+marker.object3D.scale.y+" , "+marker.object3D.scale.z);
+					
 					lastVector.x = vector.x;
 					lastVector.y = vector.y;
 					//console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
@@ -257,6 +258,7 @@
 						//console.log("cameraPosition .x: "+ cameraPosition.x+ " .y: "+cameraPosition.y +" .z: "+cameraPosition.z);
 						let markerPosition=new THREE.Vector3();
 						marker.object3D.getWorldPosition(markerPosition);
+						
 						//console.log("markerPosition .x: "+ markerPosition.x+ " .y: "+markerPosition.y +" .z: "+markerPosition.z);
 						
 						var distance = markerPosition.distanceToSquared(cameraPosition);
