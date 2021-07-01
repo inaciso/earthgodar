@@ -350,11 +350,12 @@
             <a-asset-item id="animated-asset1" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthone.gltf"></a-asset-item>
         </a-assets>
 		
-        <a-marker id="animated-marker" type='barcode' value='0' smooth="false" smoothCount="1" smoothTolerance=".01" smoothThreshold="5">  
+        <a-marker id="animated-marker" type='barcode' value='0' smooth="false" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;">  
             <a-entity
 				id="animated-model"
-
 				
+				animation-mixer
+				class="clickable"
                 gltf-model="#animated-asset2"
                 scale="1 1 1"
 				gesture-handler="minScale: 0.1; maxScale: 5"
