@@ -213,7 +213,7 @@
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let mouseX = fuseX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
 					let mouseY = fuseY - parseFloat(document.getElementById("arjs-video").style.marginTop);
-					console.log("dif btn last and now Vector3: "+ Math.sqrt(Math.pow((lastVector.x-vector.x), 2) + Math.pow((lastVector.y-vector.y), 2))+" @scale: " + marker.object3D.scale.x +" , "+marker.object3D.scale.y+" , "+marker.object3D.scale.z);
+					console.log("dif btn last and now Vector3: "+ Math.sqrt(Math.pow((lastVector.x-vector.x), 2) + Math.pow((lastVector.y-vector.y), 2))+" @scale: " + document.querySelector('a-marker').object3D.scale.x +" , "+marker.object3D.scale.y+" , "+marker.object3D.scale.z);
 					
 					lastVector.x = vector.x;
 					lastVector.y = vector.y;
