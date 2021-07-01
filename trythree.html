@@ -199,7 +199,7 @@
 				let heightHalf = (fullHeight/2);
 				let sphereRadius = 100*allSpheres[0].getAttribute("radius");
 				let shortestClickDistance = sphereRadius;
-				
+				let lastVector = new THREE.Vector3();
 				for (let i = 0; i < allSpheres.length; i++) {
 					let vector = new THREE.Vector3();
 					vector.setFromMatrixPosition(allSpheres[i].object3D.matrixWorld );
@@ -213,6 +213,9 @@
 					vector.y = - ( vector.y * heightHalf ) + heightHalf;
 					let mouseX = fuseX - parseFloat(document.getElementById("arjs-video").style.marginLeft);
 					let mouseY = fuseY - parseFloat(document.getElementById("arjs-video").style.marginTop);
+					console.log("dif btn last and now Vector3: "+ Math.sqrt(Math.pow((lastVector.x-vector.x), 2) + Math.pow((lastVector.y-vector.y), 2)));
+					lastVector.x = vector.x;
+					lastVector.y = vector.y;
 					//console.log("camera:"+camera1+" vector:" + vector.x +" ,"+vector.y + " , mouseclick: "+mouseX + ", "+ mouseY +" . and widthHalf:"+ widthHalf + ", heightHalf"+ heightHalf);
 					//let diff1 = vector.x - mouseX;
 					//let diff2 = vector.y - mouseY;
