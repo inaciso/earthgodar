@@ -176,12 +176,12 @@
 			});
 			function getVectorToScene(objectThreeD, widthHalf, heightHalf){
 				let vector1 = new THREE.Vector3();
-				vector.setFromMatrixPosition(objectThreeD.matrixWorld );
+				vector1.setFromMatrixPosition(objectThreeD.matrixWorld );
 				let camera1 = camera.getObject3D('camera');
 				vector1.project(camera1);
 				vector1.x = ( vector1.x * widthHalf ) + widthHalf;
 				vector1.y = - ( vector1.y * heightHalf ) + heightHalf;
-				return vector;
+				return vector1;
 			}
 
 			function handleInteraction(e){
