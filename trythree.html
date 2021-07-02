@@ -213,7 +213,7 @@
 				let tmpVector = getVectorToScene(zerobject3D, widthHalf, heightHalf);
 				zerobject3D.position.set(allSpheres[0].getAttribute("radius"), 0, 0);
 				let tmpVector2 = getVectorToScene(zerobject3D, widthHalf, heightHalf);
-				
+				console.log("zerobject3D.position.x:"+zerobject3D.position.x+ "zerobject3D.matrixWorld"+zerobject3D.matrixWorld+ "tmpVector3.setFromMatrixPosition: "+tmpVector3.setFromMatrixPosition(zerobject3D.matrixWorld));
 				let sphereRadius = Math.sqrt(Math.pow((tmpVector2.x-tmpVector.x), 2) + Math.pow((tmpVector2.y-tmpVector.y), 2))*document.querySelector('a-entity').object3D.scale.x;
 				console.log("sphereRadius: "+sphereRadius +" , tmpVector: "+ tmpVector.x +" , "+tmpVector.y+" , tmpVector2"+tmpVector2.x);
 				let shortestClickDistance = sphereRadius;
