@@ -205,7 +205,7 @@
 				let fullHeight = parseFloat(document.getElementById("arjs-video").offsetHeight);
 				let widthHalf = (fullWidth/2);
 				let heightHalf = (fullHeight/2);
-				let zerobject3D = new Object3D();
+				let zerobject3D = new THREE.Object3D();
 				zerobject3D.position.set(0, 0, 0);
 				let tmpVector = getVectorToScene(zerobject3D, widthHalf, heightHalf);
 				zerobject3D.position.set(allSpheres[0].getAttribute("radius"), 0, 0);
