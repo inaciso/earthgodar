@@ -207,9 +207,9 @@
 				let heightHalf = (fullHeight/2);
 				let zerobject3D = new THREE.Object3D();
 				zerobject3D.position.set(0, 0, 0);
-				let tmpVector = getVectorToScene(zerobject3D, widthHalf, heightHalf);
+				let tmpVector = getVectorToScene(allSpheres[3].object3D, widthHalf, heightHalf);
 				zerobject3D.position.set(allSpheres[0].getAttribute("radius"), 0, 0);
-				let tmpVector2 = getVectorToScene(zerobject3D, widthHalf, heightHalf);
+				let tmpVector2 = getVectorToScene(allSpheres[2].object3D, widthHalf, heightHalf);
 				
 				let sphereRadius = Math.sqrt(Math.pow((tmpVector2.x-tmpVector.x), 2) + Math.pow((tmpVector2.y-tmpVector.y), 2))*document.querySelector('a-entity').object3D.scale.x;
 				console.log("sphereRadius: "+sphereRadius +" , tmpVector: "+ tmpVector.x +" , "+tmpVector.y+" , tmpVector2"+tmpVector2.x);
