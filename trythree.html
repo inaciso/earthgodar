@@ -205,8 +205,8 @@
 				let fullHeight = parseFloat(document.getElementById("arjs-video").offsetHeight);
 				let widthHalf = (fullWidth/2);
 				let heightHalf = (fullHeight/2);
-				let zerobject3D = new THREE.Object3D();
-				
+				let zerobject3D = new THREE.Points();
+				aScene.add(zerobject3D);
 				let tmpVector3 = new THREE.Vector3();
 				zerobject3D.position.set(0, 0, 0);
 				console.log("zerobject3D.position.x:"+zerobject3D.position.x+ "zerobject3D.matrixWorld"+zerobject3D.matrixWorld+ "tmpVector3.setFromMatrixPosition: "+tmpVector3.setFromMatrixPosition(zerobject3D.matrixWorld));
