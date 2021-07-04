@@ -140,7 +140,7 @@
 				document.addEventListener('touchstart', handleInteraction);
 				document.addEventListener('click', handleInteraction);
 				check = false;
-				console.log("markerFound, check: "+check);
+				//console.log("markerFound, check: "+check);
 				//aSphere1.setAttribute("position", {x: marker.object3D.rotation.x+1.227886, y: marker.object3D.rotation.y+0.066463, z: marker.object3D.rotation.z+0.412701});
 				//aSphere1.object3D.position.set(marker.object3D.rotation.x +1.227886, marker.object3D.rotation.y +0.066463, marker.object3D.rotation.z+0.412701);
 				//console.log("marker.x: "+marker.object3D.rotation.x+" marker.y: "+marker.object3D.rotation.y+" marker.z: "+marker.object3D.rotation.z);
@@ -207,13 +207,13 @@
 				let widthHalf = (fullWidth/2);
 				let heightHalf = (fullHeight/2);
 				
-				let tmpVector3 = new THREE.Vector3();
+				//let tmpVector3 = new THREE.Vector3();
 				//zerobject3D.position.set(0, 0, 0);
 				//console.log("zerobject3D.position.x:"+zerobject3D.position.x+ "zerobject3D.matrixWorld"+zerobject3D.matrixWorld+ "tmpVector3.setFromMatrixPosition: "+tmpVector3.setFromMatrixPosition(zerobject3D.matrixWorld));
 				let tmpVector = getVectorToScene(marker.object3D, widthHalf, heightHalf);
 				//zerobject3D.position.set(allSpheres[0].getAttribute("radius"), 0, 0);
 				let tmpVector2 = getVectorToScene(ruler.object3D, widthHalf, heightHalf);
-				console.log("ruler.object3D.position.x:"+ruler.object3D.position.x+ "ruler.object3D.matrixWorld"+ruler.object3D.matrixWorld+ "tmpVector3.setFromMatrixPosition: "+tmpVector3.setFromMatrixPosition(ruler.object3D.matrixWorld));
+				//console.log("ruler.object3D.position.x:"+ruler.object3D.position.x+ "ruler.object3D.matrixWorld"+ruler.object3D.matrixWorld+ "tmpVector3.setFromMatrixPosition: "+tmpVector3.setFromMatrixPosition(ruler.object3D.matrixWorld));
 				let sphereRadius = Math.sqrt(Math.pow((tmpVector2.x-tmpVector.x), 2) + Math.pow((tmpVector2.y-tmpVector.y), 2))*document.querySelector('a-entity').object3D.scale.x;
 				console.log("sphereRadius: "+sphereRadius +" , tmpVector: "+ tmpVector.x +" , "+tmpVector.y+" , tmpVector2"+tmpVector2.x);
 				let shortestClickDistance = sphereRadius;
@@ -376,7 +376,7 @@
 		</style>
     <body style='margin : 0px;  overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; " gesture-detector id="scene">
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 5x5_bch_22_7_7; " gesture-detector id="scene">
 
         <a-assets>
             <a-asset-item id="animated-asset2" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthtwo.gltf"></a-asset-item>
