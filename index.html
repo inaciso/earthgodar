@@ -376,7 +376,7 @@
 		</style>
     <body style='margin : 0px;  overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 5x5_bch_22_7_7; " gesture-detector id="scene">
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best; " gesture-detector id="scene">
 
         <a-assets>
             <a-asset-item id="animated-asset2" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthtwo.gltf"></a-asset-item>
@@ -386,7 +386,7 @@
             <a-asset-item id="animated-asset1" src="https://raw.githubusercontent.com/inaciso/earthgodar/main/earthone.gltf"></a-asset-item>
         </a-assets>
 		
-        <a-marker id="animated-marker" type='barcode' value='0' smooth="false" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;">  
+        <a-marker id="animated-marker" type='pattern' url='https://inaciso.github.io/earthgodar/pattern-earth.patt' value='0' smooth="false" raycaster="objects: .clickable" emitevents="true" cursor="fuse: true; rayOrigin: mouse;">  
             <a-entity
 				id="animated-model"
 				
