@@ -1,11 +1,13 @@
 <!doctype HTML>
 <html>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css"/>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.css"/>
 
 <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
 <div id="viewer"></div>
 
 <style>
@@ -18,18 +20,66 @@
 
 <script>
   var viewer = new PhotoSphereViewer.Viewer({
+	caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
+	defaultLat: 0.3,
+	touchmoveTwoFingers: true,
+	mousewheelCtrlKey: true,
     container: document.querySelector('#viewer'),
     panorama: 'https://inaciso.github.io/earthgodar/360/360_1.jpg',
 	plugins: [
-    PhotoSphereViewer.GyroscopePlugin,
-  ],
-	navbar: [
-    'autorotate',
-    'zoom',
-    'caption',
-    'fullscreen'
-  ]
+		PhotoSphereViewer.GyroscopePlugin,
+		[PhotoSphereViewer.MarkersPlugin, {
+			markers: [{
+					id: 'm1',
+					x: 550,
+					y: 1369,
+					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
+					width: 50,
+					height: 50,
+					anchor: 'bottom center',
+					tooltip: '近蓮社',
+					
+				},
+				{
+					id: 'm2',
+					x: 4625,
+					y: 1138,
+					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
+					width: 50,
+					height: 50,
+					anchor: 'bottom center',
+					tooltip: '位置隱秘，只能從菜攤的小巷楔入',
+				},
+				{
+					id: 'm3',
+					x: 3465,
+					y: 1210,
+					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
+					width: 50,
+					height: 50,
+					anchor: 'bottom center',
+					tooltip: '土地公面朝道咩卑利士街公厠的背牆',
+				},
+				{
+					id: 'm4',
+					x: 610,
+					y: 1952,
+					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
+					width: 50,
+					height: 50,
+					anchor: 'bottom center',
+					tooltip: '香火旺盛，可見有不少識途的街坊信眾',
+			}]
+		}]
+	],
+		navbar: [
+		'autorotate',
+		'zoom',
+		'caption',
+		'fullscreen'
+	]
   });
-  
+  const plugin = new viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+  const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 </script>
 </html>
