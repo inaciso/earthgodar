@@ -20,7 +20,7 @@
 
 <script>
   var viewer = new PhotoSphereViewer.Viewer({
-	caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
+	caption: '近蓮社(道咩卑利士街)',
 	defaultLat: 0.3,
 	touchmoveTwoFingers: true,
 	mousewheelCtrlKey: true,
@@ -33,9 +33,9 @@
 					id: 'm1',
 					x: 550,
 					y: 1369,
-					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
-					width: 50,
-					height: 50,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: 150,
+					height: 150,
 					anchor: 'bottom center',
 					tooltip: '近蓮社',
 					
@@ -44,9 +44,9 @@
 					id: 'm2',
 					x: 4625,
 					y: 1138,
-					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
-					width: 50,
-					height: 50,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: 150,
+					height: 150,
 					anchor: 'bottom center',
 					tooltip: '位置隱秘，只能從菜攤的小巷楔入',
 				},
@@ -54,9 +54,9 @@
 					id: 'm3',
 					x: 3465,
 					y: 1210,
-					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
-					width: 50,
-					height: 50,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: 150,
+					height: 150,
 					anchor: 'bottom center',
 					tooltip: '土地公面朝道咩卑利士街公厠的背牆',
 				},
@@ -64,9 +64,9 @@
 					id: 'm4',
 					x: 610,
 					y: 1952,
-					image: 'https://photo-sphere-viewer.js.org/assets/pin-blue.png',
-					width: 50,
-					height: 50,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: 150,
+					height: 150,
 					anchor: 'bottom center',
 					tooltip: '香火旺盛，可見有不少識途的街坊信眾',
 			}]
@@ -79,7 +79,7 @@
 		'fullscreen'
 	]
   });
-  const plugin = new viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+  const plugin = new viewer.getPlugin(GyroscopePlugin);
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 </script>
 </html>
