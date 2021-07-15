@@ -29,6 +29,7 @@
   var iH = window.innerHeight/10;	
   var viewer = new PhotoSphereViewer.Viewer({
 	caption: '近蓮社(道咩卑利士街)',
+	loadingTxt: "讀取中，請稍候",
 	defaultLat: 0.3,
 	touchmoveTwoFingers: true,
 	mousewheelCtrlKey: true,
@@ -85,25 +86,39 @@
 		'zoom',
 		'caption',
 		'fullscreen'
+	],
+	lang: [
+		autorotate: '自動旋轉',
+		zoom      : '𦂨放',
+		zoomOut   : '放大',
+		zoomIn    : '縮小',
+		download  : '下載',
+		fullscreen: '全屏模式',
+		menu      : '選單',
+		twoFingers: '請使用兩指來導覽',
+		ctrlZoom  : '請使用ctrl和滾輪來縮放圖片',
+		loadError : '讀取錯誤:(',
 	]
   });
-  
+  var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
-  var btn = document.querySelector('#gyro');
-	console.log('click');
-    if (btn) {
-      btn.addEventListener('click', function onClick() {
-        var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+  window.addEventListener('load', () => {
+	  var btn = document.querySelector('#gyro');
+		
+		if (btn) {
+		  btn.addEventListener('click', function onClick() {
+			
 
-        if (!gyro) {
-          console.log('gyro unavailable?');
-        } else if (typeof gyro.isEnabled === 'function') {
-          console.log('gyro.isEnabled():', gyro.isEnabled());
-        } else {
-          console.log('no isEnabled fn found?');
-        }
-      });
-    }
+			if (!gyro) {
+			  console.log('gyro unavailable?');
+			} else if (typeof gyro.isEnabled === 'function') {
+			  console.log('gyro.isEnabled():', gyro.isEnabled());
+			} else {
+			  console.log('no isEnabled fn found?');
+			}
+		  });
+		}
+  }
 </script>
 <body>
   <div id="viewer">
