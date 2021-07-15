@@ -6,7 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
 <div id="viewer"></div>
 
@@ -14,14 +14,15 @@
   /* the viewer container must have a defined size */
   #viewer {
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
   }
 </style>
 
 <script>
+  var iH = window.innerHeight/10;	
   var viewer = new PhotoSphereViewer.Viewer({
 	caption: '近蓮社(道咩卑利士街)',
-	defaultLat: 0.1,
+	defaultLat: 0.3,
 	touchmoveTwoFingers: true,
 	mousewheelCtrlKey: true,
     container: document.querySelector('#viewer'),
@@ -34,8 +35,8 @@
 					x: 550,
 					y: 1369,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
-					width: 10vh,
-					height: 10vh,
+					width: iH,
+					height: iH,
 					anchor: 'bottom center',
 					tooltip: '近蓮社',
 					
@@ -45,8 +46,8 @@
 					x: 4625,
 					y: 1138,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
-					width: 10vh,
-					height: 10vh,
+					width: iH,
+					height: iH,
 					anchor: 'bottom center',
 					tooltip: '位置隱秘，只能從菜攤的小巷楔入',
 				},
@@ -55,8 +56,8 @@
 					x: 3465,
 					y: 1210,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
-					width: 10vh,
-					height: 10vh,
+					width: iH,
+					height: iH,
 					anchor: 'bottom center',
 					tooltip: '土地公面朝道咩卑利士街公厠的背牆',
 				},
@@ -65,8 +66,8 @@
 					x: 610,
 					y: 1952,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
-					width: 10vh,
-					height: 10vh,
+					width: iH,
+					height: iH,
 					anchor: 'bottom center',
 					tooltip: '香火旺盛，可見有不少識途的街坊信眾',
 			}]
@@ -79,7 +80,8 @@
 		'fullscreen'
 	]
   });
-  const plugin = new viewer.getPlugin(GyroscopePlugin);
+  viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+  viewer.
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 </script>
 </html>
