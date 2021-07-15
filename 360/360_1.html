@@ -14,8 +14,15 @@
   /* the viewer container must have a defined size */
   #viewer {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
   }
+  #gyro {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      padding: 20px;
+      z-index: 2;
+   }
 </style>
 
 <script>
@@ -80,8 +87,29 @@
 		'fullscreen'
 	]
   });
-  viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
   
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+  var btn = document.querySelector('#gyro');
+
+    if (btn) {
+      btn.addEventListener('click', function onClick() {
+        var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+
+        if (!gyro) {
+          console.log('gyro unavailable?');
+        } else if (typeof gyro.isEnabled === 'function') {
+          console.log('gyro.isEnabled():', gyro.isEnabled());
+        } else {
+          console.log('no isEnabled fn found?');
+        }
+      });
+    }
 </script>
+<body>
+  <div id="viewer">
+    <button id="gyro">
+      Toggle Gyro
+    </button>
+  </div>
+</body>
 </html>
