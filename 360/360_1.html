@@ -35,8 +35,9 @@
 	mousewheelCtrlKey: true,
     container: document.querySelector('#viewer'),
     panorama: 'https://inaciso.github.io/earthgodar/360/360_1.jpg',
+	 plugins: [PhotoSphereViewer.GyroscopePlugin,],
 	plugins: [
-		PhotoSphereViewer.GyroscopePlugin,
+		
 		[PhotoSphereViewer.MarkersPlugin, {
 			markers: [{
 					id: 'm1',
