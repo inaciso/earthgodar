@@ -102,11 +102,11 @@
 		gyroscope : '啟用陀螺儀',
 	}
   });
-  var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+  
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
-  window.addEventListener('load', () => {
-	  var btn = document.querySelector('#gyro');
-		
+	function myFunction(){
+	  var btn = getElementById('gyro');
+		var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
 		if (btn) {
 		  btn.addEventListener('click', function onClick() {
 			
@@ -120,11 +120,12 @@
 			}
 		  });
 		}
-  });
+	}
+  );
 </script>
 <body>
   <div id="viewer">
-    <button id="gyro">
+    <button id="gyro"  onclick="myFunction()">
       Toggle Gyro
     </button>
   </div>
