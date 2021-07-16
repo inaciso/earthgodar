@@ -105,10 +105,10 @@
   
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 	function myFunction(){
-	  var btn = getElementById('gyro');
+		var btn = getElementById('gyro');
 		var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
-		if (btn) {
-		  btn.addEventListener('click', function onClick() {
+		
+		  
 			
 
 			if (!gyro) {
@@ -118,8 +118,8 @@
 			} else {
 			  console.log('no isEnabled fn found?');
 			}
-		  });
-		}
+		  
+		
 	};
 </script>
 <body>
