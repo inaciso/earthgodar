@@ -129,7 +129,7 @@
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
 	  
-		const textContent = marker.tooltip.content;
+		const textContent = marker.tooltip.content.toString();
 		console.log("textContent: "+ textContent);
 		viewer.notification.show({
 			content: textContent,
