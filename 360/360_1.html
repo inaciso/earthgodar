@@ -37,7 +37,7 @@
 	caption: '近蓮社(道咩卑利士街)',
 	loadingTxt: "讀取中，請稍候",
 	defaultLat: 0.0,
-	defaultLong: 3.3,
+	defaultLong: 3.4,
 	touchmoveTwoFingers: true,
 	mousewheelCtrlKey: true,
     container: document.querySelector('#viewer'),
@@ -124,7 +124,18 @@
   });
   
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+	var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
 	
+	
+	markersPlugin.on('select-marker', function(e, marker, data) {
+	  
+		const textContent = marker.tooltip;
+		viewer.notification.show({
+			content: textContent;
+			timeout: 1000,
+		});
+	  
+	});
 </script>
 
 <script>
