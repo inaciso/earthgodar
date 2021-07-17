@@ -29,8 +29,8 @@
 	mousewheelCtrlKey: true,
     container: document.querySelector('#viewer'),
     panorama: 'https://inaciso.github.io/earthgodar/360/360_1.jpg',
-	plugins: [PhotoSphereViewer.GyroscopePlugin,],
-	plugins: [
+	
+	plugins: [PhotoSphereViewer.GyroscopePlugin,],[
 		
 		[PhotoSphereViewer.MarkersPlugin, {
 			markers: [{
@@ -73,6 +73,17 @@
 					height: iH,
 					anchor: 'bottom center',
 					tooltip: '香火旺盛，可見有不少識途的街坊信眾',
+				},
+				{
+					id: 'm5',
+					x: 610,
+					y: 1952,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公介紹',
+					content: document.getElementById('earthgod-content').innerHTML
 			}]
 		}]
 	],
@@ -100,9 +111,11 @@
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 	
 </script>
-
+<script type="text/template" id="earthgod-content">
+ <div class="sketchfab-embed-wrapper"> <iframe title="近蓮社(道咩卑利士街)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/335f7d44308842778f9fc0133e2fabc9/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/335f7d44308842778f9fc0133e2fabc9?utm_medium=embed&utm_campaign=share-popup&utm_content=335f7d44308842778f9fc0133e2fabc9" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 近蓮社(道咩卑利士街) </a> by <a href="https://sketchfab.com/inaciso?utm_medium=embed&utm_campaign=share-popup&utm_content=335f7d44308842778f9fc0133e2fabc9" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=335f7d44308842778f9fc0133e2fabc9" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+</script>
 <script>
-function myFunction(){
+/*function myFunction(){
 		
 		var btn = document.getElementById('gyro');
 		var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
@@ -119,12 +132,12 @@ function myFunction(){
 		}
 		  
 		
-	};
+	};*/
 </script>
 <body>
 
-  <button id="gyro"  onclick="myFunction()">
-      Toggle Gyro
-    </button>
+ <!--<button id="gyro"  onclick="myFunction()">
+      gyro tester
+    </button>-->
 </body>
 </html>
