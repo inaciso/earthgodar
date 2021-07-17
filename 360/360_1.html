@@ -99,20 +99,20 @@
   
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 	function myFunction(){
-		console.log('hello?');
+		
 		var btn = getElementById('gyro');
 		var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
 		gyro.start();
-		  
+		console.log('gyro: '+gyro+ ", btn: "+ btn);
 			
 
-			if (!gyro) {
-			  console.log('gyro unavailable?');
-			} else if (typeof gyro.isEnabled === 'function') {
-			  console.log('gyro.isEnabled():', gyro.isEnabled());
-			} else {
-			  console.log('no isEnabled fn found?');
-			}
+		if (!gyro) {
+		  console.log('gyro unavailable?');
+		} else if (typeof gyro.isEnabled === 'function') {
+		  console.log('gyro.isEnabled():', gyro.isEnabled());
+		} else {
+		  console.log('no isEnabled fn found?');
+		}
 		  
 		
 	};
