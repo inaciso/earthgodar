@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
 <div id="photosphere"></div>
 <script type="text/template" id="earthgod-content">
- <div class="sketchfab-embed-wrapper"> <iframe title="土地福德正神(大纜巷)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/71adac2dcd2847db858754f9c0bd2a31/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://skfb.ly/6RLuS" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 土地福德正神(大纜巷) </a> by <a href="https://skfb.ly/6RLuS" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> </p>
+ <div class="sketchfab-embed-wrapper"> <iframe title="土地福德正神(大纜巷)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/71adac2dcd2847db858754f9c0bd2a31/embed"> </iframe> <p style="font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://skfb.ly/6RLuS" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 土地福德正神(大纜巷) </a> by <a href="https://skfb.ly/6RLuS" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> </p>
  <p>
 “婆婆妳好，我做研究㗎，嚟咗呢度幾次都見到妳。妳係咪響度拜咗好耐神啦？請問妳知道呢座土地公嘅歷史嗎？”<br><br>
 
@@ -42,7 +42,9 @@
     width: 100vw;
     height: 90vh;
   }
-
+	.psv-notification-content{
+		font: 99px;
+	}
 </style>
 
 <script>
@@ -155,7 +157,7 @@
 	markersPlugin.on('select-marker', function(e, marker, data) {
 	  
 		const textContent = marker.tooltip.content.innerText;
-		console.log("textContent: "+ textContent);
+		//console.log("textContent: "+ textContent);
 		viewer.notification.show({
 			content: textContent,
 			timeout: 1000,
