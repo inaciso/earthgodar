@@ -43,7 +43,7 @@
     height: 90vh;
   }
 	.psv-notification-content{
-		font: 30px sans-serif;
+		font: 20px sans-serif;
 	}
 </style>
 
@@ -168,7 +168,7 @@
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
 		if(marker.data && marker.data.go==0){
-			PSV.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', null, true);
+			viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', null, true);
 		}else{
 			const textContent = marker.tooltip.content.innerText;
 			//console.log("textContent: "+ textContent);
