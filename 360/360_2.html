@@ -43,7 +43,7 @@
     height: 90vh;
   }
 	.psv-notification-content{
-		font: 99px;
+		font: 30px sans-serif;
 	}
 </style>
 
@@ -124,7 +124,19 @@
 					anchor: 'bottom center',
 					tooltip: '土地公介紹',
 					content: document.getElementById('earthgod-content').innerHTML
-					
+				},
+				{
+					id: 'm7',
+					x: 5555,
+					y: 1500,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '向後看',
+					data: {
+						go: 0
+					}	
 			}]
 		}]
 	],
@@ -155,14 +167,16 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
-	  
-		const textContent = marker.tooltip.content.innerText;
-		//console.log("textContent: "+ textContent);
-		viewer.notification.show({
-			content: textContent,
-			timeout: 1000,
-		});
-	  
+		if( marker.data.go==0){
+			
+		}else{
+			const textContent = marker.tooltip.content.innerText;
+			//console.log("textContent: "+ textContent);
+			viewer.notification.show({
+				content: textContent,
+				timeout: 1000,
+			});
+		}
 	});
 </script>
 
