@@ -167,8 +167,16 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
-		if(marker.data && marker.data.go==0){
-			viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', null, true);
+			if(marker.data && marker.data.go==0){
+			viewer.animate({
+				  //longitude: marker.config.longitude,
+				  //latitude: marker.config.latitude,
+				  zoom: 100,
+				  speed: "-2rpm",
+			});
+			viewer.then(() => {
+				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
+			});
 		}else{
 			const textContent = marker.tooltip.content.innerText;
 			//console.log("textContent: "+ textContent);
