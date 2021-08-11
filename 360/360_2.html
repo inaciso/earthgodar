@@ -167,7 +167,7 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
-		if( marker.data.go==0){
+		if(marker.data && marker.data.go==0){
 			
 		}else{
 			const textContent = marker.tooltip.content.innerText;
