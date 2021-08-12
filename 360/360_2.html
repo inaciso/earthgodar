@@ -141,9 +141,31 @@
 					tooltip: '“土地福德正神”斜歪碑字',
 				},
 				{
+					id: 'b4',
+					visible: false,
+					x: 2606,
+					y: 1634,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '“土地福德正神”斜歪碑字',
+				},
+				{
 					id: 'a5',
 					x: 2312,
 					y: 1302,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公仍背靠着一堵厚實的舊牆',
+				},
+				{
+					id: 'b5',
+					visible: false,
+					x: 2310,
+					y: 1249,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -162,9 +184,35 @@
 					content: document.getElementById('earthgod-content').innerHTML
 				},
 				{
+					id: 'b6',
+					visible: false,
+					x: 6050,
+					y: 1595,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公介紹',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
 					id: 'a7',
 					x: 5555,
 					y: 1500,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '往後看',
+					data: {
+						go: "b"
+					}
+				},
+				{
+					id: 'b7',
+					visible: false,
+					x: 1593,
+					y: 1667,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -211,17 +259,9 @@
 				  speed: "-3rpm",
 			})
 			.then(() => {
-				
+				console.log(viewer.utils.dasherize("HELLO WORLD")); 
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				viewer.utils.each(MARKER_TYPES, function (m) {
-					const mStr = m.id;
-					console.log("mStr: "+mStr);
-					if(mStr.charAt(0)  == marker.data.go){
-						m.visible = false;
-					}else{
-						m.visible = true;
-					}
-				});
+				
 			});
 		}else{
 			const textContent = marker.tooltip.content.innerText;
