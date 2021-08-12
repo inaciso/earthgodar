@@ -5,7 +5,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
 <div id="photosphere"></div>
@@ -50,21 +50,7 @@
 
 <script>
   var iH = window.innerHeight/10;	
-  var viewer = new PhotoSphereViewer.Viewer({
-	caption: '土地福德正神(大纜巷)',
-	loadingTxt: "讀取中，請稍候",
-	defaultLat: 0.0,
-	defaultLong: 6.02,
-	defaultZoomLvl: 20,
-	touchmoveTwoFingers: true,
-	mousewheelCtrlKey: true,
-    container: document.querySelector('#viewer'),
-    panorama: 'https://inaciso.github.io/earthgodar/360/360_2.jpg',
-	
-	plugins: [PhotoSphereViewer.GyroscopePlugin,
-		
-		[PhotoSphereViewer.MarkersPlugin, {
-			markers: [{
+  var markerArr = [{
 					id: 'a1',
 					x: 5544,
 					y: 1386,
@@ -221,7 +207,22 @@
 					data: {
 						go: "a"
 					}	
-			}]
+			}];
+  var viewer = new PhotoSphereViewer.Viewer({
+	caption: '土地福德正神(大纜巷)',
+	loadingTxt: "讀取中，請稍候",
+	defaultLat: 0.0,
+	defaultLong: 6.02,
+	defaultZoomLvl: 20,
+	touchmoveTwoFingers: true,
+	mousewheelCtrlKey: true,
+    container: document.querySelector('#viewer'),
+    panorama: 'https://inaciso.github.io/earthgodar/360/360_2.jpg',
+	
+	plugins: [PhotoSphereViewer.GyroscopePlugin,
+		
+		[PhotoSphereViewer.MarkersPlugin, {
+			markers: markerArr,
 		}]
 	],
 		navbar: [
@@ -259,7 +260,7 @@
 				  speed: "-3rpm",
 			})
 			.then(() => {
-				const str = "HELLO WORLD";
+				
 				console.log(viewer.utils.dasherize(str)); 
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
 				viewer.utils.each(markers, function (m) {
