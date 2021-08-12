@@ -110,6 +110,7 @@
 				},
 				{
 					id: 'a3',
+					
 					x: 2184,
 					y: 1383,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -120,6 +121,7 @@
 				},
 				{
 					id: 'b3',
+					visible: false,
 					x: 2163,
 					y: 1383,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -211,7 +213,7 @@
 			.then(() => {
 				
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				viewer.utils.each(this.markers, function (m) {
+				viewer.utils.each(MARKER_TYPES, function (m) {
 					const mStr = m.id;
 					console.log("mStr: "+mStr);
 					if(mStr.charAt(0)  == marker.data.go){
