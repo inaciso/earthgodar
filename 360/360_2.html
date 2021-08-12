@@ -110,6 +110,16 @@
 				},
 				{
 					id: 'a3',
+					x: 2184,
+					y: 1383,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公背面是勞校小學',
+				},
+				{
+					id: 'b3',
 					x: 2163,
 					y: 1383,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -201,7 +211,7 @@
 			.then(() => {
 				
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				PSV.utils.each(markers, function (m) {
+				viewer.utils.each(this.markers, function (m) {
 					const mStr = m.id;
 					console.log("mStr: "+mStr);
 					if(mStr.charAt(0)  == marker.data.go){
