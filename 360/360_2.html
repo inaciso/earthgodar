@@ -38,13 +38,14 @@
 
 <style>
   /* the viewer container must have a defined size */
-  #viewer {
-    width: 100vw;
-    height: 90vh;
-  }
+	  #viewer {
+		width: 100vw;
+		height: 90vh;
+	  }
 	.psv-notification-content{
 		font: 20px sans-serif;
 	}
+	div#preload { display: none; }
 </style>
 
 <script>
@@ -64,7 +65,7 @@
 		
 		[PhotoSphereViewer.MarkersPlugin, {
 			markers: [{
-					id: 'm1',
+					id: 'a1',
 					x: 5544,
 					y: 1386,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -75,7 +76,7 @@
 					
 				},
 				{
-					id: 'm2',
+					id: 'a2',
 					x: 1722,
 					y: 1683,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -85,7 +86,7 @@
 					tooltip: '大纜巷是回歸初開闢的街道，以前並不與渡船街相通',
 				},
 				{
-					id: 'm3',
+					id: 'a3',
 					x: 2163,
 					y: 1383,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -95,7 +96,7 @@
 					tooltip: '土地公背面是勞校小學',
 				},
 				{
-					id: 'm4',
+					id: 'a4',
 					x: 2596,
 					y: 1644,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -105,7 +106,7 @@
 					tooltip: '“土地福德正神”斜歪碑字',
 				},
 				{
-					id: 'm5',
+					id: 'a5',
 					x: 2312,
 					y: 1302,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -115,7 +116,7 @@
 					tooltip: '土地公仍背靠着一堵厚實的舊牆',
 				},
 				{
-					id: 'm6',
+					id: 'a6',
 					x: 2866,
 					y: 2000,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
@@ -126,16 +127,16 @@
 					content: document.getElementById('earthgod-content').innerHTML
 				},
 				{
-					id: 'm7',
+					id: 'a7',
 					x: 5555,
 					y: 1500,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
 					anchor: 'bottom center',
-					tooltip: '向後看',
+					tooltip: '往後看',
 					data: {
-						go: 0
+						go: "a"
 					}	
 			}]
 		}]
@@ -167,15 +168,25 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
-			if(marker.data && marker.data.go==0){
+			if(marker.data ){
 			viewer.animate({
 				  //longitude: marker.config.longitude,
 				  //latitude: marker.config.latitude,
 				  zoom: 100,
-				  speed: "-2rpm",
+				  speed: "-3rpm",
 			})
 			.then(() => {
+				
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
+				viewer.utils.each(marker, function (m) {
+					const mStr = m.id;
+					console.log("mStr: "+mStr);
+					if(mStr.charAt(0)  == marker.data.go){
+						m.visible = false;
+					}else{
+						m.visible = true;
+					}
+				});
 			});
 		}else{
 			const textContent = marker.tooltip.content.innerText;
@@ -209,7 +220,11 @@
 	};*/
 </script>
 
-
+<div id="preload">
+   <img src="https://inaciso.github.io/earthgodar/360/pin-blue.png" width="1" height="1" alt="Image 01" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_2_1.jpg" width="1" height="1" alt="Image 02" />
+   
+</div>
  <!--<button id="gyro"  onclick="myFunction()">
       gyro tester
     </button>-->
