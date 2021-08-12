@@ -5,7 +5,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
 <div id="photosphere"></div>
@@ -78,8 +78,8 @@
 				{
 					id: 'b1',
 					visible: false,
-					x: 5539,
-					y: 1276,
+					x: 2937,
+					y: 1293,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -100,8 +100,8 @@
 				{
 					id: 'b2',
 					visible: false,
-					x: 1749,
-					y: 1645,
+					x: 5505,
+					y: 1548,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -122,8 +122,8 @@
 				{
 					id: 'b3',
 					visible: false,
-					x: 2163,
-					y: 1383,
+					x: 5779,
+					y: 1309,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -143,8 +143,8 @@
 				{
 					id: 'b4',
 					visible: false,
-					x: 2606,
-					y: 1634,
+					x: 5898,
+					y: 1508,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -164,8 +164,8 @@
 				{
 					id: 'b5',
 					visible: false,
-					x: 2310,
-					y: 1249,
+					x: 5895,
+					y: 1377,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -261,7 +261,15 @@
 			.then(() => {
 				console.log(viewer.utils.dasherize("HELLO WORLD")); 
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				
+				viewer.utils.each(MARKER_TYPES, function (m) {
+					const mStr = m.id;
+					console.log("mStr: "+mStr);
+					if(mStr.charAt(0)  == marker.data.go){
+						m.visible = false;
+					}else{
+						m.visible = true;
+					}
+				});
 			});
 		}else{
 			const textContent = marker.tooltip.content.innerText;
