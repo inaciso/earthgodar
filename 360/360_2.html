@@ -76,9 +76,32 @@
 					
 				},
 				{
+					id: 'b1',
+					visible: false,
+					x: 5539,
+					y: 1276,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公對面龍珠閣地段共有九個急彎交匯，分別是意那素俾蘇亞街轉渡船巷、渡船巷轉大纜巷、大纜巷轉渡船街、義字街轉渡船街、渡船街轉盧九街、渡船街轉渡船台、光復街轉渡船街、渡船街轉柯利維喇街、柯利維喇街轉渡船巷',
+					
+				},
+				{
 					id: 'a2',
 					x: 1722,
 					y: 1683,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '大纜巷是回歸初開闢的街道，以前並不與渡船街相通',
+				},
+				{
+					id: 'b2',
+					visible: false,
+					x: 1749,
+					y: 1645,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -178,7 +201,7 @@
 			.then(() => {
 				
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				viewer.utils.each(markers, function (m) {
+				PSV.utils.each(markers, function (m) {
 					const mStr = m.id;
 					console.log("mStr: "+mStr);
 					if(mStr.charAt(0)  == marker.data.go){
