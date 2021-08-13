@@ -252,7 +252,7 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
-			if(marker.data ){
+		if(marker.data ){
 			viewer.animate({
 				  //longitude: marker.config.longitude,
 				  //latitude: marker.config.latitude,
@@ -273,7 +273,7 @@
 					}
 				}
 				});
-			});
+			
 		}else{
 			const textContent = marker.tooltip.content.innerText;
 			//console.log("textContent: "+ textContent);
