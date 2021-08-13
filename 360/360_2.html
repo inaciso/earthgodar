@@ -203,7 +203,7 @@
 					width: iH,
 					height: iH,
 					anchor: 'bottom center',
-					tooltip: '往後看',
+					tooltip: '往前看',
 					data: {
 						go: "a"
 					}	
@@ -261,8 +261,11 @@
 			})
 			.then(() => {
 				
-				
-				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
+				if(marker.id=="a7"){
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
+				}else{
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2.jpg', { longitude: 6.02, latitude: 0 }, true);
+				}
 				for (var i=0; i<markerArr.length ; i++){
 					const mStr = markerArr[i].id;
 					console.log("mStr: "+mStr);
