@@ -261,16 +261,17 @@
 			})
 			.then(() => {
 				
-				console.log(viewer.utils.dasherize(str)); 
+				
 				viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				viewer.utils.each(markers, function (m) {
-					const mStr = m.id;
+				for (var i=0; i<markerArr.length ; i++){
+					const mStr = markerArr[i].id;
 					console.log("mStr: "+mStr);
 					if(mStr.charAt(0)  == marker.data.go){
-						m.visible = ture;
+						markersPlugin.showMarker(mStr);
 					}else{
-						m.visible = false;
+						markersPlugin.hideMarker(mStr);
 					}
+				}
 				});
 			});
 		}else{
