@@ -1,0 +1,321 @@
+<!doctype HTML>
+<html>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css"/>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
+<div id="photosphere"></div>
+<script type="text/template" id="earthgod-content">
+ <div class="sketchfab-embed-wrapper"> <iframe title="土地福德正神(大纜巷)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/71adac2dcd2847db858754f9c0bd2a31/embed"> </iframe> <p style="font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://skfb.ly/6RLuS" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 土地福德正神(大纜巷) </a> by <a href="https://skfb.ly/6RLuS" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> </p>
+ <p>
+“婆婆妳好，我做研究㗎，嚟咗呢度幾次都見到妳。妳係咪響度拜咗好耐神啦？請問妳知道呢座土地公嘅歷史嗎？”<br><br>
+
+大纜巷土地公總聚着朝拜者，往來臉孔重重覆覆，從頭到腳，一律街坊裝，拖鞋底踩着揮之不去的扁平身影，形骸心相仿佛一眼看全了。俗活等閒，日作夜息，養成大同小異的眾生相，但虔心如一嗎？合十壇前、躬躹上香、敬酒三杯、高懸塔香，洪爐化寶，儀式動感打從心底的靜態叩拜發動。動合靜離難分清，故而我混淆樣貌自也尋常——<br><br>
+
+“我專登鄉下出嚟幫吓手打小人咋，做完就返去，喂你唔好影相呀！咪打擾人吔作法呀！”<br><br>
+
+“咩話？我邊有成日響度拜神姐，你肯定認錯人啦，不如你問清潔姐姐啦！”<br><br>
+
+“我打工掃街咋，咩都唔知，不過好似有位阿姨幫手打掃座神壇哦。我估佢今日有事冇嚟，因為平時呢度執得好整齊的。”<br><br>
+
+——作為記錄者，我多次造訪都被隔於人煙後排，僅歷二線情境，與負責人亦不投緣。街窄眼狹隘，以我見說神見，取我知度神知，無疑自欺！唐樓隙縫中，人眾如繁塵，憑人跡問神跡，太難！退避、婉拒、回應不知情者是唱常態。城市中人們生活同化，炒股、上網、牡丹樓，尋常眼界看事物，對周遭無所住心，即使我問上百千人數竟也拼湊不出一座神壇往事。捫心我何嘗有見微知著的眼光來報道土地信俗？<br><br>
+
+芸芸百座土地神壇，我每寫一座例必查證偉人、名人事蹟，介紹旁邊大廟、古剎，甚至推之於玄冥、訴諸神奇，結果考察土地公落入“沽名釣譽”的窠臼。即使大纜巷建於回歸初年，歷史不古，但腦袋慣性地歸邊至勞校小學部，述說政府收回大纜巷末端土地的開街政策，推斷貫通渡船街和渡船巷成為土地公座鎮三街匯合處之間的關聯。平凡街角更可渲染成八方雲集之新橋核心——土地公對面龍珠閣等七片細小地塊組成僅百餘米周長街區，卻被九個急彎圍合；滾動車輪上陪伴過客奔走命途，既曲折，又兜圈，不住往復，出入八達，就如須彌芥子開示大道理也——但事實上多少土地公朝拜者覺悟身處人車砥柱中？他們崇拜風水地運、感謝政府開路政策，還是一座平凡至極的土地公庇佑？<br><br>
+
+即使世界本相如故，我亦不知己之所往——連街坊面容也未看清，怎具資格論說動機？<br><br>
+
+大纜巷裏，“土地福德正神”斜歪碑字或者由尋常街坊弓腰咪眼，撥灰吹煙，冒着矮簷撞頭，自發隨手速寫所為之。求其、快手、貪圖“善舉”的受想行識溢於筆觸，與齋戒沐浴誠心備至畫龍點睛大有分歧，也絕非天地鬼斧感應人心開示玄機。哪又如何？俗城中之俗人有俗例向俗世神許俗願，必須一座俗不可耐的俗壇！
+
+
+ </p>
+ </div>
+</script>
+<div id="viewer"></div>
+
+<style>
+  /* the viewer container must have a defined size */
+	  #viewer {
+		width: 100vw;
+		height: 90vh;
+	  }
+	.psv-notification-content{
+		font: 20px sans-serif;
+	}
+	div#preload { display: none; }
+</style>
+
+<script>
+  var iH = window.innerHeight/10;	
+  var markerArr = [{
+					id: 'a1',
+					x: 5544,
+					y: 1386,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公對面龍珠閣地段共有九個急彎交匯，分別是意那素俾蘇亞街轉渡船巷、渡船巷轉大纜巷、大纜巷轉渡船街、義字街轉渡船街、渡船街轉盧九街、渡船街轉渡船台、光復街轉渡船街、渡船街轉柯利維喇街、柯利維喇街轉渡船巷',
+					
+				},
+				{
+					id: 'b1',
+					visible: false,
+					x: 2937,
+					y: 1293,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公對面龍珠閣地段共有九個急彎交匯，分別是意那素俾蘇亞街轉渡船巷、渡船巷轉大纜巷、大纜巷轉渡船街、義字街轉渡船街、渡船街轉盧九街、渡船街轉渡船台、光復街轉渡船街、渡船街轉柯利維喇街、柯利維喇街轉渡船巷',
+					
+				},
+				{
+					id: 'a2',
+					x: 1722,
+					y: 1683,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '大纜巷是回歸初開闢的街道，以前並不與渡船街相通',
+				},
+				{
+					id: 'b2',
+					visible: false,
+					x: 5505,
+					y: 1548,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '大纜巷是回歸初開闢的街道，以前並不與渡船街相通',
+				},
+				{
+					id: 'a3',
+					
+					x: 2184,
+					y: 1383,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公背面是勞校小學',
+				},
+				{
+					id: 'b3',
+					visible: false,
+					x: 5779,
+					y: 1309,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公背面是勞校小學',
+				},
+				{
+					id: 'a4',
+					x: 2596,
+					y: 1644,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '“土地福德正神”斜歪碑字',
+				},
+				{
+					id: 'b4',
+					visible: false,
+					x: 5898,
+					y: 1508,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '“土地福德正神”斜歪碑字',
+				},
+				{
+					id: 'a5',
+					x: 2312,
+					y: 1302,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公仍背靠着一堵厚實的舊牆',
+				},
+				{
+					id: 'b5',
+					visible: false,
+					x: 5895,
+					y: 1377,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公仍背靠着一堵厚實的舊牆',
+				},
+				{
+					id: 'a6',
+					x: 2866,
+					y: 2000,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公介紹',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
+					id: 'b6',
+					visible: false,
+					x: 6050,
+					y: 1595,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公介紹',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
+					id: 'a7',
+					x: 5555,
+					y: 1500,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '往後看',
+					data: {
+						go: "b"
+					}
+				},
+				{
+					id: 'b7',
+					visible: false,
+					x: 5709,
+					y: 1667,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '往前看',
+					data: {
+						go: "a"
+					}	
+			}];
+  var viewer = new PhotoSphereViewer.Viewer({
+	caption: '土地福德正神(大纜巷)',
+	loadingTxt: "讀取中，請稍候",
+	defaultLat: 0.0,
+	defaultLong: 6.02,
+	defaultZoomLvl: 20,
+	touchmoveTwoFingers: true,
+	mousewheelCtrlKey: true,
+    container: document.querySelector('#viewer'),
+    panorama: 'https://inaciso.github.io/earthgodar/360/360_2.jpg',
+	
+	plugins: [PhotoSphereViewer.GyroscopePlugin,
+		
+		[PhotoSphereViewer.MarkersPlugin, {
+			markers: markerArr,
+		}]
+	],
+		navbar: [
+		'autorotate',
+		'zoom',
+		'caption',
+		'fullscreen'
+		
+	],
+	lang: {
+		autorotate: '自動旋轉',
+		zoom      : '𦂨放',
+		zoomOut   : '放大',
+		zoomIn    : '縮小',
+		download  : '下載',
+		fullscreen: '全屏模式',
+		menu      : '選單',
+		twoFingers: '請使用兩指來導覽',
+		ctrlZoom  : '請使用ctrl和滾輪來縮放圖片',
+		loadError : '讀取錯誤:(',
+		gyroscope : '啟用陀螺儀',
+	}
+  });
+  
+  const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+	var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+	
+	
+	markersPlugin.on('select-marker', function(e, marker, data) {
+		if(marker.data ){
+			viewer.animate({
+				  //longitude: marker.config.longitude,
+				  //latitude: marker.config.latitude,
+				  zoom: 100,
+				  speed: "-3rpm",
+			})
+			.then(() => {
+				
+				if(marker.id=="a7"){
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2_1.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
+				}else{
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_2.jpg', { longitude: 6.02, latitude: 0 }, true);
+				}
+				for (var i=0; i<markerArr.length ; i++){
+					const mStr = markerArr[i].id;
+					console.log("mStr: "+mStr);
+					if(mStr.charAt(0)  == marker.data.go){
+						markersPlugin.showMarker(mStr);
+					}else{
+						markersPlugin.hideMarker(mStr);
+					}
+				}
+				});
+			
+		}else{
+			const textContent = marker.tooltip.content.innerText;
+			//console.log("textContent: "+ textContent);
+			viewer.notification.show({
+				content: textContent,
+				timeout: 1000,
+			});
+		}
+	});
+</script>
+
+<script>
+/*function myFunction(){
+		
+		var btn = document.getElementById('gyro');
+		var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+		//gyro.start();
+		console.log('gyro: '+gyro+ ", btn: "+ btn);
+			
+
+		if (!gyro) {
+		  console.log('gyro unavailable?');
+		} else if (typeof gyro.isEnabled === 'function') {
+		  console.log('gyro.isEnabled():', gyro.isEnabled());
+		} else {
+		  console.log('no isEnabled fn found?');
+		}
+		  
+		
+	};*/
+</script>
+
+<div id="preload">
+   <img src="https://inaciso.github.io/earthgodar/360/pin-blue.png" width="1" height="1" alt="Image 01" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_2_1.jpg" width="1" height="1" alt="Image 02" />
+   
+</div>
+ <!--<button id="gyro"  onclick="myFunction()">
+      gyro tester
+    </button>-->
+
+</html>
