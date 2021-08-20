@@ -142,6 +142,7 @@
 				},
 				{
 					id: 'b4',
+					visible: false,
 					x: 1602,
 					y: 1506,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
@@ -152,6 +153,64 @@
 					data: {
 						go: "a"
 					}
+				},
+				{
+					id: 'b5',
+					visible: false,
+					x: 1602,
+					y: 1506,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '離開福德祠',
+					data: {
+						go: "c"
+					}
+				},
+				{
+					id: 'c1',
+					visible: false,
+					x: 4420,
+					y: 248,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '亭<br>進入廟門，即見入口麻石門框與神壇兩邊柱子之間竟有橫木相連。沿斑駁的側牆橫木上觀，更會發現橫木之上再層疊橫木，形成屋頂樑架。換言之，福德祠的瓦砌屋頂並非靠磚牆承重，反而採用木樑和石柱支撑，尤如砌築了四壁的中式方亭。趙氏家廟對面的普濟禪院後山亦有眾多方亭被後築牆壁圍成屋宇，與趙家巷福德祠的建築形制相似。由是推之，趙家巷福德祠是從神壇、街亭最終演變成廟宇形式，符合土地神壇普遍的發展模式，亦滿足各代善信的精神需求。',
+				},
+				{
+					id: 'c2',
+					visible: false,
+					x: 1316,
+					y: 1028,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '木神龕<br>神壇前方供桌上置有香爐、燭台和木神龕。木神龕正面精美的木雕隔扇透雕蝙蝠、壽大鳥、熊、花瓶等，蘊藏福壽、英雄和天下太平等豐富寓意，而兩側亦刻有金錢圖案，世俗願求無一遺落。',
+				},
+				{
+					id: 'c3',
+					visible: false,
+					x: 508,
+					y: 1628,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '清潔功德<br>每逢農曆初一、十五，攤販會義務打掃福德祠，歲晚更會集資維修，連年奉獻竟逾三十載。然而，攤販和街坊不自詡功德，反覺得綿力微弱，愧對於以往梁姓前輩天天親理、出資出力、堅持至終所傳承下來的福德祠。',
+				},
+				{
+					id: 'c4',
+					visible: false,
+					x: 2768,
+					y: 1152,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '“求福”迴紋<br>土地壇背靠的牆壁上浮雕着符號化迴紋，迴紋脫胎自古代龍紋、捲草紋等裝飾，呈橢圓形，線條圓融，相連筆劃勾勒出“求福”二字，寄寓佳兆綿長。類似的迴紋圖案也應用於屋簷上的陶質瓦當，佈局上堪稱吉祥滿目、福蔭額頂，意頭絕好。',
 				},
 				];
   var viewer = new PhotoSphereViewer.Viewer({
@@ -210,7 +269,9 @@
 				if(marker.data.go=="a"){
 					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_a.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
 				}else if(marker.data.go=="b"){
-					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 6.02, latitude: 0 }, true);
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 0, latitude: 0 }, true);
+				}else if(marker.data.go=="c"){
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 0, latitude: 0 }, true);
 				}
 				for (var i=0; i<markerArr.length ; i++){
 					const mStr = markerArr[i].id;
@@ -257,8 +318,9 @@
 
 <div id="preload">
    <img src="https://inaciso.github.io/earthgodar/360/pin-blue.png" width="1" height="1" alt="Image 01" />
-   <img src="https://inaciso.github.io/earthgodar/360/360_2_1.jpg" width="1" height="1" alt="Image 02" />
-   
+   <img src="https://inaciso.github.io/earthgodar/360/360_3_a.jpg" width="1" height="1" alt="Image 02" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_3_b.jpg" width="1" height="1" alt="Image 03" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_3_c.jpg" width="1" height="1" alt="Image 03" />
 </div>
  <!--<button id="gyro"  onclick="myFunction()">
       gyro tester
