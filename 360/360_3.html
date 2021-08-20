@@ -360,14 +360,19 @@
 			})
 			.then(() => {
 				
-				if(marker.data.go=="a"){
-					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_a.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
-				}else if(marker.data.go=="b"){
-					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 0, latitude: 0 }, true);
-				}else if(marker.data.go=="c"){
+				switch(marker.data.go){
+					case "a":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_a.jpg', { longitude: 6.232589417434965, latitude: 0.07016253709436304 }, true);
+					break;
+					case "b":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 0, latitude: 0 }, true);
+					break;
+					case "c":
 					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_c.jpg', { longitude: 0, latitude: 0 }, true);
-				}else if(marker.data.go=="d"){
+					break;
+					case "d":
 					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_d.jpg', { longitude: 0, latitude: 0 }, true);
+				}
 				for (var i=0; i<markerArr.length ; i++){
 					const mStr = markerArr[i].id;
 					console.log("mStr: "+mStr);
