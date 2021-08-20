@@ -292,6 +292,20 @@
 						go: "b"
 					}
 				},
+				{
+					id: 'c12',
+					visible: false,
+					x: 184,
+					y: 2076,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '正面看神壇',
+					data: {
+						go: "d"
+					}
+				},
 				];
   var viewer = new PhotoSphereViewer.Viewer({
 	caption: '福德祠(趙家巷)',
@@ -351,8 +365,9 @@
 				}else if(marker.data.go=="b"){
 					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 0, latitude: 0 }, true);
 				}else if(marker.data.go=="c"){
-					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_b.jpg', { longitude: 0, latitude: 0 }, true);
-				}
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_c.jpg', { longitude: 0, latitude: 0 }, true);
+				}else if(marker.data.go=="d"){
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_d.jpg', { longitude: 0, latitude: 0 }, true);
 				for (var i=0; i<markerArr.length ; i++){
 					const mStr = markerArr[i].id;
 					console.log("mStr: "+mStr);
@@ -401,6 +416,7 @@
    <img src="https://inaciso.github.io/earthgodar/360/360_3_a.jpg" width="1" height="1" alt="Image 02" />
    <img src="https://inaciso.github.io/earthgodar/360/360_3_b.jpg" width="1" height="1" alt="Image 03" />
    <img src="https://inaciso.github.io/earthgodar/360/360_3_c.jpg" width="1" height="1" alt="Image 03" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_3_d.jpg" width="1" height="1" alt="Image 04" />
 </div>
  <!--<button id="gyro"  onclick="myFunction()">
       gyro tester
