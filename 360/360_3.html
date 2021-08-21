@@ -698,8 +698,8 @@
 		markersPlugin.gotoMarker(marker.id, 1500);
 		if(marker.data ){
 			viewer.animate({
-				  longitude: marker.config.longitude,
-				  latitude: marker.config.latitude,
+				  longitude: viewer.getPosition().longitude - marker.config.longitude,
+				  latitude: viewer.getPosition().latitude- marker.config.latitude,
 				  //x:marker.x,
 				  //y:marker.y,
 				  zoom: 100,
