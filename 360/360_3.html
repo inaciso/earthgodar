@@ -58,7 +58,11 @@
 </style>
 
 <script>
-  var iH = window.innerHeight/20;	
+  if(window.innerHeight>window.innerWidth){
+	var iH = window.innerHeight/20;	
+  }else{
+	var iH = window.innerWidth/20;
+	}		
   var markerArr = [{
 					id: 'a1',
 					x: 2480,
