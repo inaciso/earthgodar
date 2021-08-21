@@ -698,8 +698,8 @@
 		
 		if(marker.data ){
 			const tmpPosition = viewer.getPosition();
-			console.log("tmpPosition: "+tmpPosition.longitude+" , "+ tmpPosition.latitude+" , marker.config.longitude: "+marker.config.longitude);
-			const tmpGoLongitude = tmpPosition.longitude - marker.config.longitude;
+			console.log("tmpPosition: "+tmpPosition.longitude+" , "+ tmpPosition.latitude+" , marker.longitude: "+marker.longitude);
+			const tmpGoLongitude = tmpPosition.longitude - marker.longitude;
 			const tmpGoLatitude = -tmpPosition.latitude;
 			viewer.animate({
 				  
