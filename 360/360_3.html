@@ -109,7 +109,7 @@
 					id: 'a6',
 					x: 4572,
 					y:1527,
-					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
 					width: iH,
 					height: iH,
 					anchor: 'bottom center',
@@ -627,6 +627,18 @@
 				{
 					id: 'f3',
 					visible: false,
+					x: 104,
+					y: 1397,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '趙家大屋<br>據趙氏後人趙善章介紹，趙家大屋即趙氏第二十八世趙仲開在道光年間設立之宗祠，與普濟禪院斜對面的趙氏家廟，南北遙應，足顯氏族興旺。趙氏家廟毀於甲戌風災後，趙家大屋顯成聚族聯誼之中心。趙善章則屬誕於大屋內的最後子嗣。目前趙家後人旅居外地，大宅門前竟靠擺攤小販催旺人氣，遮掩破落的家宅。',
+					
+				},
+				{
+					id: 'f4',
+					visible: false,
 					x: 1617,
 					y: 1540,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
@@ -683,6 +695,7 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
+		markersPlugin.gotoMarker(marker.id, 1500);
 		if(marker.data ){
 			viewer.animate({
 				  //longitude: marker.config.longitude,
@@ -730,7 +743,7 @@
 				content: textContent,
 				timeout: 3000,
 			});
-			markersPlugin.gotoMarker(marker.id, 1500);
+			
 		}
 	});
 </script>
