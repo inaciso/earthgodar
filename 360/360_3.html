@@ -170,6 +170,20 @@
 					}
 				},
 				{
+					id: 'b6',
+					visible: false,
+					x: 2498,
+					y: 1700,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '向前',
+					data: {
+						go: "c"
+					}
+				},
+				{
 					id: 'c1',
 					visible: false,
 					x: 4420,
@@ -246,19 +260,9 @@
 					anchor: 'bottom center',
 					tooltip: '神像<br>神壇上供奉神像成雙成對，包括土地公公和土地婆婆，其上方放置了龍杖一對，甚連後人送上觀音像時隨俗並置兩尊。可惜土地婆婆近年失蹤，被街坊懷疑經古玩店出賣至百姓家中。',
 				},
+				
 				{
 					id: 'c8',
-					visible: false,
-					x: 2729,
-					y: 1787,
-					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
-					width: iH,
-					height: iH,
-					anchor: 'bottom center',
-					tooltip: '土地公公和土地婆婆<br>土地公是由社壇人格化而成的民間神祇，祂的來歷按時代、地區和族群各有傳說，當代最膾炙人口當屬《西遊記》中專門為孫悟空收集地區情報的小神。其實《西遊記》也屬較早記載土地婆婆的文獻，白頭佳侶同居一廟至今已跳脫文本，深入沿海地區的福德祠內。',
-				},
-				{
-					id: 'c9',
 					visible: false,
 					x: 2706,
 					y: 1679,
@@ -267,6 +271,17 @@
 					height: iH,
 					anchor: 'bottom center',
 					tooltip: '龍杖<br>龍杖即雕有龍頭的拐杖，在傳統民間信俗中有驅鬼功能。本地不少福德祠都供奉龍杖，甚至與土地公手中拐杖混淆，卻從未見古代文獻關聯龍杖與土地公，再者，道教籤咒有時將鬼怪精魅及土地神祗等低級鬼神歸為地界同類，從而區分修道者寄望乘鶴飛升的飄渺天庭。所以說各處鄉村各處例，澳門就是與別不同，龍杖配土地公可視之為本地信俗對道統的延伸和創新。',
+				},
+				{
+					id: 'c9',
+					visible: false,
+					x: 2729,
+					y: 1787,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '土地公公和土地婆婆<br>土地公是由社壇人格化而成的民間神祇，祂的來歷按時代、地區和族群各有傳說，當代最膾炙人口當屬《西遊記》中專門為孫悟空收集地區情報的小神。其實《西遊記》也屬較早記載土地婆婆的文獻，白頭佳侶同居一廟至今已跳脫文本，深入沿海地區的福德祠內。',
 				},
 				{
 					id: 'c10',
@@ -366,7 +381,7 @@
 					id: 'd6',
 					visible: false,
 					x: 4269,
-					y: 2616,
+					y: 2157,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -376,8 +391,8 @@
 				{
 					id: 'd7',
 					visible: false,
-					x: 2883,
-					y: 1732,
+					x: 3468,
+					y: 1707,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -420,8 +435,8 @@
 				{
 					id: 'd11',
 					visible: false,
-					x: 2350,
-					y: 1615,
+					x: 5109,
+					y: 1669,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
 					width: iH,
 					height: iH,
@@ -440,7 +455,7 @@
 					width: iH,
 					height: iH,
 					anchor: 'bottom center',
-					tooltip: '正面看神壇',
+					tooltip: '後退',
 					data: {
 						go: "e"
 					}
@@ -639,6 +654,9 @@
 					case "d":
 					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_d.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
 					break;
+					case "e":
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_e.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
+					break;
 				}
 				for (var i=0; i<markerArr.length ; i++){
 					const mStr = markerArr[i].id;
@@ -689,6 +707,7 @@
    <img src="https://inaciso.github.io/earthgodar/360/360_3_b.jpg" width="1" height="1" alt="Image 03" />
    <img src="https://inaciso.github.io/earthgodar/360/360_3_c.jpg" width="1" height="1" alt="Image 03" />
    <img src="https://inaciso.github.io/earthgodar/360/360_3_d.jpg" width="1" height="1" alt="Image 04" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_3_e.jpg" width="1" height="1" alt="Image 05" />
 </div>
  <!--<button id="gyro"  onclick="myFunction()">
       gyro tester
