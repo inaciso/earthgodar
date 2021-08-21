@@ -105,7 +105,19 @@
 					anchor: 'bottom center',
 					tooltip: '灰塑<br>灰塑因煙蒸塵封，浮雕“福德祠”三字俱損，背托經折裝書幀圖案亦只能意會，失卻立體骨致之美感。尋常福德祠灰塑多取吉祥寓意，文雅的書卷紋飾帶來私塾氣息，莫非是教育興家的趙氏族人想警醒世人置身鹺腥銅臭陋巷也不能輟學背道？',
 				},
-				
+				{
+					id: 'a6',
+					x: 4572,
+					y:1527,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往趙家大屋',
+					data: {
+						go: "f"
+					}
+				},
 				{
 					id: 'b1',
 					visible: false,
@@ -180,7 +192,7 @@
 					anchor: 'bottom center',
 					tooltip: '向前',
 					data: {
-						go: "c"
+						go: "e"
 					}
 				},
 				{
@@ -391,8 +403,8 @@
 				{
 					id: 'd7',
 					visible: false,
-					x: 3468,
-					y: 1707,
+					x: 2887,
+					y: 1743,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -529,8 +541,8 @@
 				{
 					id: 'e8',
 					visible: false,
-					x: 2356,
-					y: 1659,
+					x: 3748,
+					y: 1668,
 					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
 					width: iH,
 					height: iH,
@@ -585,6 +597,45 @@
 					tooltip: '正面看神壇',
 					data: {
 						go: "d"
+					}
+				},
+				{
+					id: 'f1',
+					visible: false,
+					x: 1787,
+					y: 1540,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '福德祠(趙家巷)簡介',
+					content: document.getElementById('earthgod-content').innerHTML
+					
+				},
+				{
+					id: 'f2',
+					visible: false,
+					x: 1694,
+					y: 1958,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '趙家巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'f3',
+					visible: false,
+					x: 1617,
+					y: 1540,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '返回福德祠',
+					data: {
+						go: "a"
 					}
 				},
 				];
@@ -657,6 +708,9 @@
 					case "e":
 					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_e.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
 					break;
+					case "f":
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/360_3_f.jpg', { longitude: 4.1887902, latitude: 0 , zoom: 0}, true);
+					break;
 				}
 				for (var i=0; i<markerArr.length ; i++){
 					const mStr = markerArr[i].id;
@@ -708,6 +762,7 @@
    <img src="https://inaciso.github.io/earthgodar/360/360_3_c.jpg" width="1" height="1" alt="Image 03" />
    <img src="https://inaciso.github.io/earthgodar/360/360_3_d.jpg" width="1" height="1" alt="Image 04" />
    <img src="https://inaciso.github.io/earthgodar/360/360_3_e.jpg" width="1" height="1" alt="Image 05" />
+   <img src="https://inaciso.github.io/earthgodar/360/360_3_f.jpg" width="1" height="1" alt="Image 05" />
 </div>
  <!--<button id="gyro"  onclick="myFunction()">
       gyro tester
