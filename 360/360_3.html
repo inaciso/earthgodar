@@ -706,7 +706,10 @@
   
   const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 	var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
-	
+	viewer.notification.show({
+				content: "360導賞——歡迎遊覽福德祠(趙家巷)",
+				timeout: 5000,
+	});
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
 		
