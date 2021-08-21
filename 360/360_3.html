@@ -695,12 +695,15 @@
 	
 	
 	markersPlugin.on('select-marker', function(e, marker, data) {
-		markersPlugin.gotoMarker(marker.id, 1500);
+		
 		if(marker.data ){
+			const tmpPosition = viewer.getPosition();
+			const tmpGoLongitude = tmpPosition.longitude - marker.config.longitude;
+			const tmpGoLatitude = -tmpPosition.latitude;
 			viewer.animate({
-				  const tmpPosition = viewer.getPosition();
-				  longitude: tmpPosition.longitude - marker.config.longitude,
-				  latitude: -tmpPosition.latitude,
+				  
+				  longitude: tmpGoLongitude,
+				  latitude: tmpGoLatitude,
 				  //x:marker.x,
 				  //y:marker.y,
 				  zoom: 100,
@@ -740,6 +743,7 @@
 				});
 			
 		}else{
+			markersPlugin.gotoMarker(marker.id, 1500);
 			const textContent = marker.tooltip.content.innerText;
 			//console.log("textContent: "+ textContent);
 			viewer.notification.show({
