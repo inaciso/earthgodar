@@ -37,12 +37,24 @@
 
 <style>
   /* the viewer container must have a defined size */
+  @media (orientation: landscape) {
+		#viewer {
+			width: 100vw;
+			height: 90vh;
+		}
+	}
+
+	@media (orientation: portrait) {
+		/* portrait styles */
+	}
 	  #viewer {
-		width: 100vw;
-		height: 90vh;
+		#viewer {
+			width: 100vw;
+			height:100vw;
+		}
 	  }
 	.psv-notification-content{
-		font: 20px sans-serif;
+		font: 3em sans-serif;
 	}
 	div#preload { display: none; }
 </style>
