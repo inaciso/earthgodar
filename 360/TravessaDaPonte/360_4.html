@@ -88,6 +88,14 @@
  </p>
  </div>
 </script>
+<script type="text/template" id="stone-content">
+ <div>
+ <p>
+泰山石敢當石<br><br>
+泰山石敢當石通常單獨豎立於街道上，石敢堂行台門前即有一例，具有辟邪擋剎的作用。下圖是麻子街上的另一實例，兩者的形式非常相似。
+ </p>
+ </div>
+</script>
 <div id="viewer"></div>
 <style>
   /* the viewer container must have a defined size */
@@ -211,6 +219,17 @@
 					}
 				},
 				{
+					id: 'a9',
+					x: 4099,
+					y: 1637,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '泰山石敢當石',
+					content: document.getElementById('stone-content').innerHTML
+				},
+				{
 					id: 'b1',
 					visible: false,
 					x: 31,
@@ -321,6 +340,18 @@
 					data: {
 						go: "c"
 					}
+				},
+				{
+					id: 'b10',
+					visible: false,
+					x: 5500,
+					y: 1581,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '泰山石敢當石',
+					content: document.getElementById('stone-content').innerHTML
 				},
 				{
 					id: 'c1',
