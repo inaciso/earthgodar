@@ -1,0 +1,597 @@
+<!doctype HTML>
+<html>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css"/>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
+<div id="photosphere"></div>
+<script type="text/template" id="earthgod-content">
+ <div class="sketchfab-embed-wrapper"> <iframe title="橋頭土地公公(橋巷)介紹" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/3f2796b9cfe04134b5f686c35bf95540/embed"> </iframe> <p style="font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://skfb.ly/68RD9" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 橋頭土地公公(橋巷) </a> by <a href="https://skfb.ly/68RD9" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> </p>
+ <p>
+早期澳葡築城固守，卻未隔斷兩族通商交流，结果互有裨益。雖都自詡為土地之主人，但心知肚明同屬一方之土，脣齒相依。葡界之內，樂得白鴿巢坡地的泉水流越山腳城牆，匯流成溪，滋養泥土，逐漸形成華人農村。村民開墾田地，瓜果轉賣葡人。弱水互濟，繼而人力開挖蓮峰山澗，積累的天然雨水源源補充，其匯流出海處即今日的大興街口，當地架設便民木橋，橋頭安置了土地公公，宣示着新橋村是天人融洽發跡之地。<br><br>
+
+橋頭土地公公除了慣聽漁歌農唱外，看盡華洋商賈和尋常老百姓的眾生相——城夫村婦渡鵲橋，土產洋貨舟楫搖，貨艇橋底如梭織，帆影月伴南音調——在鹹淡水相混處練成油滑的老江湖了。城外稀有的水道本惹八方注目，各懷鬼胎的卻又不想明火明刀，待機行事。葡人總督是矢志兼併新橋土地的陰謀家，見清廷國力日衰，來一招順流業權登記，逐村挨戶，徵地開路；繼而燈鈔門牌，小小動作，皆顯示政由己出。清廷官員骨軟識弱，對葡人虎耽眼開眼閉，田賦管理欺上瞞下，溪邊民居漸感見棄，人心遠離。農民受制於春耕秋收的視野，私自引水，胡亂洗濯，上游河道逐漸荒廢成污穢沼澤，最終斷送立村之本的飲用水源。漁民從中撈出活魚、又隨便將魚屍拋回，似乎更嫌水清無魚，反正白水、黑水都能載舟，竹楫逆水一推又到蓮溪廟市。總之，中外水陸官民取益於蓮溪，不息的溪水卻終為俗務污染。正如真正無情的人並不會過橋抽板，因為他們揚長而去，絕不回顧。<br><br>
+
+橋頭土地公公冷冷地蹲在無情人間，任蓮溪被污衊為鹹涌，甚至被闢作污水渠。祂眉頭未皺、臉不拉長，依舊好一座岩頭石臉、腰梗肩正的慈眉羅漢模樣。新橋拆、蓮溪堵，眼前高樓遮江掩日，但叫行台企立的石敢當堅牆固守。公公困於石屎和陰影間，暗歎香煙三縷，再難看出時光留痕。總之此刻歡朋舊客音稀，往者來人雜踏：菲律賓人、越南人、印尼人沒在澳門人潮之中。人面代代，艷色朱顔，青壯兒郎，只有土地公公古像一尊，笑看時俗。啊，好一位土地公公，閱人多矣，心淡意閒！文化勞動者禁不住嘆一口氣，向公公請教：
+
+“舊時紅日今夜月，難道給你的感覺都一樣嗎？”
+ </p>
+ </div>
+</script>
+<script type="text/template" id="street-content">
+ <div>
+ <p>
+橋巷<br><br>
+橋巷是歷史文獻裏的神秘一頁。它名不見於最早的一八六九年街道名錄，只有疑似誤植的Travessa da Pante。一八八六年《憲報》公布在橋巷以北闢地開設炮竹廠時，葡文名稱卻是不對應的Rua da Ponte，中譯應為橋街。至一九零六年渡船街、轎夫巷等已“城市化”而名登花王堂區街道名冊時，橋巷仍被視為是“郊外社區”，並以警察編號代替門牌，儼然城中村。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="temple-content">
+ <div>
+ <p>
+石敢當行台<br><br>
+石敢當行台原是新橋街坊集資興建的鄉民議事公所。廟內碑記引用《易經》名訓“介於石”，勸人正直處事，如同石頭所劃的邊界一樣絕不偏倚。石敢當行台坐鎮古時蓮溪水流轉折處，往南行即達澳城，可見先輩旨在一語雙關地以景寓情——突顯石敢當行台鎮守着鮮明的華界，豈容葡萄牙人隨便擴張佔地？同理，廟內對聯曰：“公是公非，創立規模垂久遠；正人正己，協同心力兆安康。”行台絕非臨時行宮，更是新橋區水陸兩路之地標，社區團結之砥柱，悠長歷史之明證。
+ </p>
+ </div>
+</script>
+<div id="viewer"></div>
+<script type="text/template" id="bridge-content">
+ <div>
+ <p>
+新橋<br><br>
+從前橋頭土地公面前小橋流水，好一派田園風光。那道一七九二年前便建成的“新橋”跨越蓮溪，賜予這區“橋常新、水長流”的美麗名字。蓮溪水沿光復街、渡船街轉向北方的大興街，與內港的海水相擁，鹹淡混和，故此又俗稱鹹涌。橋上行人橋下船，水陸各走人生道。驟看互不干涉，陸路即是清初入澳兩條總路之一，水道寬闊，可容龍舟出海。石敢當行台威靈祀壇的對聯所詠唱的“蠔鏡沿今俗，圯橋振古風”，便是今只聞名不見面的“新橋”。史書記載一九一五年澳葡填涌拆橋，更早的一九零九年的地圖中也不見橋影，由此可知二十世紀初新橋區已徒具佳名。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="shrine-content">
+ <div>
+ <p>
+威靈祀壇<br><br>
+威靈祀壇即石敢當行台前方小神龕，也是石敢當行台的前身——天然石頭盛載民眾鎮服惡水的心理企盼，附會石敢當神話而奉為神龕，後更結集眾願，敬立神廟。由是觀之，石頭、祀壇、廟宇，見證多變的人心代代翻新——今天祀壇不抗潮汛和外族，專打小人，祭白虎，令奸佞小鬼都在“辟拍”聲中，淪為鞋底風塵。同樣，新橋、蓮溪，都如人面般代有不同。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="style-content">
+ <div>
+ <p>
+橋頭土地公公(橋巷)<br><br>
+橋頭土地公公遙祭古橋，其形似一道飛虹，兩邊石枕手，香燭煙波如逝水滾滾，往事緲緲。石頭恆久不爛，但木橋易朽，以不變祭萬變是何等邏輯？橋存民心永謂新故也。橋巷土地公香火鼎盛，足見草根民意民情所向。石敢當行台裏主供姜子牙，中國人有尊史崇古美德，實亦在有涯人生中築往彼岸之橋，讓前賢功德傳頌於無涯歷史之中。橋頭土地公公亦因附麗於民心而長存。
+ </p>
+ </div>
+</script>
+</script>
+<script type="text/template" id="cinema-content">
+ <div>
+ <p>
+娛樂戲院<br><br>
+橋巷斜對面的罅些喇提督馬路、大興街和渡船的街交界於一九三零至四零年代是集街市和戲院一體的娛樂戲院，放映二手中國電影，無論選址和片源皆屬當時流行模式。二戰時期曾收容旅滬葡僑，輾轉用作政府公倉、車房和公務員宿舍。一九五三年開設庇道小學，毗連的聖庇道街因而得名。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="playground-content">
+ <div>
+ <p>
+大世界遊樂場選址<br><br>
+一九五零年橋巷以西至石街地段曾計劃開設大世界遊樂場，內涵除旋轉木馬類的機動玩意外、電影院、中式戲棚等項目一應俱全，以填補南灣新填地遊樂場結業後的娛樂需求。最終同名遊樂場於一九六六年在司打口開張。遊樂場選址市區罕見的閒置空地內，吸錢磁場覆蓋在台山、黑沙環尚屬田野時的高人口密度區域——新橋，為新橋坊衆提供消閑活動。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="citygod-content">
+ <div>
+ <p>
+城隍行台<br><br>
+澳門城隍廟位於美副將大馬路觀音古廟旁，行台指城隍派駐新橋的分支機構。不過古人用詞較不規範，例如石敢當廟謙稱行台，甚連天主教主教親自坐鎮的座堂也曾喚作主教行台，故此城隍行台內被尊稱爺爺的是澳門城隍張之洞，還是某位遙不可考的城隍分身？已難考究，只能按傳説昔日有賣魚女駕輕舟溯蓮溪至望廈和龍田村，當地薪柴亦沿溪運出，兩地恆常交流，長鬚官服的望廈城隍遂駕臨橋巷，為民服務，此說不失風聞，實也民俗乃文化交流之必然也。
+ </p>
+ </div>
+</script>
+<div id="viewer"></div>
+<style>
+  /* the viewer container must have a defined size */
+	@media (orientation: landscape) {
+		#viewer {
+			width: 100vw;
+			height: 90vh;
+		}
+	}
+
+	@media (orientation: portrait) {
+		#viewer {
+			width: 100vw;
+			height:100vw;
+		}
+	}
+	  
+	.psv-notification-content{
+		font: 150% sans-serif;
+	}
+	div#preload { display: none; }
+</style>
+
+<script>
+  if(window.innerHeight>window.innerWidth){
+	var iH = window.innerWidth/10;	
+  }else{
+	var iH = window.innerHeight/10;
+	}		
+  var markerArr = [{
+					id: 'a1',
+					x: 5983,
+					y: 1421,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('earthgod-content').innerHTML
+					
+				},
+				{
+					id: 'a2',
+					x: 4873,
+					y: 1924,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'a3',
+					x: 3930,
+					y: 1025,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '石敢當行台',
+					content: document.getElementById('temple-content').innerHTML
+				},
+				{
+					id: 'a4',
+					x: 3016,
+					y: 1685,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '新橋',
+					content: document.getElementById('bridge-content').innerHTML
+				},
+				{
+					id: 'a5',
+					x: 3518,
+					y: 1560,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '威靈祀壇',
+					content: document.getElementById('shrine-content').innerHTML
+				},
+				{
+					id: 'a6',
+					x: 5099,
+					y: 1569,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('style-content').innerHTML
+				},
+				{
+					id: 'a7',
+					x: 3370,
+					y: 1814,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往石敢當行台',
+					data: {
+						go: "b"
+					}
+				},
+				{
+					id: 'a8',
+					x: 5588,
+					y: 1232,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往橋巷',
+					data: {
+						go: "c"
+					}
+				},
+				{
+					id: 'b1',
+					visible: false,
+					x: 31,
+					y: 1459,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
+					id: 'b2',
+					visible: false,
+					x: 1862,
+					y: 1681,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'b3',
+					visible: false,
+					x: 4975,
+					y: 615,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '石敢當行台',
+					content: document.getElementById('temple-content').innerHTML
+				},
+				{
+					id: 'b4',
+					visible: false,
+					x: 2043,
+					y: 1811,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '新橋',
+					content: document.getElementById('bridge-content').innerHTML
+				},
+				{
+					id: 'b5',
+					visible: false,
+					x: 3411,
+					y: 1535,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '威靈祀壇',
+					content: document.getElementById('shrine-content').innerHTML
+				},	
+				{
+					id: 'b6',
+					visible: false,
+					x: 6040,
+					y: 1490,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('style-content').innerHTML
+				},
+				{
+					id: 'b7',
+					visible: false,
+					x: 2360,
+					y: 1462,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '娛樂戲院',
+					content: document.getElementById('cinema-content').innerHTML
+				},
+				{
+					id: 'b8',
+					visible: false,
+					x: 262,
+					y: 1557,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '近看橋頭土地公公(橋巷)',
+					data: {
+						go: "a"
+					}
+				},				
+				{
+					id: 'b9',
+					visible: false,
+					x: 5894,
+					y: 1529,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往橋巷',
+					data: {
+						go: "c"
+					}
+				},
+				{
+					id: 'c1',
+					visible: false,
+					x: 10,
+					y: 1499,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
+					id: 'c2',
+					visible: false,
+					x: 88,
+					y: 1559,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'c3',
+					visible: false,
+					x: 5842,
+					y: 1539,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '斜向的巷<br>橋巷呈西北往東南走向，斜對南北縱貫的大興街和東西橫行的渡船街，其街道肌理與鄰近的叉巷、馬里、染布巷相類，呈現城市發展前阡陌村道的舊貌。',
+				},
+				{
+					id: 'c4',
+					visible: false,
+					x: 2506,
+					y: 1496,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '木屋區<br>大興街一度被橋巷和轎夫巷的木屋群截成兩段。一九七零年代只有一戶木屋，但一九八零年代高峰期卻高達二十多戶。其後地產業興旺，橋巷變身石屎巷弄，但轎夫巷因政府計劃開路，潛力受限，發展膠着。',
+				},
+				{
+					id: 'c5',
+					visible: false,
+					x: 3925,
+					y: 1193,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '大世界遊樂場選址',
+					content: document.getElementById('playground-content').innerHTML
+				},
+				{
+					id: 'c6',
+					visible: false,
+					x: 2410,
+					y: 1533,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '城隍行台',
+					content: document.getElementById('citygod-content').innerHTML
+				},
+				{
+					id: 'c7',
+					visible: false,
+					x: 184,
+					y: 2076,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往石敢當行台',
+					data: {
+						go: "b"
+					}
+				},
+				{
+					id: 'c8',
+					visible: false,
+					x: 2435,
+					y: 1603,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往城隍行台',
+					data: {
+						go: "d"
+					}
+				},
+				{
+					id: 'd1',
+					visible: false,
+					x: 5659,
+					y: 830,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '城隍行台',
+					content: document.getElementById('citygod-content').innerHTML
+				},
+				{
+					id: 'd2',
+					visible: false,
+					x: 2255,
+					y: 946,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'd3',
+					visible: false,
+					x: 4762,
+					y: 1546,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '進入橋巷',
+					data: {
+						go: "c"
+					}
+				},
+				];
+  var viewer = new PhotoSphereViewer.Viewer({
+	caption: '橋頭土地公公(橋巷)',
+	loadingTxt: "讀取中，請稍候",
+	defaultLat: 0.0,
+	defaultLong: 0.0,
+	defaultZoomLvl: 20,
+	touchmoveTwoFingers: true,
+	mousewheelCtrlKey: true,
+    container: document.querySelector('#viewer'),
+    panorama: 'https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_a.jpg',
+	
+	plugins: [PhotoSphereViewer.GyroscopePlugin,
+		
+		[PhotoSphereViewer.MarkersPlugin, {
+			markers: markerArr,
+		}]
+	],
+		navbar: [
+		'autorotate',
+		'zoom',
+		'caption',
+		'fullscreen'
+		
+	],
+	lang: {
+		autorotate: '自動旋轉',
+		zoom      : '𦂨放',
+		zoomOut   : '放大',
+		zoomIn    : '縮小',
+		download  : '下載',
+		fullscreen: '全屏模式',
+		menu      : '選單',
+		twoFingers: '請使用兩指來導覽',
+		ctrlZoom  : '請使用ctrl和滾輪來縮放圖片',
+		loadError : '讀取錯誤:(',
+		gyroscope : '啟用陀螺儀',
+	}
+  });
+  
+  const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+	var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+	viewer.notification.show({
+				content: "360導賞——橋頭土地公公(橋巷)——按紅色點前進，按藍色點聆聽介紹。",
+				timeout: 8000,
+	});
+	
+	markersPlugin.on('select-marker', function(e, marker, data) {
+		
+		if(marker.data ){
+			const tmpPosition = viewer.getPosition();
+			const markerPostion = marker.props.position;
+			//console.log("tmpPosition: "+tmpPosition.longitude+" , "+ tmpPosition.latitude+" , markerPostion: "+markerPostion);
+			const tmpGoLongitude = markerPostion.longitude-tmpPosition.longitude;
+			const tmpGoLatitude = markerPostion.latitude-tmpPosition.latitude;
+			viewer.animate({
+				  
+				  longitude: markerPostion.longitude,
+				  latitude: 0,
+				  //x:marker.x,
+				  //y:marker.y,
+				  zoom: 100,
+				  speed: "-3rpm",
+			})
+			.then(() => {
+				
+				switch(marker.data.go){
+					case "a":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_a.jpg', { longitude: 0, latitude: 0, zoom: 20 }, true);
+					break;
+					case "b":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_b.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
+					break;
+					case "c":
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_c.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
+					break;
+					case "d":
+					viewer.setPanorama('https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_d.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
+					break;
+				}
+				for (var i=0; i<markerArr.length ; i++){
+					const mStr = markerArr[i].id;
+					console.log("mStr: "+mStr);
+					if(mStr.charAt(0)  == marker.data.go){
+						markersPlugin.showMarker(mStr);
+					}else{
+						markersPlugin.hideMarker(mStr);
+					}
+				}
+				});
+			
+		}else{
+			markersPlugin.gotoMarker(marker.id, 1500);
+			const textContent = marker.tooltip.content.innerText;
+			//console.log("textContent: "+ textContent);
+			viewer.notification.show({
+				content: textContent,
+				timeout: 3000,
+			});
+			
+		}
+	});
+</script>
+
+<script>
+/*function myFunction(){
+		
+		var btn = document.getElementById('gyro');
+		var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+		//gyro.start();
+		console.log('gyro: '+gyro+ ", btn: "+ btn);
+			
+
+		if (!gyro) {
+		  console.log('gyro unavailable?');
+		} else if (typeof gyro.isEnabled === 'function') {
+		  console.log('gyro.isEnabled():', gyro.isEnabled());
+		} else {
+		  console.log('no isEnabled fn found?');
+		}
+		  
+		
+	};*/
+</script>
+
+<div id="preload">
+   <img src="https://inaciso.github.io/earthgodar/360/pin-blue.png" width="1" height="1" alt="Image 01" />
+      <img src="https://inaciso.github.io/earthgodar/360/pin-red.png" width="1" height="1" alt="Image 01" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_a.jpg" width="1" height="1" alt="Image 02" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_b.jpg" width="1" height="1" alt="Image 03" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_c.jpg" width="1" height="1" alt="Image 03" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_d.jpg" width="1" height="1" alt="Image 04" />
+
+</div>
+
+
+</html>
