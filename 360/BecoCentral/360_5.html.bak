@@ -1,0 +1,680 @@
+<!doctype HTML>
+<html>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css"/>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gyroscope.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
+<div id="photosphere"></div>
+
+<script type="text/template" id="earthgodcalhandras-content">
+ <div class="sketchfab-embed-wrapper"> <iframe title="本坊土地福德正神(人和里)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/3e84651438224193be9722ff880d5c60/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/3e84651438224193be9722ff880d5c60?utm_medium=embed&utm_campaign=share-popup&utm_content=3e84651438224193be9722ff880d5c60" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 本坊土地福德正神(人和里) </a> by <a href="https://sketchfab.com/inaciso?utm_medium=embed&utm_campaign=share-popup&utm_content=3e84651438224193be9722ff880d5c60" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=3e84651438224193be9722ff880d5c60" target="_blank" style="font-weight: bold; color: #1CAAD9;"></a></p></div>
+ <p>
+明朝至清初海上絲路長風滿帆，高桅絡繹。列國商船溯河廣州前必先灣水澳門，滿載十三行財貨後又桅帆壓浪，衣錦驕鄉。貴為洋人唯一居住地的澳門坐擁金江銀海，一趟船兩重徵稅，財源廣進。當中關前後街與果欄街交界以南，正是葡萄牙文稱為“中央里”的聚龍舊社，洋場華鋪，核心商圈，堪喻為城中暴富和華商新貴的名利場。繁華得印證了荀子《富國》所論：“上得天時，下得地利……則財貨渾渾如泉源，汸汸如河海。”不過在三才哲學濡養的傳統觀念裏，最重要“中得人和”，故而聚龍舊社朝北，三街交匯處建造了“人和里”石匾額門樓。<br><br>
+
+人和里門樓前包攬天時地利，已然天下大順的境界，但其背後仍供奉着土地公，莫非顯示人事和協仍不及神鬼欽點之類的宿命論述？古今皇帝自信奉天承運，籌掌世間權能何可受制於玄冥與機緣？所以古代統治體系結合政教，設文官職位“宗伯”，以“掌邦禮，治神人，和上下”，祭祀納入道統中，禮制邏輯下按章拜神是“人和”秩序的構成要素。士大夫帶領居民酬神，化迷信為愚忠，祈呼政通，體現萬眾齊心而功崇惟志之道理——《尚書．周官》除介紹宗伯等官職，還論及良官準則：“凡我有官君子，欽乃攸司，慎乃出令，令出惟行……功崇惟志。”換言之驚神泣鬼事蹟始終歸功於人本主義的個人意志，正好契合關前街眾華商意氣風發、一力興家的時代自信。<br><br>
+
+可是興衰往復才是世間真像，自從鴉片點燃狼煙，澳葡暴露殖民野心，清朝越見朽腐難救，澳門遂告墜落——企業家其實只是鶩赴香港而已，但亦印證了儒家經典教說：“地利不如人和”，倘若“中失人和，故百事廢，財物詘，而禍亂起”。麻雀逐粟四散，被棄守的澳門步向衰敗，人和里徒具山蔴雀圍別稱，名貌依舊卻為折翼覆卵作出別註。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="earthgodrosa-content">
+ <div class="sketchfab-embed-wrapper"> <iframe title="聚龍社稷之神(聚龍通津)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/a35e5e09c1fc4737aaed52efa81f714f/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/a35e5e09c1fc4737aaed52efa81f714f?utm_medium=embed&utm_campaign=share-popup&utm_content=a35e5e09c1fc4737aaed52efa81f714f" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 聚龍社稷之神(聚龍通津) </a> by <a href="https://sketchfab.com/inaciso?utm_medium=embed&utm_campaign=share-popup&utm_content=a35e5e09c1fc4737aaed52efa81f714f" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=a35e5e09c1fc4737aaed52efa81f714f" target="_blank" style="font-weight: bold; color: #1CAAD9;"></a></p></div>
+ <p>
+聚龍社稷之神始於明朝聚龍舊社的社壇，後來於聚龍通津再建一座，可見香火分沾，人神沐恩。社壇有分新舊，關前街也分正街、後街，這一帶即古時泗勝坊，鄰近營地街新墟，商號林立、百業興旺。然而，傳統有“火燒旺地”之說，蓋繁榮地段人人投機逐利，財燻心眼，難免疏忽風險。天意人意相因，其結果便是祝融常顧。一八零七年、一八一九年坊內失火，鄰近的草堆街、營地大街災禍接踵，前後十三場重大火災，生靈瞬間化作烟塵。“人為財死”確為人生哲學的一大課題。<br><br>
+　
+水能滅火，通津意即通往海邊，聚龍社稷之神本來近水樓台，偏偏有難時望水長歎。海邊泥沙淤積成灘頭後，外來人口爭相霸地立篷，上牽清朝官員的包庇私心，下涉康公廟和蓮峰廟“租地”利益，形成拆一建二，甚至頒令移除寮篷的同時，便批准磚屋原址動工。“寓建於拆”的“土改怪圈”屢見於澳門地籍圖冊上，總之動土代表興旺。眼見性命流逝於熊熊烈火，葡官便空言指責：華人落荒奔逃，撲滅火龍之職責讓葡軍和黑奴悲風終日，命途多險。<br><br>
+
+帳篷是火之地獄，災民痛定不思痛，禁令旋立旋廢。誰都知道篷帳生計攸關，也是政治角力下的生態現象——帳篷掩日遮風雨，驅防洋奴佔家鄉；新墟燒不盡，春風吹又生——由此可見，澳人生命力頑強，浴火寓意重生！“風物長宜放眼量”，暴雷急雨，何曾摧毀人民生計意志！中葡相互指三道四，實質是“擺明”中葡兩頭分治的土地制度失效。<br><br>
+
+火患不止、河道淤塞、寮篷競賽、兩族失誼……不堪惡果的泗勝坊鋪戶決心自救，鑿井儲水備用、立碑規管碼頭運作、上書縣府訴願，同時向葡萄牙人假行效忠。群策群力縱仍有中葡角力黑幕，但鄰里齊心營建社區確是一大進步。熱心的寶號大名現仍鎸刻於三街會館重修碑、鏡湖醫院掛匾等，可見華人社會逐漸摒棄移民與土著、新圍與舊里、正街與後欄等隔閡歧見，學懂了拋短利而務久遠。風風火火燒旺了團結興邦之決心。社壇之上，炎黃之後，土地公前一炷香，融而和之，滙成澳門傳統中的新猷。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="earthgodcentral-content">
+ <div class="sketchfab-embed-wrapper"> <iframe title="聚龍社稷之神(聚龍舊社)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c57971229fb64117be7874c345f3fb3c/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/c57971229fb64117be7874c345f3fb3c?utm_medium=embed&utm_campaign=share-popup&utm_content=c57971229fb64117be7874c345f3fb3c" target="_blank" style="font-weight: bold; color: #1CAAD9;"> 聚龍社稷之神(聚龍舊社) </a> by <a href="https://sketchfab.com/inaciso?utm_medium=embed&utm_campaign=share-popup&utm_content=c57971229fb64117be7874c345f3fb3c" target="_blank" style="font-weight: bold; color: #1CAAD9;"> inaciso </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=c57971229fb64117be7874c345f3fb3c" target="_blank" style="font-weight: bold; color: #1CAAD9;"></a></p></div>
+ <p>
+街坊認為聚龍社稷之神自明朝屹立至今。二零一五年神壇突然失蹤，一時間輿論紛雜，人人奔走尋神，最終發現祂被鄰近建築物業主以重建為由暫時移走。同年社稷之神獲文化局重置，繼續保佑街坊。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="shrine-content">
+ <div>
+ <p>
+社廟．神壇．土地公<br><br>
+聚龍通津土地神壇擁有交椅狀外觀，其上方加建瓦頂，混合壇、廟兩種常見形制。當中，神壇貼地而基座低矮，但廟頂高懸不讓善信碰頭。“神性化”的主體方便“人性化”的善信，是真正的因地制宜。更妙之處在於神壇對面另立了土地公公和土地婆婆塑像，讓選擇多元化：拜廟、拜壇、拜像，悉隨尊便；從典、從古、從俗，三祝華封，各得其所。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="board-content">
+ <div>
+ <p>
+福德祠牌匾<br><br>
+牌匾記載重修日期為戊子年孟秋，下款“關前街街坊敬酧”。由於沒有使用清朝年號紀時，可排除一八八八年戊子的可能性。二零零五年聚龍社才獲文化局和街坊合力重修，其後於二零一四年又被政府修繕，二零零八年戊子剛好夾在近代兩次重修之間，顯非牌匾所指年份。由是推測，重修的戊子年指的是一九四八年。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="tablet-content">
+ <div>
+ <p>
+泗勝坊示諭碑<br><br>
+聚龍社古時鄰近關前街華洋通商地段，財貨流轉，漁民和街坊傍海築棚，佔地棲居，漸成坊里，故稱泗勝坊。直至一八一九年，海防同知鍾英引營地街和關前街連歲失火之戒，禁止填築海傍官地建屋，同年泗勝坊值理豎立示泗勝坊示諭碑宣佈：“泗勝坊，迺闔澳咽喉之地，兼近海隅，舖戶民居甚密。日前失火延燒，皆由無備之故也。茲奉周戎台尊論，闊坊義捐，鰍開舊井，疏通渠道，造碼頭，以便商民，以防火患，共仰戎台愛民若子之心。嗣後碼頭地段，不許擺賣及阻塞侵佔，井傍不得洗身宰狗澣灌一切穢物，致防汲飲，如違禀究。嘉慶二十四年六月；值事：人和當、公和當、同盛當、同茂號、定合號同立”，可見街坊嚮應官府禁令。碑誌提及舊井、渠道、碼頭等事物在百年後的一九零五年的《街道名冊》中已不復記載，可見當時聚龍通津儼成內陸，街道肌理類同今天。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="plaque-content">
+ <div>
+ <p>
+無題碑<br><br>
+該碑文字殘缺，年份不詳，記載五十四間捐資店名，以及何康、潘謙益、蔡華彰三人送出舊井渠口土地，連同草堆街潤四月福德祠尚剩銀叁拾大元，估計於鼎建聚龍通津土地神壇或草堆街潤四月福德祠時而設立。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="stone-content">
+ <div>
+ <p>
+土地之神位石碑<br><br>
+聚龍通津土地神壇對面另有一塊土地之神位石碑，但最底部的“位”字已半嵌於水泥基座內，形象地訴說祂走下交椅式神壇寶座後淪為他鄉遺客，再無臉目正對着“位”字的嘲諷。人們取石供刻土地神位，頌讚神力千古，鼎立之際例必刻石為誌；但面對亡壇之神的嶙峋石皮，往往類比墓碑，上香三炷，孰喜、孰悲、孰雲煙？二零零五年中和里土地公、二零一四年聚龍舊社聚龍社稷之神，結局一缺一圓，再無人記得離宮之神的原籍，只將心思用盡在重光禮儀上，所以土地之神無根可尋，乃記喜不記憂的人性表現。
+ </p>
+ </div>
+</script>
+</script>
+<script type="text/template" id="door-content">
+ <div>
+ <p>
+月門<br><br>
+聚龍通津土地神壇的圍牆和月門歷史悠久。月門造景、分區兩相宜，多見於中式園林，但中式廟宇一般採用方正大門，有營造莊嚴和規矩的感覺；更會高築的門檻，讓善信入戶前必先謹慎地低頭屈膝，而不得抬頭冒犯神靈。相反，廟宇會在神壇正對面的牆壁上開鑿月窗，引用天圓地方理念，暗示天神時刻監視眾生。聚龍通津低矮月門，既促使善信進壇時恭敬地低頭，又能作為眾神看顧人世的大窗，一物二用，體現廟宇建築萬變不離其宗的傳統。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="becorosa-content">
+ <div>
+ <p>
+龍蛇混雜<br><br>
+聚龍通津初期的碼頭經濟因填海而終結後，衰敗為龍蛇淵藪。早於一八八三年聚龍通津咕厘館門口已有華人聚賭被拘捕的記錄。清末民初時期，澳門番攤總公司曾於聚龍通津巷口開設聚龍攤館。賭禁既開，叢生黃、毒惡疾。華人流傳爛鬼樓得名於服侍“黑鬼”的妓寨，例如抗戰前後聚龍通津三號、四號、六號、九號、十二號、卅四號屋盡是風流地，同期十四、廿四和卅四號則用作煙窟。皮肉勾當和蝕骨毒煙粗買濺賣，誰還講究紅牌阿姑矯情唱腔、福壽膏裏騰雲賽仙，但捲起的塵霧較高檔青樓更惹人厭。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="armazemvelho-content">
+ <div>
+ <p>
+騎樓街和爛鬼樓巷<br><br>
+爛鬼樓名稱引伸出多個傳說，牽連聚龍通津別稱騎樓街。據說早期在美洲致富的華商楊若嚴回澳後在華人地區建造西式大屋，而非傳統的金字頂中式住宅。由於洋鬼子之類的貶意詞流行民間，所以西式大屋被稱被衊為鬼樓，而鬼樓附設騎樓所對應的旁側街道叫做騎樓街。後來鬼樓失火焚燬，其所處街道便得名爛鬼樓巷。另有說法指當地黃業吸引洋兵和非洲兵光臨，房屋裏外常見洋相百出之醉酒“爛鬼”，所以華人呼作爛鬼樓巷。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="ervanarios-content">
+ <div>
+ <p>
+關前正街<br><br>
+關前正街始於聚龍舊社，向南連接草堆街，相傳因橫亙清朝關部行台前的驗貨場而得名。不過在關部行台被毀之前，今日的關前正街和後街仍屬一片露天漁市場，更早期乃阿巴羅修道院前方的海灘，所以一八六九年《街道名冊》只有關前後街的記載。後人在街廓變遷之際追憶故地，所以中文冠名關前，葡文將關前後街正名為阿巴羅修道院街。關前正街南北兩端未引進自來水時設有水井，方便街坊洗濯和救火，北端水井正位於本全景照片所拍攝的位置。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="becoeentral-content">
+ <div>
+ <p>
+聚龍舊社<br><br>
+坊間傳說聚龍舊社乃聚龍通津旁聚龍社的前身。根據一八三八年的舊地圖，聚龍舊社大致位於集市區漁市場和水果市場中間，更可能是水果市場入口之一，但同一地圖卻沒有繪畫聚龍通津的街廓，足可證明。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="patiocalhandras-content">
+ <div>
+ <p>
+人和里<br><br>
+人和里開街晚於聚龍舊社。在關部行台拆毀之前，該處用作關部行台官員及訪澳華官寓所(Caza de Mardarim)或旁邊典當行範圍，後來被賣給中國商人建造民房。一九零零年的地圖尚未有其記錄，直至一九零六年《街道名冊》才列出山蔴雀圍，圍內設有市場和水井，建築物門牌格局與今日相似。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="stall-content">
+ <div>
+ <p>
+地攤<br><br>
+關前正街與聚龍舊社交界之地散落澳門僅餘的雜架攤，吸引“淘寶”客和拮据居民搜羅二手舊貨。抗戰時期物資短缺，迫於生活的居民齊集聚龍通津空地以物易糧，互換有無，轉廢為用，不失為國難年代延生、相助的妙法。一九五零年代澳門人口持續流失，雜架攤充斥離澳者留下的舊傢俬。至一九五五年，市容整潔越被重視，雜架攤則被視為無牌小販，但聚龍通津附近曠地仍根據市政廳的《市自治條例》被劃為專供雜架小販擺賣地段。隨着移民賦歸，美國三藩市華僑們收購舊物和賊贓致富的故事廣為流傳，雜架攤漸被別稱為“三藩市”。另外，因關前正街雜架攤旁古玩店和舊傢俬鋪林立，兼有非洲兵光顧的妓院，結果從香港借來“嚤囉街”的名堂。時至今日，雜架攤風光不再，關前後街的領牌大檔攤更歎後繼乏人，但新式雜架“環保回收”卻成時髦玩意，成為新派收藏家的培育場。
+ </p>
+ </div>
+</script>
+<script type="text/template" id="artstreet-content">
+ <div>
+ <p>
+文創街<br><br>
+關前正街受益於財團投資，近年陸續往文化創意產業轉形，更不定期舉辦活動，冀帶旺街區人氣和為老區點染新姿彩。
+ </p>
+ </div>
+</script>
+
+<div id="viewer"></div>
+<style>
+  /* the viewer container must have a defined size */
+	@media (orientation: landscape) {
+		#viewer {
+			width: 100vw;
+			height: 90vh;
+		}
+	}
+
+	@media (orientation: portrait) {
+		#viewer {
+			width: 100vw;
+			height:100vw;
+		}
+	}
+	  
+	.psv-notification-content{
+		font: 150% sans-serif;
+	}
+	div#preload { display: none; }
+</style>
+
+<script>
+  if(window.innerHeight>window.innerWidth){
+	var iH = window.innerWidth/10;	
+  }else{
+	var iH = window.innerHeight/10;
+	}		
+  var markerArr = [{
+					id: 'a1',
+					x: 264,
+					y: 1707,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '聚龍社稷之神(聚龍通津)',
+					content: document.getElementById('earthgodrosa-content').innerHTML
+					
+				},
+				{
+					id: 'a2',
+					x: 5802,
+					y: 1701,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '社廟．神壇．土地公',
+					content: document.getElementById('shrine-content').innerHTML
+				}, 
+				{
+					id: 'a3',
+					x: 531,
+					y: 276,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '福德祠牌匾',
+					content: document.getElementById('board-content').innerHTML
+				},
+				{
+					id: 'a4',
+					x: 2532,
+					y: 1431,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '泗勝坊示諭碑',
+					content: document.getElementById('tablet-content').innerHTML
+				},
+				{
+					id: 'a5',
+					x: 3261,
+					y: 1593,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '無題碑',
+					content: document.getElementById('plaque-content').innerHTML
+				},
+				{
+					id: 'a6',
+					x: 3420,
+					y: 1320,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '月門',
+					content: document.getElementById('door-content').innerHTML
+				},
+				{
+					id: 'a7',
+					x: 3370,
+					y: 1814,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往石敢當行台',
+					data: {
+						go: "b"
+					}
+				},
+				{
+					id: 'a8',
+					x: 5588,
+					y: 1232,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往橋巷',
+					data: {
+						go: "c"
+					}
+				},
+				{
+					id: 'a9',
+					x: 4099,
+					y: 1637,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '泰山石敢當石',
+					content: document.getElementById('stone-content').innerHTML
+				},
+				{
+					id: 'b1',
+					visible: false,
+					x: 31,
+					y: 1459,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
+					id: 'b2',
+					visible: false,
+					x: 5859,
+					y: 1682,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'b3',
+					visible: false,
+					x: 4975,
+					y: 615,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '石敢當行台',
+					content: document.getElementById('temple-content').innerHTML
+				},
+				{
+					id: 'b4',
+					visible: false,
+					x: 2037,
+					y: 1792,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '新橋',
+					content: document.getElementById('bridge-content').innerHTML
+				},
+				{
+					id: 'b5',
+					visible: false,
+					x: 3411,
+					y: 1535,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '威靈祀壇',
+					content: document.getElementById('shrine-content').innerHTML
+				},	
+				{
+					id: 'b6',
+					visible: false,
+					x: 6040,
+					y: 1490,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('style-content').innerHTML
+				},
+				{
+					id: 'b7',
+					visible: false,
+					x: 2360,
+					y: 1462,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '娛樂戲院',
+					content: document.getElementById('cinema-content').innerHTML
+				},
+				{
+					id: 'b8',
+					visible: false,
+					x: 262,
+					y: 1557,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '近看橋頭土地公公(橋巷)',
+					data: {
+						go: "a"
+					}
+				},				
+				{
+					id: 'b9',
+					visible: false,
+					x: 5894,
+					y: 1529,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往橋巷',
+					data: {
+						go: "c"
+					}
+				},
+				{
+					id: 'b10',
+					visible: false,
+					x: 5500,
+					y: 1581,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '泰山石敢當石',
+					content: document.getElementById('stone-content').innerHTML
+				},
+				{
+					id: 'c1',
+					visible: false,
+					x: 10,
+					y: 1499,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋頭土地公公(橋巷)',
+					content: document.getElementById('earthgod-content').innerHTML
+				},
+				{
+					id: 'c2',
+					visible: false,
+					x: 88,
+					y: 1559,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'c3',
+					visible: false,
+					x: 5842,
+					y: 1539,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '斜向的巷<br>橋巷呈西北往東南走向，斜對南北縱貫的大興街和東西橫行的渡船街，其街道肌理與鄰近的叉巷、馬里、染布巷相類，呈現城市發展前阡陌村道的舊貌。',
+				},
+				{
+					id: 'c4',
+					visible: false,
+					x: 2506,
+					y: 1496,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '木屋區<br>大興街一度被橋巷和轎夫巷的木屋群截成兩段。一九七零年代只有一戶木屋，但一九八零年代高峰期卻高達二十多戶。其後地產業興旺，橋巷變身石屎巷弄，但轎夫巷因政府計劃開路，潛力受限，發展膠着。',
+				},
+				{
+					id: 'c5',
+					visible: false,
+					x: 3925,
+					y: 1193,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '大世界遊樂場選址',
+					content: document.getElementById('playground-content').innerHTML
+				},
+				{
+					id: 'c6',
+					visible: false,
+					x: 2410,
+					y: 1533,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '城隍行台',
+					content: document.getElementById('citygod-content').innerHTML
+				},
+				{
+					id: 'c7',
+					visible: false,
+					x: 70,
+					y: 1661,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往石敢當行台',
+					data: {
+						go: "b"
+					}
+				},
+				{
+					id: 'c8',
+					visible: false,
+					x: 2435,
+					y: 1603,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '前往城隍行台',
+					data: {
+						go: "d"
+					}
+				},
+				{
+					id: 'd1',
+					visible: false,
+					x: 255,
+					y: 1602,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '城隍行台',
+					content: document.getElementById('citygod-content').innerHTML
+				},
+				{
+					id: 'd2',
+					visible: false,
+					x: 2255,
+					y: 946,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-blue.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '橋巷',
+					content: document.getElementById('street-content').innerHTML
+				},
+				{
+					id: 'd3',
+					visible: false,
+					x: 4762,
+					y: 1546,
+					image: 'https://inaciso.github.io/earthgodar/360/pin-red.png',
+					width: iH,
+					height: iH,
+					anchor: 'bottom center',
+					tooltip: '進入橋巷',
+					data: {
+						go: "c"
+					}
+				},
+				];
+  var viewer = new PhotoSphereViewer.Viewer({
+	caption: '聚龍社',
+	loadingTxt: "讀取中，請稍候",
+	defaultLat: 0.0,
+	defaultLong: 3.14,
+	defaultZoomLvl: 20,
+	touchmoveTwoFingers: true,
+	mousewheelCtrlKey: true,
+    container: document.querySelector('#viewer'),
+    panorama: 'https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_a.jpg',
+	
+	plugins: [PhotoSphereViewer.GyroscopePlugin,
+		
+		[PhotoSphereViewer.MarkersPlugin, {
+			markers: markerArr,
+		}]
+	],
+		navbar: [
+		'autorotate',
+		'zoom',
+		'caption',
+		'fullscreen'
+		
+	],
+	lang: {
+		autorotate: '自動旋轉',
+		zoom      : '𦂨放',
+		zoomOut   : '放大',
+		zoomIn    : '縮小',
+		download  : '下載',
+		fullscreen: '全屏模式',
+		menu      : '選單',
+		twoFingers: '請使用兩指來導覽',
+		ctrlZoom  : '請使用ctrl和滾輪來縮放圖片',
+		loadError : '讀取錯誤:(',
+		gyroscope : '啟用陀螺儀',
+	}
+  });
+  
+  const markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+	var gyro = viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin);
+	viewer.notification.show({
+				content: "360導賞——橋頭土地公公(橋巷)——按紅色點前進，按藍色點聆聽介紹。",
+				timeout: 8000,
+	});
+	
+	markersPlugin.on('select-marker', function(e, marker, data) {
+		
+		if(marker.data ){
+			const tmpPosition = viewer.getPosition();
+			const markerPostion = marker.props.position;
+			//console.log("tmpPosition: "+tmpPosition.longitude+" , "+ tmpPosition.latitude+" , markerPostion: "+markerPostion);
+			const tmpGoLongitude = markerPostion.longitude-tmpPosition.longitude;
+			const tmpGoLatitude = markerPostion.latitude-tmpPosition.latitude;
+			viewer.animate({
+				  
+				  longitude: markerPostion.longitude,
+				  latitude: 0,
+				  //x:marker.x,
+				  //y:marker.y,
+				  zoom: 100,
+				  speed: "-3rpm",
+			})
+			.then(() => {
+				
+				switch(marker.data.go){
+					case "a":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_a.jpg', { longitude: 3.14, latitude: 0, zoom: 20 }, true);
+					break;
+					case "b":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_b.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
+					break;
+					case "c":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_c.jpg', { longitude: 0, latitude: 0 , zoom: 20}, true);
+					break;
+					case "d":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_d.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+					case "e":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_e.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+					case "f":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_f.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+					case "g":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_g.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+					case "h":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_h.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+					case "i":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_i.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+					case "j":
+						viewer.setPanorama('https://inaciso.github.io/earthgodar/360/BecoCentral/360_5_j.jpg', { longitude: 3.14, latitude: 0 , zoom: 20}, true);
+					break;
+				}
+				for (var i=0; i<markerArr.length ; i++){
+					const mStr = markerArr[i].id;
+					console.log("mStr: "+mStr);
+					if(mStr.charAt(0)  == marker.data.go){
+						markersPlugin.showMarker(mStr);
+					}else{
+						markersPlugin.hideMarker(mStr);
+					}
+				}
+				});
+			
+		}else{
+			markersPlugin.gotoMarker(marker.id, 1500);
+			const textContent = marker.tooltip.content.innerText;
+			//console.log("textContent: "+ textContent);
+			viewer.notification.show({
+				content: textContent,
+				timeout: 3000,
+			});
+			
+		}
+	});
+</script>
+
+<script>
+
+</script>
+
+<div id="preload">
+   <img src="https://inaciso.github.io/earthgodar/360/pin-blue.png" width="1" height="1" alt="Image 01" />
+      <img src="https://inaciso.github.io/earthgodar/360/pin-red.png" width="1" height="1" alt="Image 01" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_a.jpg" width="1" height="1" alt="Image 02" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_b.jpg" width="1" height="1" alt="Image 03" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_c.jpg" width="1" height="1" alt="Image 03" />
+   <img src="https://inaciso.github.io/earthgodar/360/TravessaDaPonte/360_4_d.jpg" width="1" height="1" alt="Image 04" />
+
+</div>
+
+
+</html>
