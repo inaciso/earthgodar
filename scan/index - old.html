@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+
+<head>
+    <title>土地公收藏架</title>
+	<style>
+		:root {
+			--shelfColor: #552700;
+			--shelfBgColorStart: #AA6C39;
+			--shelfBgColorEnd:#804515;
+			--shelfBorder: 10px;
+			--shelfSpace: 20px;
+			--shelfWidth: 80vw;
+			--boxHeight: 200px;
+			--boxWidth: 200px;
+		}
+
+		html {
+		  height: 100%;
+		}
+
+		body {
+		  background-color: #AAACB5;
+		}
+
+		.boxshelf {
+		  width: var(--shelfWidth);
+		  height: 100%;
+		  margin: 0 auto;
+		  border: var(--shelfBorder) var(--shelfColor) solid;
+		  overflow: hidden;
+		  background-image: linear-gradient(
+		  var(--shelfBgColorStart) 0px, 
+		  var(--shelfBgColorEnd) calc(var(--boxHeight) + var(--shelfSpace)), 
+		  var(--shelfColor) calc(var(--boxHeight) + var(--shelfSpace)),
+		  var(--shelfColor) calc(var(--boxHeight) + var(--shelfSpace) + var(--shelfBorder))
+		  );
+		  background-size: 1px calc(var(--boxHeight) + var(--shelfSpace) + var(--shelfBorder));
+		  
+		}
+
+		.box {
+		  height: 200px;
+		  width: 200px;
+		  float: left;
+		  color: white;
+		  font-size: 0.9em;
+		  font-family: Verdana, sans-serif;
+		  margin-bottom: 10px;
+		  margin-top: 20px;
+		  transition: transform 0.4s ease;
+		}
+
+		.box:hover {
+		  transform: scale(1.05);
+		}
+
+		.box-green {
+		  background-color: darkgreen;
+		  border-left: 2px solid lighten(darkgreen, 4%);
+		  border-right: 2px solid darken(darkgreen, 4%);
+		}
+
+		.box-blue {
+		  background-color: #0C347D;
+		  border-left: 2px solid lighten(#0C347D, 4%);
+		  border-right: 2px solid darken(#0C347D, 4%);
+		}
+
+		.box-umber {
+		  background-color: #54290C;
+		  border-left: 2px solid lighten(#54290C, 4%);
+		  border-right: 2px solid darken(#54290C, 4%);
+		}
+
+		.box-springer {
+		  background-color: #EDED80;
+		  border-left: 2px solid lighten(#EDED80, 4%);
+		  border-right: 2px solid darken(#EDED80, 4%);
+		  color: black;
+		}
+
+		.box h2 {
+		  padding: 0;
+		  font-size: 1em;
+		  transform-origin: 0% 0%;
+		  transform: rotate(0.25turn) translateY(-35px);
+		  width: 170px;
+		}
+
+		.box h3 {
+		  padding: 0;
+		  font-size: 0.7em;
+		  transform-origin: 0 0;
+		  transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
+		  width: 150px;
+		}
+		
+		.label-container{
+			position:fixed;
+			bottom:48px;
+			right:105px;
+			display:table;
+			visibility: hidden;
+		}
+
+		.label-text{
+			color:#FFF;
+			background:rgba(51,51,51,0.5);
+			display:table-cell;
+			vertical-align:middle;
+			padding:10px;
+			border-radius:3px;
+		}
+
+		.label-arrow{
+			display:table-cell;
+			vertical-align:middle;
+			color:#333;
+			opacity:0.5;
+		}
+
+		.float{
+			position:fixed;
+			width:60px;
+			height:60px;
+			bottom:40px;
+			right:40px;
+			background-color:#06C;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			box-shadow: 2px 2px 3px #999;
+		}
+
+		.my-float{
+			font-size:24px;
+			margin-top:18px;
+		}
+
+		a.float + div.label-container {
+		  visibility: hidden;
+		  opacity: 0;
+		  transition: visibility 0s, opacity 0.5s ease;
+		}
+
+		a.float:hover + div.label-container{
+		  visibility: visible;
+		  opacity: 1;
+		}
+	</style>
+	
+</head>
+<body>
+<a href="#" class="float">
+<img src="scan.png" width="60" height="60"></img>
+</a>
+<div class="label-container">
+<div class="label-text">掃碼</div>
+<i class="fa fa-play label-arrow"></i>
+</div>
+<div class="boxshelf">
+  <div class="box box-green">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-green">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-blue">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-springer">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box-tilted">
+    <div class="box box-umber">
+      <h2>Harry Potter</h2>
+    </div>
+  </div>
+  <div class="box box-blue">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-green">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-umber">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-springer">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-springer">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-green">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-blue">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box-tilted">
+    <div class="box box-green">
+      <h2>Actionscript:</h2>
+      <h3>The Definitive Guide</h3>
+    </div>
+  </div>
+  <div class="box box-blue">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-springer">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-green">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-umber">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-green">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-green">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-springer">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-springer">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-green">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-springer">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-springer">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-umber">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-green">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-green">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-umber">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-green">
+    <h2>Harry Potter</h2>
+  </div>
+  <div class="box box-springer">
+    <h2>Introducing HTML5</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>CSS For Dummies</h2>
+  </div>
+  <div class="box box-blue">
+    <h2>Actionscript:</h2>
+    <h3>The Definitive Guide</h3>
+  </div>
+  <div class="box box-green">
+    <h2>Woowww<h2>
+  </div>
+  
+</div>
+</body>
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script>
+  
+</script>
+
+</html>
