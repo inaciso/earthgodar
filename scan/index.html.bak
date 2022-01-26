@@ -61,7 +61,11 @@
 	
 </head>
 <body>
-
+<b>Detected QR code: </b>
+<span id="cam-qr-result">None</span>
+<br>
+<b>Last detected at: </b>
+<span id="cam-qr-result-timestamp"></span>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/813fbe9516904a5b92de3f157d9fe21c/thumbnails/13e1f5d8b0d1411cb1a68d0a14993782/1b7546c0ee3c423e9c157185a58d104e.jpeg" /> </div>
@@ -108,18 +112,7 @@
         camQrResult.style.color = 'inherit';
     });
 
-    scanner.start().then(() => {
-        // List cameras after the scanner started to avoid listCamera's stream and the scanner's stream being requested
-        // at the same time which can result in listCamera's unconstrained stream also being offered to the scanner.
-        // Note that we can also start the scanner after listCameras, we just have it this way around in the demo to
-        // start the scanner earlier.
-        QrScanner.listCameras(true).then(cameras => cameras.forEach(camera => {
-            const option = document.createElement('option');
-            option.value = camera.id;
-            option.text = camera.label;
-            camList.add(option);
-        }));
-    });
+
 
     // for debugging
     window.scanner = scanner;
@@ -128,21 +121,9 @@
         scanner.start();
     });
 
-    document.getElementById('stop-button').addEventListener('click', () => {
-        scanner.stop();
-    });
 
-    // ####### File Scanning #######
 
-    fileSelector.addEventListener('change', event => {
-        const file = fileSelector.files[0];
-        if (!file) {
-            return;
-        }
-        QrScanner.scanImage(file)
-            .then(result => setResult(fileQrResult, result))
-            .catch(e => setResult(fileQrResult, e || 'No QR code found.'));
-    });
+   
 
 </script>
 </html>
