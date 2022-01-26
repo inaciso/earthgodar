@@ -69,11 +69,19 @@
 		  cursor: pointer;
 		}
 		
+		.overlayVideo{
+			
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			  width: 80%;
+			
+		}
 	</style>
 	
 </head>
 <body>
-<div id="overlay" onclick="off()"><video id="qr-video"></video></div>
+<div id="overlay" onclick="off();"><video id="qr-video" class="overlayVideo"></video></div>
 <b>Detected QR code: </b>
 <span id="cam-qr-result">None</span>
 <br>
