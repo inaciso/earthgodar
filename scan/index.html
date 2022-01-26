@@ -4,14 +4,18 @@
 <head>
     <title>土地公收藏架</title>
 	<style>
+		
 		@media all and (orientation: landscape) {
 		  :root {
+			
 			--circleSize: 200px;
+
 			}
 		}
 		@media all and (orientation: portrait) {
 		  :root {
 			--circleSize: 30vw;
+;
 			}
 		}
 				
@@ -24,7 +28,7 @@
 			height: var(--circleSize); 
 			overflow: hidden; 
 			border-radius: 50%; 
-			text-align:center;
+			
 			
 		} 
 		.circular--landscape img { 
@@ -57,7 +61,11 @@
 	
 </head>
 <body>
-
+<b>Detected QR code: </b>
+<span id="cam-qr-result">None</span>
+<br>
+<b>Last detected at: </b>
+<span id="cam-qr-result-timestamp"></span>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/813fbe9516904a5b92de3f157d9fe21c/thumbnails/13e1f5d8b0d1411cb1a68d0a14993782/1b7546c0ee3c423e9c157185a58d104e.jpeg" /> </div>
@@ -68,16 +76,54 @@
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/fc7b749a5b8a44f39e97c13a3fe568e2/thumbnails/22d825209f51417db2d8845d489bd28e/6422f24afd11415ca3e62edf8117705d.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/157ae294fb4a4f8a9795a75920d691e8/thumbnails/6f0f98a6195248c5b4eba41cba1d01f5/bf2b2bf2fb4d4110b8748592c93c9ef2.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
-
+<video id="qr-video"></video>
 <a href="#" >
 	<button class="button">
-	請掃<img src="qr-code.svg" class="floatImg"></img>QR碼
+	請掃<img src="qr-code.svg" class="floatImg" id="start-button"></img>QR碼
 	</button>
 </a>
 </body>
 <script src="https://unpkg.com/html5-qrcode"></script>
 <script>
-  
+	
 </script>
+<script type="module">
+    import QrScanner from "../qr-scanner.min.js";
+    QrScanner.WORKER_PATH = '../qr-scanner-worker.min.js';
 
+    const video = document.getElementById('qr-video');
+
+    const camQrResult = document.getElementById('cam-qr-result');
+    const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
+
+
+    function setResult(label, result) {
+        label.textContent = result;
+        camQrResultTimestamp.textContent = new Date().toString();
+        label.style.color = 'teal';
+        clearTimeout(label.highlightTimeout);
+        label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+    }
+
+    // ####### Web Cam Scanning #######
+
+    const scanner = new QrScanner(video, result => setResult(camQrResult, result), error => {
+        camQrResult.textContent = error;
+        camQrResult.style.color = 'inherit';
+    });
+
+
+
+    // for debugging
+    window.scanner = scanner;
+
+    document.getElementById('start-button').addEventListener('click', () => {
+        scanner.start();
+    });
+
+
+
+   
+
+</script>
 </html>
