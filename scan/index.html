@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html style="height: 100%;">
 
 <head>
@@ -118,15 +119,69 @@
 </body>
 <script src="https://unpkg.com/html5-qrcode"></script>
 <script>
-function startFunc() {
-  if (!window.indexedDB) {
-    window.alert("抱歉，你的瀏覽器無法支援土地公收藏架。敬請使用其他瀏覽器。");
-}else{
-	window.alert("瀏覽器通過測試。");
-}
+	function startFunc() {
+		if (!window.indexedDB) {
+			window.alert("抱歉，你的瀏覽器無法支援土地公收藏架。敬請使用其他瀏覽器。");
+			
+		}else{
+			window.alert("瀏覽器通過測試。");
+			openDb();
+		}
+	}
+	var db;
+const DB_NAME = 'earthgod-indexeddb';
+const DB_VERSION = 1;
+const DB_STORE_NAME = 'gods';
+
+function openDb() {
+    console.log("openDb ...");
+    var req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onsuccess = function (evt) {
+      // Better use "this" than "req" to get the result to avoid problems with
+      // garbage collection.
+      // db = req.result;
+      db = this.result;
+      console.log("openDb DONE");
+	  var transaction = db.transaction(DB_STORE_NAME, 'readonly');
+	  var objectStore = transaction.objectStore(DB_STORE_NAME);
+
+	  if ('getAll' in objectStore) {
+		// IDBObjectStore.getAll() will return the full set of items in our store.
+		objectStore.getAll().onsuccess = function(event) {
+		  logGods(event.target.result);
+		};
+	  } else {
+		// Fallback to the traditional cursor approach if getAll isn't supported.
+		var arraygods = [];
+		objectStore.openCursor().onsuccess = function(event) {
+		  var cursor = event.target.result;
+		  if (cursor) {
+			arraygods.push(cursor.value);
+			cursor.continue();
+		  } else {
+			logGods(arraygods);
+		  }
+		};
+	  }
+    };
+    req.onerror = function (evt) {
+      console.error("openDb:", evt.target.errorCode);
+    };
+
+    req.onupgradeneeded = function (evt) {
+      req.result.createObjectStore(DB_STORE_NAME, {autoIncrement: true});
+    };
+  }
+function logGods(arraygods){
+
 }
 </script>
+
 <script type="module">
+
+	
+
+
     import QrScanner from "../scan/qr-scanner.min.js";
     QrScanner.WORKER_PATH = '../scan/qr-scanner-worker.min.js';
 
@@ -137,6 +192,7 @@ function startFunc() {
 
 
     function setResult(label, result) {//這裏是QR碼掃瞄的結果
+
         label.textContent = result+"/embed";
 		if(label.textContent.match("sketchfab")||label.textContent.match("skfb.ly")){
 			let url;
@@ -153,10 +209,30 @@ function startFunc() {
 			document.getElementById("overlay1").style.display = "none";
 			document.getElementById("overlay2").style.display = "block";
 			scanner.stop();
-		}
+			var transaction = db.transaction(DB_STORE_NAME, 'readwrite');
+			var objectStore = transaction.objectStore(DB_STORE_NAME);
+			
+			const keyRng = IDBKeyRange.only(label.textContent);
+			const cursorRequest = objectStore.openCursor(keyRng);
+			cursorRequest.onsuccess = e => {
+				const cursor = e.target.result;
+				if (cursor) {
+					return false;
+				}else{
+					objectStore.put(label.textContent).onsuccess = function() {
+						console.log(label.textContent + "已放入資料庫");
+					};
+				}
+			}
+			
+			
+			
+			
+			
+			
         //clearTimeout(label.highlightTimeout);
         //label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
-		
+		}
     }
 
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), error => {
