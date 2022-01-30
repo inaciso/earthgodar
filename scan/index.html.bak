@@ -2,6 +2,7 @@
 <html style="height: 100%;">
 
 <head>
+	<meta charset="UTF-8">
     <title>土地公收藏架</title>
 	<style>
 		
@@ -34,9 +35,27 @@
 		.circular--landscape img { 
 			width: auto; 
 			height: min(30vw, var(--circleSize)); 
-			margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); 
+			/*margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); */
 		}
-
+		
+		
+		
+		
+		.circular--landscape iframe { 
+			width: var(--circleSize); 
+			height: var(--circleSize); 
+			frameborder: 0;
+		}
+		
+		.overlayCircule{
+			width: var(--circleSize); 
+			height: var(--circleSize); 
+			frameborder: 0;
+			z-index:3;
+			position: absolute; 
+			top: 0px;
+		}
+		
 		.button{
 			position:fixed;
 			height:auto;
@@ -49,6 +68,7 @@
 			text-align:center;
 			font-size: 3vw;
 			box-shadow: 0.5vw 0.5vw 1vw 0.5vw #DCDCDC;
+			z-index: 998;
 		}
 		
 		.floatImg{
@@ -65,7 +85,7 @@
 		  right: 0;
 		  bottom: 0;
 		  background-color: rgba(0,0,0,0.5);
-		  z-index: 2;
+		  z-index: 999;
 		  cursor: pointer;
 		}
 		
@@ -74,98 +94,211 @@
 			  display: block;
 			  margin-left: auto;
 			  margin-right: auto;
-			  width: 80vw;			
+			  width: 80vw;	
+			
 		}
+		#modelFrame{
+			border: none; 
+			width: 80vw; 
+			height: 80vh;
+		}
+
 	</style>
 	
 </head>
-<body>
+<body onload="startFunc()">
 <div id="overlay1" class="overlay">
 	
 	<video id="qr-video" class="overlayVideo">
 	</video>
 	
 	<button class="button" style="color:#f00707;">
-		停止掃瞄<img src="qr-code.svg" class="floatImg" id="stop-button"></img>QR碼
+		停止掃瞄<img src="qr-code-red.png" class="floatImg" ></img>QR碼
 	</button>
 	
 </div>
 <div id="overlay2" class="overlay">
-	<div class="overlayVideo"> <iframe frameborder="0" style="width: 80vw; height: 80vw" src="https://sketchfab.com/models/12082e15bcc4488b95e284a63bf9ed8f/embed"> </iframe> </div>
+	<div class="overlayVideo"> <iframe id="modelFrame"  src=""> </iframe> </div>
+	<button class="button" style="color:#DCDCDC;">
+		停止查看<img src="qr-code-grey.png" class="floatImg" >模型
+	</button>
 </div>
-<b>Detected QR code: </b>
-<span id="cam-qr-result">None</span>
-<br>
-<b>Last detected at: </b>
-<span id="cam-qr-result-timestamp"></span>
+<div class="circular--landscape"> <img src="text1.svg" /> </div>
+<div class="circular--landscape"> <img src="text2.svg" /> </div>
+<div class="circular--landscape"> <img src="text3.svg" /> </div>
+<div class="circular--landscape"> <img src="text4.svg" /> </div>
+<div class="circular--landscape"> <img src="text5.svg" /> </div>
+<div class="circular--landscape"> <img src="text6.svg" /> </div>
+<!--
 
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/813fbe9516904a5b92de3f157d9fe21c/thumbnails/13e1f5d8b0d1411cb1a68d0a14993782/1b7546c0ee3c423e9c157185a58d104e.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/335f7d44308842778f9fc0133e2fabc9/thumbnails/1da56114007645ac9f3a25a991eaf39e/1035d609264c449ebaceda55d5577d0c.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/b4ab224237c74be69cc73e6caaa1d418/thumbnails/65fefe2cf22241129d4af2d48789b746/14f346f137b247adb9a245ff461d1aaa.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/e30e6f1bc96e4bf4af9b27262a4bc066/thumbnails/7c0071c7e259475abedd7f1ba932ad3a/b4de1f41a7f44031b9773fc006395e67.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/fc7b749a5b8a44f39e97c13a3fe568e2/thumbnails/22d825209f51417db2d8845d489bd28e/6422f24afd11415ca3e62edf8117705d.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/157ae294fb4a4f8a9795a75920d691e8/thumbnails/6f0f98a6195248c5b4eba41cba1d01f5/bf2b2bf2fb4d4110b8748592c93c9ef2.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
+-->
 
-
-	<button class="button">
-	請掃<img src="qr-code.svg" class="floatImg" id="start-button"></img>QR碼
-	</button>
+<button class="button" id="start-button">
+	請掃<img src="qr-code-blue.png" class="floatImg" ></img>QR碼
+</button>
 
 </body>
 <script src="https://unpkg.com/html5-qrcode"></script>
+<script>
+	function startFunc() {
+		if (!window.indexedDB) {
+			window.alert("抱歉，你的瀏覽器無法支援土地公收藏架。敬請使用其他瀏覽器。");
+			
+		}else{
+			//window.alert("瀏覽器通過測試。");
+			openDb();
+		}
+	}
+var db;
+const DB_NAME = 'earthgod-indexeddb';
+const DB_VERSION = 1;
+const DB_STORE_NAME = 'gods';
+
+function openDb() {
+    console.log("openDb ...");
+    var req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onsuccess = function (evt) {
+      // Better use "this" than "req" to get the result to avoid problems with
+      // garbage collection.
+      // db = req.result;
+		db = this.result;
+		console.log("openDb DONE");
+		var transaction = db.transaction(DB_STORE_NAME, 'readonly');
+		var objectStore = transaction.objectStore(DB_STORE_NAME);
+		//var arraygods = [];
+		
+		objectStore.openCursor().onsuccess = function(event) {
+			var cursor = event.target.result;
+			if (cursor) {
+				//arraygods.push(cursor.value);
+				addGodToDesktop(cursor.value.godIndex);
+
+				cursor.continue();
+				//console.log("cursor.value: "+ cursor.value.godIndex);
+			}
+			var circularOverlay = document.getElementsByClassName('overlayCircule');
+			for(let i = 0; i < circularOverlay.length; i++) {
+				circularOverlay[i].addEventListener("click", function() {
+					console.log("circularOverlay[i].parentElement.godIndex"+circularOverlay[i].parentElement.getAttribute("godIndex"));
+					document.getElementById("modelFrame").src = circularOverlay[i].parentElement.getAttribute("godIndex");
+					document.getElementById("overlay1").style.display = "none";
+					document.getElementById("overlay2").style.display = "block";
+					
+				})
+			}
+		};
+	  
+    };
+    req.onerror = function (evt) {
+      console.error("openDb:", evt.target.errorCode);
+    };
+
+    req.onupgradeneeded = function (evt) {
+      //req.result.createObjectStore(DB_STORE_NAME, {autoIncrement: true});
+	  var objectStore = req.result.createObjectStore(DB_STORE_NAME, {autoIncrement: true});
+	  objectStore.createIndex("godIndex", "godIndex", { unique: true });
+    };
+  }
+function addGodToDesktop(str){
+	const godDiv = document.createElement("div");
+	godDiv.setAttribute("class", "circular--landscape");
+	godDiv.setAttribute("godIndex", str);
+	godDiv.innerHTML = "<iframe src='" + str.replace("3d-","") + "?autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
+	document.body.appendChild(godDiv);
+}
+</script>
 
 <script type="module">
+
+	
+
+
     import QrScanner from "../scan/qr-scanner.min.js";
     QrScanner.WORKER_PATH = '../scan/qr-scanner-worker.min.js';
 
     const video = document.getElementById('qr-video');
 
-    const camQrResult = document.getElementById('cam-qr-result');
+    var camQrResult =  { godIndex: ""};
     //const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 
 
     function setResult(label, result) {//這裏是QR碼掃瞄的結果
-        label.textContent = result+"/embed";
-		document.getElementById("overlay1").src = label.textContent;
-        //camQrResultTimestamp.textContent = new Date().toString();
-        label.style.color = 'teal';
-		document.getElementById("overlay1").style.display = "none";
-		document.getElementById("overlay2").style.display = "block";
-		scanner.stop();
-		
+
+        label.godIndex = result+"/embed";
+		//label.setAttribute("godIndex", label.godIndex);
+		if(label.godIndex.match("sketchfab")||label.godIndex.match("skfb.ly")){
+			let url;
+  
+			try {
+				url = new URL(label.godIndex);
+			} catch (_) {
+				return false;  
+			}
+			console.log("label.godIndex: " + label.godIndex);
+			document.getElementById("modelFrame").src = label.godIndex;
+			//camQrResultTimestamp.godIndex = new Date().toString();
+			//label.style.color = 'teal';
+			document.getElementById("overlay1").style.display = "none";
+			document.getElementById("overlay2").style.display = "block";
+			scanner.stop();
+			var transaction = db.transaction(DB_STORE_NAME, 'readwrite');
+			var objectStore = transaction.objectStore(DB_STORE_NAME);
+			const constGodIndex = objectStore.index('godIndex');
+			const keyRng = IDBKeyRange.only(label.godIndex);
+			const cursorRequest = constGodIndex.openCursor(keyRng);
+			cursorRequest.onsuccess = e => {
+				const cursor = e.target.result;
+				if (cursor) {
+					return false;
+				}else{
+					objectStore.put(label).onsuccess = function() {
+						addGodToDesktop(label.godIndex);
+						console.log(label.godIndex+ "已放入資料庫");
+					};
+				}
+			}
+			
+			
+			
+			
+			
+
         //clearTimeout(label.highlightTimeout);
         //label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
-		
+		}
     }
 
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), error => {
-        camQrResult.textContent = error;
-        camQrResult.style.color = 'inherit';
+        //camQrResult.godIndex = error;
+        //camQrResult.style.color = 'inherit';
     });
 
-
-
-    // for debugging
-    window.scanner = scanner;
-
     document.getElementById('start-button').addEventListener('click', () => {
-        
+        console.log("start-button-press");
 		document.getElementById("overlay1").style.display = "block";
 		document.getElementById("overlay2").style.display = "none";
 		scanner.start();
+		console.log("scanner.start");
     });
 
-	document.getElementById('overlay').addEventListener('click', () => {
+	document.getElementById('overlay1').addEventListener('click', () => {
 		document.getElementById("overlay1").style.display = "none";
 		document.getElementById("overlay2").style.display = "none";
 		  scanner.stop();
+		  //console.log("scanner.stop");
 	});
 
-
+	document.getElementById('overlay2').addEventListener('click', () => {
+		document.getElementById("overlay1").style.display = "none";
+		document.getElementById("overlay2").style.display = "none";
+		scanner.stop();
+		
+		//console.log("scanner.stop");
+	});
    
 
 </script>

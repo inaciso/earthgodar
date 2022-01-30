@@ -35,8 +35,11 @@
 		.circular--landscape img { 
 			width: auto; 
 			height: min(30vw, var(--circleSize)); 
-			margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); 
+			/*margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); */
 		}
+		
+		
+		
 		
 		.circular--landscape iframe { 
 			width: var(--circleSize); 
@@ -60,7 +63,7 @@
 			bottom:10vh;
 			right:10vw;
 			background-color:#ffffff;
-			color:#DCDCDC;
+			color:#99d4ff;
 			border-radius:2.5vw;
 			text-align:center;
 			font-size: 3vw;
@@ -110,21 +113,24 @@
 	</video>
 	
 	<button class="button" style="color:#f00707;">
-		停止掃瞄<img src="qr-code.svg" class="floatImg" id="stop-button"></img>QR碼
+		停止掃瞄<img src="qr-code-red.png" class="floatImg" ></img>QR碼
 	</button>
 	
 </div>
 <div id="overlay2" class="overlay">
-	<div class="overlayVideo"> <iframe id="modelFrame"  src="https://sketchfab.com/models/12082e15bcc4488b95e284a63bf9ed8f/embed"> </iframe> </div>
+	<div class="overlayVideo"> <iframe id="modelFrame"  src=""> </iframe> </div>
+	<button class="button" style="color:#DCDCDC;">
+		停止查看<img src="qr-code-grey.png" class="floatImg" >模型
+	</button>
 </div>
-
+<div class="circular--landscape"> <img src="text1.svg" /> </div>
+<div class="circular--landscape"> <img src="text2.svg" /> </div>
+<div class="circular--landscape"> <img src="text3.svg" /> </div>
+<div class="circular--landscape"> <img src="text4.svg" /> </div>
+<div class="circular--landscape"> <img src="text5.svg" /> </div>
+<div class="circular--landscape"> <img src="text6.svg" /> </div>
 <!--
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/813fbe9516904a5b92de3f157d9fe21c/thumbnails/13e1f5d8b0d1411cb1a68d0a14993782/1b7546c0ee3c423e9c157185a58d104e.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/335f7d44308842778f9fc0133e2fabc9/thumbnails/1da56114007645ac9f3a25a991eaf39e/1035d609264c449ebaceda55d5577d0c.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/b4ab224237c74be69cc73e6caaa1d418/thumbnails/65fefe2cf22241129d4af2d48789b746/14f346f137b247adb9a245ff461d1aaa.jpeg" /> </div>
-<div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
+
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/e30e6f1bc96e4bf4af9b27262a4bc066/thumbnails/7c0071c7e259475abedd7f1ba932ad3a/b4de1f41a7f44031b9773fc006395e67.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/fc7b749a5b8a44f39e97c13a3fe568e2/thumbnails/22d825209f51417db2d8845d489bd28e/6422f24afd11415ca3e62edf8117705d.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/157ae294fb4a4f8a9795a75920d691e8/thumbnails/6f0f98a6195248c5b4eba41cba1d01f5/bf2b2bf2fb4d4110b8748592c93c9ef2.jpeg" /> </div>
@@ -132,7 +138,7 @@
 -->
 
 <button class="button" id="start-button">
-	請掃<img src="qr-code.svg" class="floatImg" ></img>QR碼
+	請掃<img src="qr-code-blue.png" class="floatImg" ></img>QR碼
 </button>
 
 </body>
@@ -201,7 +207,7 @@ function addGodToDesktop(str){
 	const godDiv = document.createElement("div");
 	godDiv.setAttribute("class", "circular--landscape");
 	godDiv.setAttribute("godIndex", str);
-	godDiv.innerHTML = "<iframe src='" + str.replace("3d-","") + "?autospin=1&autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
+	godDiv.innerHTML = "<iframe src='" + str.replace("3d-","") + "?autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
 	document.body.appendChild(godDiv);
 }
 </script>

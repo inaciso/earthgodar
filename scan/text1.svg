@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 52.916666 52.916666"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="text1.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="200px"
+     units="px"
+     inkscape:zoom="1.4289282"
+     inkscape:cx="100.77483"
+     inkscape:cy="142.41444"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text1021" />
+  <defs
+     id="defs2">
+    <rect
+       x="-89.577631"
+       y="352.71192"
+       width="142.76435"
+       height="174.95631"
+       id="rect10312" />
+    <rect
+       x="249.13779"
+       y="333.11682"
+       width="331.71716"
+       height="254.73639"
+       id="rect1023" />
+    <rect
+       x="-89.577629"
+       y="352.71191"
+       width="142.76434"
+       height="174.95631"
+       id="rect10312-4" />
+    <rect
+       x="-89.577629"
+       y="352.71191"
+       width="142.76434"
+       height="174.95631"
+       id="rect10312-4-1" />
+  </defs>
+  <g
+     inkscape:label="图层 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       aria-label="土"
+       transform="matrix(1.2135816,0,0,1.4770582,-299.86958,-496.37774)"
+       id="text1021"
+       style="font-size:40px;line-height:1.25;white-space:pre;shape-inside:url(#rect1023)">
+      <text
+         xml:space="preserve"
+         transform="matrix(0.33770962,0,0,0.30296694,257.4584,282.1583)"
+         id="text10310-7"
+         style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect10312-4);fill:#000000;fill-opacity:1;stroke:none"><tspan
+           x="-89.578125"
+           y="440.29465"
+           id="tspan43424"><tspan
+             style="fill:#99d4ff"
+             id="tspan43422">土</tspan></tspan></text>
+      <g
+         aria-label="土"
+         transform="matrix(0.33770962,0,0,0.30296694,282.92206,231.62531)"
+         id="text10310-7-8"
+         style="font-size:96px;shape-inside:url(#rect10312-4-1)">
+        <path
+           d="m -87.421875,438.84152 h 41.625 v -39.375 h -34.875 v -7.6875 h 34.875 v -30.46875 h 8.4375 v 30.46875 h 35.15625 v 7.6875 h -35.15625 v 39.375 h 41.71875 v 7.5 h -91.78125 z"
+           style="fill:#99d4ff"
+           id="path42065" />
+      </g>
+    </g>
+  </g>
+</svg>
