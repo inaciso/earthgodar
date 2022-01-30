@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html style="height: 100%;">
 
 <head>
+	<meta charset="UTF-8">
     <title>土地公收藏架</title>
 	<style>
 		
@@ -37,7 +37,22 @@
 			height: min(30vw, var(--circleSize)); 
 			margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); 
 		}
-
+		
+		.circular--landscape iframe { 
+			width: var(--circleSize); 
+			height: var(--circleSize); 
+			frameborder: 0;
+		}
+		
+		.overlayCircule{
+			width: var(--circleSize); 
+			height: var(--circleSize); 
+			frameborder: 0;
+			z-index:3;
+			position: absolute; 
+			top: 0px;
+		}
+		
 		.button{
 			position:fixed;
 			height:auto;
@@ -50,6 +65,7 @@
 			text-align:center;
 			font-size: 3vw;
 			box-shadow: 0.5vw 0.5vw 1vw 0.5vw #DCDCDC;
+			z-index: 998;
 		}
 		
 		.floatImg{
@@ -66,7 +82,7 @@
 		  right: 0;
 		  bottom: 0;
 		  background-color: rgba(0,0,0,0.5);
-		  z-index: 2;
+		  z-index: 999;
 		  cursor: pointer;
 		}
 		
@@ -75,8 +91,15 @@
 			  display: block;
 			  margin-left: auto;
 			  margin-right: auto;
-			  width: 80vw;			
+			  width: 80vw;	
+			
 		}
+		#modelFrame{
+			border: none; 
+			width: 80vw; 
+			height: 80vh;
+		}
+
 	</style>
 	
 </head>
@@ -92,14 +115,10 @@
 	
 </div>
 <div id="overlay2" class="overlay">
-	<div class="overlayVideo"> <iframe id="modelFrame" frameborder="0" style="width: 80vw; height: 80vw" src="https://sketchfab.com/models/12082e15bcc4488b95e284a63bf9ed8f/embed"> </iframe> </div>
+	<div class="overlayVideo"> <iframe id="modelFrame"  src="https://sketchfab.com/models/12082e15bcc4488b95e284a63bf9ed8f/embed"> </iframe> </div>
 </div>
-<b>Detected QR code: </b>
-<span id="cam-qr-result">None</span>
-<br>
-<b>Last detected at: </b>
-<span id="cam-qr-result-timestamp"></span>
 
+<!--
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/50d0db06bf9e46c9b1d5ea55d7d0fbff/thumbnails/1c831eabc76c4b449eaf545e8fbaabed/fbfd06225a284b6cacccaef0dc38c4c8.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/813fbe9516904a5b92de3f157d9fe21c/thumbnails/13e1f5d8b0d1411cb1a68d0a14993782/1b7546c0ee3c423e9c157185a58d104e.jpeg" /> </div>
@@ -110,7 +129,7 @@
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/fc7b749a5b8a44f39e97c13a3fe568e2/thumbnails/22d825209f51417db2d8845d489bd28e/6422f24afd11415ca3e62edf8117705d.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/157ae294fb4a4f8a9795a75920d691e8/thumbnails/6f0f98a6195248c5b4eba41cba1d01f5/bf2b2bf2fb4d4110b8748592c93c9ef2.jpeg" /> </div>
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
-
+-->
 
 <button class="button">
 	請掃<img src="qr-code.svg" class="floatImg" id="start-button"></img>QR碼
@@ -124,11 +143,11 @@
 			window.alert("抱歉，你的瀏覽器無法支援土地公收藏架。敬請使用其他瀏覽器。");
 			
 		}else{
-			window.alert("瀏覽器通過測試。");
+			//window.alert("瀏覽器通過測試。");
 			openDb();
 		}
 	}
-	var db;
+var db;
 const DB_NAME = 'earthgod-indexeddb';
 const DB_VERSION = 1;
 const DB_STORE_NAME = 'gods';
@@ -140,41 +159,48 @@ function openDb() {
       // Better use "this" than "req" to get the result to avoid problems with
       // garbage collection.
       // db = req.result;
-      db = this.result;
-      console.log("openDb DONE");
-	  var transaction = db.transaction(DB_STORE_NAME, 'readonly');
-	  var objectStore = transaction.objectStore(DB_STORE_NAME);
-
-	  if ('getAll' in objectStore) {
-		// IDBObjectStore.getAll() will return the full set of items in our store.
-		objectStore.getAll().onsuccess = function(event) {
-		  logGods(event.target.result);
-		};
-	  } else {
-		// Fallback to the traditional cursor approach if getAll isn't supported.
-		var arraygods = [];
+		db = this.result;
+		console.log("openDb DONE");
+		var transaction = db.transaction(DB_STORE_NAME, 'readonly');
+		var objectStore = transaction.objectStore(DB_STORE_NAME);
+		//var arraygods = [];
+		
 		objectStore.openCursor().onsuccess = function(event) {
-		  var cursor = event.target.result;
-		  if (cursor) {
-			arraygods.push(cursor.value);
-			cursor.continue();
-		  } else {
-			logGods(arraygods);
-		  }
+			var cursor = event.target.result;
+			if (cursor) {
+				//arraygods.push(cursor.value);
+				const godDiv = document.createElement("div");
+				godDiv.setAttribute("class", "circular--landscape");
+				godDiv.setAttribute("godIndex", cursor.value.godIndex);
+				godDiv.innerHTML = "<iframe src='" + cursor.value.godIndex.replace("3d-","") + "?autospin=1&autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
+				document.body.appendChild(godDiv);
+				cursor.continue();
+				//console.log("cursor.value: "+ cursor.value.godIndex);
+			}
+			var circularOverlay = document.getElementsByClassName('overlayCircule');
+			for(let i = 0; i < circularOverlay.length; i++) {
+				circularOverlay[i].addEventListener("click", function() {
+					console.log("circularOverlay[i].parentElement.godIndex"+circularOverlay[i].parentElement.getAttribute("godIndex"));
+					document.getElementById("modelFrame").src = circularOverlay[i].parentElement.getAttribute("godIndex");
+					document.getElementById("overlay1").style.display = "none";
+					document.getElementById("overlay2").style.display = "block";
+					
+				})
+			}
 		};
-	  }
+	  
     };
     req.onerror = function (evt) {
       console.error("openDb:", evt.target.errorCode);
     };
 
     req.onupgradeneeded = function (evt) {
-      req.result.createObjectStore(DB_STORE_NAME, {autoIncrement: true});
+      //req.result.createObjectStore(DB_STORE_NAME, {autoIncrement: true});
+	  var objectStore = req.result.createObjectStore(DB_STORE_NAME, {autoIncrement: true});
+	  objectStore.createIndex("godIndex", "godIndex", { unique: true });
     };
   }
-function logGods(arraygods){
 
-}
 </script>
 
 <script type="module">
@@ -187,40 +213,41 @@ function logGods(arraygods){
 
     const video = document.getElementById('qr-video');
 
-    const camQrResult = document.getElementById('cam-qr-result');
+    var camQrResult =  { godIndex: ""};
     //const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 
 
     function setResult(label, result) {//這裏是QR碼掃瞄的結果
 
-        label.textContent = result+"/embed";
-		if(label.textContent.match("sketchfab")||label.textContent.match("skfb.ly")){
+        label.godIndex = result+"/embed";
+		//label.setAttribute("godIndex", label.godIndex);
+		if(label.godIndex.match("sketchfab")||label.godIndex.match("skfb.ly")){
 			let url;
   
 			try {
-				url = new URL(label.textContent);
+				url = new URL(label.godIndex);
 			} catch (_) {
 				return false;  
 			}
-			console.log("label.textContent: " + label.textContent);
-			document.getElementById("modelFrame").src = label.textContent;
-			//camQrResultTimestamp.textContent = new Date().toString();
-			label.style.color = 'teal';
+			console.log("label.godIndex: " + label.godIndex);
+			document.getElementById("modelFrame").src = label.godIndex;
+			//camQrResultTimestamp.godIndex = new Date().toString();
+			//label.style.color = 'teal';
 			document.getElementById("overlay1").style.display = "none";
 			document.getElementById("overlay2").style.display = "block";
 			scanner.stop();
 			var transaction = db.transaction(DB_STORE_NAME, 'readwrite');
 			var objectStore = transaction.objectStore(DB_STORE_NAME);
-			
-			const keyRng = IDBKeyRange.only(label.textContent);
-			const cursorRequest = objectStore.openCursor(keyRng);
+			const constGodIndex = objectStore.index('godIndex');
+			const keyRng = IDBKeyRange.only(label.godIndex);
+			const cursorRequest = constGodIndex.openCursor(keyRng);
 			cursorRequest.onsuccess = e => {
 				const cursor = e.target.result;
 				if (cursor) {
 					return false;
 				}else{
-					objectStore.put(label.textContent).onsuccess = function() {
-						console.log(label.textContent + "已放入資料庫");
+					objectStore.put(label).onsuccess = function() {
+						console.log(label + "已放入資料庫");
 					};
 				}
 			}
@@ -229,15 +256,15 @@ function logGods(arraygods){
 			
 			
 			
-			
+
         //clearTimeout(label.highlightTimeout);
         //label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
 		}
     }
 
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), error => {
-        camQrResult.textContent = error;
-        camQrResult.style.color = 'inherit';
+        //camQrResult.godIndex = error;
+        //camQrResult.style.color = 'inherit';
     });
 
     document.getElementById('start-button').addEventListener('click', () => {
