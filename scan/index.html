@@ -131,8 +131,8 @@
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/8efb25d661de4342ac0068792c32359c/thumbnails/7df50ae5f6c3497ab740ebb56940409d/83a9be9a133a4150a5d2443fda945541.jpeg" /> </div>
 -->
 
-<button class="button">
-	請掃<img src="qr-code.svg" class="floatImg" id="start-button"></img>QR碼
+<button class="button" id="start-button">
+	請掃<img src="qr-code.svg" class="floatImg" ></img>QR碼
 </button>
 
 </body>
@@ -169,11 +169,8 @@ function openDb() {
 			var cursor = event.target.result;
 			if (cursor) {
 				//arraygods.push(cursor.value);
-				const godDiv = document.createElement("div");
-				godDiv.setAttribute("class", "circular--landscape");
-				godDiv.setAttribute("godIndex", cursor.value.godIndex);
-				godDiv.innerHTML = "<iframe src='" + cursor.value.godIndex.replace("3d-","") + "?autospin=1&autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
-				document.body.appendChild(godDiv);
+				addGodToDesktop(cursor.value.godIndex);
+
 				cursor.continue();
 				//console.log("cursor.value: "+ cursor.value.godIndex);
 			}
@@ -200,7 +197,13 @@ function openDb() {
 	  objectStore.createIndex("godIndex", "godIndex", { unique: true });
     };
   }
-
+function addGodToDesktop(str){
+	const godDiv = document.createElement("div");
+	godDiv.setAttribute("class", "circular--landscape");
+	godDiv.setAttribute("godIndex", str);
+	godDiv.innerHTML = "<iframe src='" + str.replace("3d-","") + "?autospin=1&autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
+	document.body.appendChild(godDiv);
+}
 </script>
 
 <script type="module">
@@ -247,7 +250,8 @@ function openDb() {
 					return false;
 				}else{
 					objectStore.put(label).onsuccess = function() {
-						console.log(label + "已放入資料庫");
+						addGodToDesktop(label.godIndex);
+						console.log(label.godIndex+ "已放入資料庫");
 					};
 				}
 			}
@@ -268,11 +272,11 @@ function openDb() {
     });
 
     document.getElementById('start-button').addEventListener('click', () => {
-        
+        console.log("start-button-press");
 		document.getElementById("overlay1").style.display = "block";
 		document.getElementById("overlay2").style.display = "none";
 		scanner.start();
-		//console.log("scanner.start");
+		console.log("scanner.start");
     });
 
 	document.getElementById('overlay1').addEventListener('click', () => {
