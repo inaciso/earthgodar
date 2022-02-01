@@ -258,7 +258,7 @@ function addGodToDesktop(str, url){
 			//label.thumbnail_url = loadXMLDoc(label.godIndex);
 			//console.log("label.thumbnail_url: "+loadXMLDoc(label.godIndex));
 			//label.setAttribute("godIndex", label.godIndex);
-			if(label.godIndex.match("sketchfab")||label.godIndex.match("skfb.ly")){
+			if(label.godIndex.match("sketchfab")){
 				let url;
 	  
 				try {
@@ -307,6 +307,12 @@ function addGodToDesktop(str, url){
 		  //console.log("responseJson.thumbnail_url: "+ responseJson.thumbnail_url );
 		}
 	  };
+	  xhttp.timeout = 5000; 
+	  xhttp.ontimeout = function(event){ 
+		 
+			　　　　scanner.start(); 
+		 
+		} 
 	  xhttp.open("GET", getOEmbed, true);
 	  xhttp.send();
 	}
