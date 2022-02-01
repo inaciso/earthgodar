@@ -216,7 +216,9 @@ function addGodToDesktop(str, url){
 	document.body.appendChild(godDiv);
 	godDiv.appendChild(overlayToGodDiv);
 	overlayToGodDiv.addEventListener("click", function() {
-		document.getElementById("modelFrame").src = this.getAttribute("godIndex");
+		let godIndexURL = this.getAttribute("godIndex").replace("3d-","");
+		godIndexURL = godIndexURL + "?autostart=1&camera=0&ui_hint=0";
+		document.getElementById("modelFrame").src = godIndexURL;
 		document.getElementById("overlay1").style.display = "none";
 		document.getElementById("overlay2").style.display = "block";
 					
