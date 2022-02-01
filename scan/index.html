@@ -16,7 +16,7 @@
 		@media all and (orientation: portrait) {
 		  :root {
 			--circleSize: 30vw;
-			--circleMargin: 1.4vw;
+			--circleMargin: 1.3vw;
 			}
 		}
 				
@@ -306,14 +306,24 @@ function addGodToDesktop(str, url){
 			
 		  //console.log("this.responseText: "+ this.responseText.thumbnail_url );
 		  //console.log("responseJson.thumbnail_url: "+ responseJson.thumbnail_url );
+		}else if(this.readyState == 4 && this.status == 0){
+			scanner.start();
 		}
 	  };
 	  xhttp.timeout = 5000; 
 	  xhttp.ontimeout = function(event){ 
-		 
-			　　　　scanner.start(); 
+		scanner.start(); 
 		 
 		} 
+		 xhttp.onerror = function(event){
+			scanner.start(); 
+		 }
+		 xhttp.onloadend = function() {
+			if(xhttp.status == 404){ 
+				scanner.start(); 
+				
+			}
+		}
 	  xhttp.open("GET", getOEmbed, true);
 	  xhttp.send();
 	}
