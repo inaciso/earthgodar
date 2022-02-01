@@ -35,7 +35,7 @@
 		.circular--landscape img { 
 			width: auto; 
 			height: min(30vw, var(--circleSize)); 
-			/*margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); */
+			margin-left: max(calc(30vw * -0.4445), calc(var(--circleSize) * -0.4445)); 
 		}
 		
 		
@@ -123,12 +123,12 @@
 		停止查看<img src="qr-code-grey.png" class="floatImg" >模型
 	</button>
 </div>
-<div class="circular--landscape"> <img src="text1.svg" /> </div>
-<div class="circular--landscape"> <img src="text2.svg" /> </div>
-<div class="circular--landscape"> <img src="text3.svg" /> </div>
-<div class="circular--landscape"> <img src="text4.svg" /> </div>
-<div class="circular--landscape"> <img src="text5.svg" /> </div>
-<div class="circular--landscape"> <img src="text6.svg" /> </div>
+<div class="circular--landscape"> <img src="text1.svg" style="margin-left:0" /> </div>
+<div class="circular--landscape"> <img src="text2.svg" style="margin-left:0"/> </div>
+<div class="circular--landscape"> <img src="text3.svg" style="margin-left:0"/> </div>
+<div class="circular--landscape"> <img src="text4.svg" style="margin-left:0"/> </div>
+<div class="circular--landscape"> <img src="text5.svg" style="margin-left:0"/> </div>
+<div class="circular--landscape"> <img src="text6.svg" style="margin-left:0"/> </div>
 <!--
 
 <div class="circular--landscape"> <img src="https://media.sketchfab.com/models/e30e6f1bc96e4bf4af9b27262a4bc066/thumbnails/7c0071c7e259475abedd7f1ba932ad3a/b4de1f41a7f44031b9773fc006395e67.jpeg" /> </div>
@@ -175,12 +175,12 @@ function openDb() {
 			var cursor = event.target.result;
 			if (cursor) {
 				//arraygods.push(cursor.value);
-				addGodToDesktop(cursor.value.godIndex);
+				addGodToDesktop(cursor.value.godIndex, cursor.value.thumbnail_url);
 
 				cursor.continue();
 				//console.log("cursor.value: "+ cursor.value.godIndex);
 			}
-			var circularOverlay = document.getElementsByClassName('overlayCircule');
+			/*var circularOverlay = document.getElementsByClassName('overlayCircule');
 			for(let i = 0; i < circularOverlay.length; i++) {
 				circularOverlay[i].addEventListener("click", function() {
 					console.log("circularOverlay[i].parentElement.godIndex"+circularOverlay[i].parentElement.getAttribute("godIndex"));
@@ -189,7 +189,7 @@ function openDb() {
 					document.getElementById("overlay2").style.display = "block";
 					
 				})
-			}
+			}*/
 		};
 	  
     };
@@ -203,13 +203,27 @@ function openDb() {
 	  objectStore.createIndex("godIndex", "godIndex", { unique: true });
     };
   }
-function addGodToDesktop(str){
+function addGodToDesktop(str, url){
 	const godDiv = document.createElement("div");
+	const overlayToGodDiv = document.createElement("div");
 	godDiv.setAttribute("class", "circular--landscape");
-	godDiv.setAttribute("godIndex", str);
-	godDiv.innerHTML = "<iframe src='" + str.replace("3d-","") + "?autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
+	overlayToGodDiv.setAttribute("class","overlayCircule");
+	overlayToGodDiv.setAttribute("godIndex", str);
+	//godDiv.setAttribute("godIndex", str);
+	//godDiv.innerHTML = "<iframe src='" + str.replace("3d-","") + "?autostart=1&camera=0&ui_hint=0'> </iframe><div class='overlayCircule'><div>";
+	godDiv.innerHTML = "<img src='"+url+"'/>"
 	document.body.appendChild(godDiv);
+	godDiv.appendChild(overlayToGodDiv);
+	overlayToGodDiv.addEventListener("click", function() {
+		document.getElementById("modelFrame").src = this.getAttribute("godIndex");
+		document.getElementById("overlay1").style.display = "none";
+		document.getElementById("overlay2").style.display = "block";
+					
+	})
 }
+
+
+
 </script>
 
 <script type="module">
@@ -227,51 +241,75 @@ function addGodToDesktop(str){
 
 
     function setResult(label, result) {//這裏是QR碼掃瞄的結果
-
-        label.godIndex = result+"/embed";
-		//label.setAttribute("godIndex", label.godIndex);
-		if(label.godIndex.match("sketchfab")||label.godIndex.match("skfb.ly")){
-			let url;
-  
-			try {
-				url = new URL(label.godIndex);
-			} catch (_) {
-				return false;  
-			}
-			console.log("label.godIndex: " + label.godIndex);
-			document.getElementById("modelFrame").src = label.godIndex;
-			//camQrResultTimestamp.godIndex = new Date().toString();
-			//label.style.color = 'teal';
-			document.getElementById("overlay1").style.display = "none";
-			document.getElementById("overlay2").style.display = "block";
-			scanner.stop();
-			var transaction = db.transaction(DB_STORE_NAME, 'readwrite');
-			var objectStore = transaction.objectStore(DB_STORE_NAME);
-			const constGodIndex = objectStore.index('godIndex');
-			const keyRng = IDBKeyRange.only(label.godIndex);
-			const cursorRequest = constGodIndex.openCursor(keyRng);
-			cursorRequest.onsuccess = e => {
-				const cursor = e.target.result;
-				if (cursor) {
-					return false;
-				}else{
-					objectStore.put(label).onsuccess = function() {
-						addGodToDesktop(label.godIndex);
-						console.log(label.godIndex+ "已放入資料庫");
-					};
-				}
-			}
-			
-			
-			
-			
-			
-
-        //clearTimeout(label.highlightTimeout);
-        //label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
-		}
+		scanner.stop();
+		loadXMLDoc(label, result);        
     }
+	function loadXMLDoc(label, result) {
+	  var xhttp = new XMLHttpRequest();
+	  var getOEmbed = "https://sketchfab.com/oembed?url="+ result;
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			
+			//return this.responseText;
+			var responsehtml = this.responseText.toString();
+			var responseJson = JSON.parse(responsehtml.replace(/\n/g,""));
+			label.thumbnail_url = responseJson.thumbnail_url;
+			label.godIndex = result+"/embed";
+			//label.thumbnail_url = loadXMLDoc(label.godIndex);
+			//console.log("label.thumbnail_url: "+loadXMLDoc(label.godIndex));
+			//label.setAttribute("godIndex", label.godIndex);
+			if(label.godIndex.match("sketchfab")||label.godIndex.match("skfb.ly")){
+				let url;
+	  
+				try {
+					url = new URL(label.godIndex);
+				} catch (_) {
+					return false;  
+				}
+				console.log("label.godIndex: " + label.godIndex);
+				document.getElementById("modelFrame").src = label.godIndex;
+				
+				//camQrResultTimestamp.godIndex = new Date().toString();
+				//label.style.color = 'teal';
+				document.getElementById("overlay1").style.display = "none";
+				document.getElementById("overlay2").style.display = "block";
+				scanner.stop();
+				var transaction = db.transaction(DB_STORE_NAME, 'readwrite');
+				var objectStore = transaction.objectStore(DB_STORE_NAME);
+				const constGodIndex = objectStore.index('godIndex');
+				const keyRng = IDBKeyRange.only(label.godIndex);
+				const cursorRequest = constGodIndex.openCursor(keyRng);
+				cursorRequest.onsuccess = e => {
+					const cursor = e.target.result;
+					if (cursor) {
+						return false;
+					}else{
+						objectStore.put(label).onsuccess = function() {
+							addGodToDesktop(label.godIndex, label.thumbnail_url);
+							
+							console.log(label.godIndex+ "已放入資料庫");
+						};
+					}
+				}
+				
+				
+				
+				
+				
 
+			//clearTimeout(label.highlightTimeout);
+			//label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+			}else{
+				scanner.start();
+			}
+			
+		  //console.log("this.responseText: "+ this.responseText.thumbnail_url );
+		  //console.log("responseJson.thumbnail_url: "+ responseJson.thumbnail_url );
+		}
+	  };
+	  xhttp.open("GET", getOEmbed, true);
+	  xhttp.send();
+	}
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), error => {
         //camQrResult.godIndex = error;
         //camQrResult.style.color = 'inherit';
@@ -279,6 +317,7 @@ function addGodToDesktop(str){
 
     document.getElementById('start-button').addEventListener('click', () => {
         console.log("start-button-press");
+		
 		document.getElementById("overlay1").style.display = "block";
 		document.getElementById("overlay2").style.display = "none";
 		scanner.start();
