@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.textBox {
+			display: inline-block;
+			width: 150px;
+
+			height: 50px;
+			margin: 0em;
+		}
+		
+		#modelFrame{
+			border: none; 
+			width: 30vw; 
+			height: 30vh;
+		}
+		#container {
+          width: 95vw;
+          height: 60vh;
+		  margin: 0px;
+        }
+		#search{
+		 width: 90vw;
+		}
+	</style>
+	</style>
+	<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'
+		xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	<title>
+		澳門土地公位置圖(高德地圖版本)
+	</title>
+</head>
+<script>
+      var earthgodArray = [
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.152113, 113.555691]},"url":"https://sketchfab.com/3d-models/ed2afe3117e64963b237c065b1141fcc", "properties":{"name":"祿秀社(氹仔天后廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.152637, 113.555499]},"url":"https://sketchfab.com/3d-models/c980813123f549a99c57d43056ce7ae6", "properties":{"name":"西庚社稷護民之神(嘉妹前地)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.205659, 113.548209]},"url":"https://sketchfab.com/3d-models/94efad958def4491b5ed82757c3be499", "properties":{"name":"福和社(美副將大馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193919, 113.537801]},"url":"https://sketchfab.com/3d-models/c5ef9223aa1040d2ade705f60c15cd30", "properties":{"name":"本坊土地福德正神位(福榮里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.197011, 113.539613]},"url":"https://sketchfab.com/3d-models/3e84651438224193be9722ff880d5c60", "properties":{"name":"本坊土地福德正神(人和里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196939, 113.539015]},"url":"https://sketchfab.com/3d-models/4f401e3c230d4a058bcfc753465230f6", "properties":{"name":"社稷土地和泰山石敢當神位(西瓜里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196834, 113.539390]},"url":"https://sketchfab.com/3d-models/c57971229fb64117be7874c345f3fb3c", "properties":{"name":"聚龍社稷之神(聚龍舊社)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196581, 113.540047]},"url":"https://sketchfab.com/3d-models/d51db45a3fa84ab4a092389cd03abe2e", "properties":{"name":"本街土地(顯榮里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.202096, 113.541458]},"url":"https://sketchfab.com/3d-models/3f2796b9cfe04134b5f686c35bf95540", "properties":{"name":"橋頭土地公公(橋巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.131115, 113.563190]},"url":"https://sketchfab.com/3d-models/7d8777636335462e94eef54e05c2ee0a", "properties":{"name":"本坊社稷土地福神(石排灣&#65292;已拆除)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.131761, 113.581339]},"url":"https://sketchfab.com/3d-models/fdab54255df64953805cf9c2790b3394", "properties":{"name":"九澳村土地公(九澳村路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.197753, 113.540611]},"url":"https://sketchfab.com/3d-models/c22c645657154899bb62dc8d81bdca11", "properties":{"name":"大三巴哪咤廟土地公(聖方濟各斜巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.199940, 113.542293]},"url":"https://sketchfab.com/3d-models/0d032689e0f94784974ae54e52e3bbdc", "properties":{"name":"定安社(定安街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.201683, 113.538686]},"url":"https://sketchfab.com/3d-models/36b7ba44fb2e4b2db9a8fad7a0411c7f", "properties":{"name":"海蛤里土地公"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.201957, 113.540136]},"url":"https://sketchfab.com/3d-models/7e8455c80dc84eed87307f558b54ff17", "properties":{"name":"銀龍社稷土地財神(銀針圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.188058, 113.534744]},"url":"https://sketchfab.com/3d-models/c127f22b65404c36a2eaec3be903af2d", "properties":{"name":"福德正神(亞婆井圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.201660, 113.541701]},"url":"https://sketchfab.com/3d-models/87c9ce4cefbf4e0ba67995043bac70ee", "properties":{"name":"城隍行臺(橋巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.191637, 113.538716]},"url":"https://sketchfab.com/3d-models/3b5e1dc92046458cbc0a053c2018112c", "properties":{"name":"龍新社(新維里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.153137, 113.557571]},"url":"https://sketchfab.com/3d-models/2690162da76d4a59945268fdf4748717", "properties":{"name":"鍾秀本坊社稷神位(蟻圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.204103, 113.550041]},"url":"https://sketchfab.com/3d-models/5f5feb18e22e45539dfe6bb7ace32b93", "properties":{"name":"居仁和啟明社稷神位(觀音堂旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.153043, 113.556882]},"url":"https://sketchfab.com/3d-models/c2c5222937954cd6bacc25344aeb23fc", "properties":{"name":"社稷神位(連理街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.206405, 113.545997]},"url":"https://sketchfab.com/3d-models/46dd585a4fee4f25baacd0a8ce164098", "properties":{"name":"本汛土地福德神(先鋒廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.198365, 113.538422]},"url":"https://sketchfab.com/3d-models/a16a889997874be4b8f2a0f64e0a0d9b", "properties":{"name":"荒廢的土地公(沙欄仔里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.198388, 113.538573]},"url":"https://sketchfab.com/3d-models/f2403db79772435681a826383aedb0ad", "properties":{"name":"永樂社社稷土地神位(永樂里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118518, 113.566595]},"url":"https://sketchfab.com/3d-models/5993ae5630f24ee0b5efbcde18d3b4a3", "properties":{"name":"黑沙村土地公"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.205953, 113.547761]},"url":"https://sketchfab.com/3d-models/bfc7c03b5c61479abe0415efdc59193c", "properties":{"name":"永興和建龍社稷神位(觀音古廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196926, 113.547519]},"url":"https://sketchfab.com/3d-models/c2a7220d33484c47a907097098b41af3", "properties":{"name":"觀音神龕(舊愛都酒店旁邊)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.114317, 113.550329]},"url":"https://sketchfab.com/3d-models/378e826fabe84394b215bff4d83fbebf", "properties":{"name":"本廟福德正神(譚公廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.202008, 113.539597]},"url":"https://sketchfab.com/3d-models/94c6ba07add64cd4928d713bda0d1872", "properties":{"name":"本方土地之神(沙梨頭土地廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.214515, 113.552375]},"url":"https://sketchfab.com/3d-models/fc9c45b84f4148c2a203a1601dd4873c", "properties":{"name":"龍母娘娘和福德正神(如意廣場)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.189707, 113.535543]},"url":"https://sketchfab.com/3d-models/d31be752658d44d39c4693d1e76d4f42", "properties":{"name":"土地公(六屋圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.116090, 113.551226]},"url":"https://sketchfab.com/3d-models/57819f33ae5b476bbe73d8ea52cec2ad", "properties":{"name":"大廟巷土地公(路環觀音廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118759, 113.550910]},"url":"https://sketchfab.com/3d-models/e58582bbd7ee474c8b08012e5a999557", "properties":{"name":"船人街土地公(路環三聖宮廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.154061, 113.558525]},"url":"https://sketchfab.com/3d-models/ed063b0adf6d4295835b29f506783de9", "properties":{"name":"益隆炮竹廠外的土地公(施督憲正街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.120413, 113.551049]},"url":"https://sketchfab.com/3d-models/a2ea8243be77477e856d00e5a577d789", "properties":{"name":"土地公(荔枝碗馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.191111, 113.536511]},"url":"https://sketchfab.com/3d-models/52d48c53331448e792097cb94e517491", "properties":{"name":"本坊土地公神位(鵝眉橫街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.191651, 113.539139]},"url":"https://sketchfab.com/3d-models/4de8f409e7d34d0298c22a556dfa73f1", "properties":{"name":"門口土地財神(龍嵩台)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118519, 113.552461]},"url":"https://sketchfab.com/3d-models/acdac3dff3d74034a4d6233c7bfa447b", "properties":{"name":"土地公(田畔街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.116288, 113.552343]},"url":"https://sketchfab.com/3d-models/3e9662c435064d59bd1ebcf00b18588c", "properties":{"name":"永安社土地福德神(日光圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.204286, 113.558436]},"url":"https://sketchfab.com/3d-models/abe3cfdb56494e01ab17c334c6875ddc", "properties":{"name":"福德祠(馬交石天后廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118862, 113.550412]},"url":"https://sketchfab.com/3d-models/1e4aab4ca830491ea5e9f129436827af", "properties":{"name":"土地婆婆(船人街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.115324, 113.551489]},"url":"https://sketchfab.com/3d-models/a44b978a193543ce89125f88a1807bac", "properties":{"name":"路環社稷之神位(民國馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.211921, 113.548023]},"url":"https://sketchfab.com/3d-models/eafcbd8aff0c4eb89539ee1960727d3f", "properties":{"name":"蓮環社稷神位(台山平民新邨內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.203146, 113.543249]},"url":"https://sketchfab.com/3d-models/57c12ffd5e174e99b5e802ee82375d10", "properties":{"name":"沙龍社(銅錢巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118954, 113.550067]},"url":"https://sketchfab.com/3d-models/8233ccbadb174125aa03040fbf6f7d38", "properties":{"name":"土地公(碼頭前地)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.164268, 113.556098]},"url":"https://sketchfab.com/3d-models/5087dc7d1ca04f6abe9888a5168c4606", "properties":{"name":"福德迎龍社神位(氹仔觀音岩內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.164412, 113.555965]},"url":"https://sketchfab.com/3d-models/21c49e5e96bd49f499eff46455714d1f", "properties":{"name":"迎龍社福德神位(氹仔觀音岩內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.209737, 113.547577]},"url":"https://sketchfab.com/3d-models/c07cc34aac4641ecbb6875f7a1a22433", "properties":{"name":"蓮峰社稷之神(蓮峰廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.212518, 113.547661]},"url":"https://sketchfab.com/3d-models/3ac0ab41a8ae4959a2affd4c738209e6", "properties":{"name":"龍環社稷神位(巴波沙大馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.204379, 113.558101]},"url":"https://sketchfab.com/3d-models/c1ef73cb48094fa6afaed8136e70e19f", "properties":{"name":"土地公(馬交石天后廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.153076, 113.556712]},"url":"https://sketchfab.com/3d-models/3e7aea9d67fd46aea8527e75900cfcb6", "properties":{"name":"土地公(木鐸街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194373, 113.536805]},"url":"https://sketchfab.com/3d-models/5fbf717e47b74eb7987e97b826339294", "properties":{"name":"本坊土地靈神福德祠(道德巷與夜呣里交界)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196126, 113.538139]},"url":"https://sketchfab.com/3d-models/4789f8a0180f404f9d1c00ae1c2ef1ce", "properties":{"name":"土地公(老人圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.197516, 113.540087]},"url":"https://sketchfab.com/3d-models/0b6dc028ec2246a781486179e80bc07c", "properties":{"name":"本坊土地之神(日頭圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.192518, 113.536596]},"url":"https://sketchfab.com/3d-models/b0cd259696d84c929e04fda9bd690402", "properties":{"name":"社稷土地福德正神(蕉園圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.192994, 113.535579]},"url":"https://sketchfab.com/3d-models/9d0e79af6a7a494199ba9b6903147ecc", "properties":{"name":"土地公(馬忌士圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.155398, 113.559400]},"url":"https://sketchfab.com/3d-models/0bdf9c2b7fcc42dc837b21504ec7fdcd", "properties":{"name":"東乙社稷之神(三婆廟旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.161942, 113.558556]},"url":"https://sketchfab.com/3d-models/bd026114abac4d57a751d665f073ead6", "properties":{"name":"土地公(卓家村關帝廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195563, 113.539253]},"url":"https://sketchfab.com/3d-models/aaa721f035b042eca5b97a0128c9a11c", "properties":{"name":"本街土地(商人巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195899, 113.538974]},"url":"https://sketchfab.com/3d-models/75b8809fc6e947e7a2c8a4d7bf7d9b3a", "properties":{"name":"土地公(小新巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.189002, 113.532601]},"url":"https://sketchfab.com/3d-models/108b35deced24de4b4b08523f615b52e", "properties":{"name":"土地公(沙井地巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.134906, 113.580872]},"url":"https://sketchfab.com/3d-models/78b5d3dbf5444a5cb64f58b9f5266059", "properties":{"name":"神(九澳聖母馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.202035, 113.539444]},"url":"https://sketchfab.com/3d-models/ce7245baae154a0aa6819b82ebb7453a", "properties":{"name":"石敢當石(麻子街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118041, 113.551000]},"url":"https://sketchfab.com/3d-models/a3665bf29a6f4bc08b19d892ae5e49e6", "properties":{"name":"南無阿彌陀石(路環十月初五馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.199056, 113.538241]},"url":"https://sketchfab.com/3d-models/1728a76b7e47417198a13f71126d9cd4", "properties":{"name":"土地爺爺(竹里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.112218, 113.550969]},"url":"https://sketchfab.com/3d-models/f37c457a533a4613ad0d52c5b695d7d4", "properties":{"name":"福德祠(路環各會聯合墳場外)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194145, 113.539455]},"url":"https://sketchfab.com/3d-models/9cc5d124723c4ebda324ce772a7c5fd7", "properties":{"name":"榮寧社(三街會館旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.163972, 113.548408]},"url":"https://sketchfab.com/3d-models/a62c6340f1e645bd96e59e66e3172c03", "properties":{"name":"神龕(海洋花園大馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118498, 113.551934]},"url":"https://sketchfab.com/3d-models/287c8803b4c84a22800a5bab9284ea14", "properties":{"name":"土地公和獅子(石街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.112103, 113.550910]},"url":"https://sketchfab.com/3d-models/6dd1bd0d37154b5da7de125778d20ead", "properties":{"name":"土地公(鄉村馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.212193, 113.538831]},"url":"https://sketchfab.com/3d-models/afe8f974f1f045ddb9b3c3a28c89a674", "properties":{"name":"青洲土地福德正神(青洲社屋後面)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.186676, 113.530637]},"url":"https://sketchfab.com/3d-models/f374cfd89c884d98a4a67f7463bf021c", "properties":{"name":"福德正神之位(媽閣廟對出)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.152643, 113.556506]},"url":"https://sketchfab.com/3d-models/51dbcb7661c14cb28d9039261891259c", "properties":{"name":"土地公(水泉公地)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.204973, 113.551132]},"url":"https://sketchfab.com/3d-models/6952562b461f413f893f44f47a5cf3a9", "properties":{"name":"普濟后土之神(普濟禪院後山)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.199644, 113.537450]},"url":"https://sketchfab.com/3d-models/8c4835c264184879955dfcdfa355689e", "properties":{"name":"本坊土地財神(叢慶南街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.199716, 113.538693]},"url":"https://sketchfab.com/3d-models/b6a71ec8ffa349c39502f13193535c89", "properties":{"name":"本圍土地福德正神和包相府(何林圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.191981, 113.535986]},"url":"https://sketchfab.com/3d-models/314e6b7c6c4c45d6bf077297167cb415", "properties":{"name":"本圍土地福德正神(菜園圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.199213, 113.538269]},"url":"https://sketchfab.com/3d-models/94ebb17383054fdbbcdab8ff6f2e5433", "properties":{"name":"神龕(工匠圍/居安里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.118125, 113.551603]},"url":"https://sketchfab.com/3d-models/ebf31fe57d0b408b920e7ff2b92ccd7c", "properties":{"name":"土地公(水鴨街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193288, 113.538063]},"url":"https://sketchfab.com/3d-models/daecb3b9124146a5a4d13594bb4a6ca9", "properties":{"name":"本坊土地福德正神(菖蒲圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.201566, 113.542424]},"url":"https://sketchfab.com/3d-models/6f6d720ca8824a81ae2809a574d59dab", "properties":{"name":"本坊社稷土地神位(𠜎雞街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.189412, 113.533396]},"url":"https://sketchfab.com/3d-models/5579d9cff516487b80e1b58afe1a99f6", "properties":{"name":"本坊土地福德正神(綠豆圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193080, 113.537810]},"url":"https://sketchfab.com/3d-models/f7a597e822bf454891c9bf9560bcbc1c", "properties":{"name":"本坊土地福德正神(苦力圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.212310, 113.544076]},"url":"https://sketchfab.com/3d-models/bdc17718db6d425cb3b740c44d93af7b", "properties":{"name":"啟德星君爺爺(白朗古將軍大馬路和李寶樁街交界)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.211225, 113.542924]},"url":"https://sketchfab.com/3d-models/aa72c627ec124430bc385c9955658217", "properties":{"name":"福德祠(蓮花廣場)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.116313, 113.551597]},"url":"https://sketchfab.com/3d-models/89ea14bb7aae4d278e73240fc5026a23", "properties":{"name":"本境社官水仙尊王(水泉公地)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195959, 113.539296]},"url":"https://sketchfab.com/3d-models/63913260cedd42c2a14a0a8e155274d1", "properties":{"name":"土地爺爺(陳家里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.197257, 113.538680]},"url":"https://sketchfab.com/3d-models/6eda735863874382a2e9df718cbe7f53", "properties":{"name":"埠寧社稷之神(蠔里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.202826, 113.544335]},"url":"https://sketchfab.com/3d-models/9c81e2fdc8154adb8d9f8fe87296ffbe", "properties":{"name":"土地公(盧九街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200573, 113.538214]},"url":"https://sketchfab.com/3d-models/0b472334e495458ab0c1c56ef4cee889", "properties":{"name":"土地公(掙匠巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.201979, 113.539056]},"url":"https://sketchfab.com/3d-models/ab30acc1608c46e08215d8808079b96e", "properties":{"name":"土地公(麻子街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200103, 113.537691]},"url":"https://sketchfab.com/3d-models/f01d2050500d4aba9751d2f8d57c57af", "properties":{"name":"土地公公神位和土地婆婆神位(叢慶北街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196098, 113.539789]},"url":"https://sketchfab.com/3d-models/f33b7c5f19c449f89e6bde2d96fb0d47", "properties":{"name":"福德祠(草堆橫巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.207279, 113.540164]},"url":"https://sketchfab.com/3d-models/ac5a8da3799a4b79bc25e92c674d5a54", "properties":{"name":"筷子基坊眾永和堂花炮會海口土地公(筷子基北街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195337, 113.539180]},"url":"https://sketchfab.com/3d-models/42adddb003984e43b9dd5d3c9d575eef", "properties":{"name":"土地公(吉慶一圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196767, 113.539484]},"url":"https://sketchfab.com/3d-models/a35e5e09c1fc4737aaed52efa81f714f", "properties":{"name":"聚龍社稷之神(聚龍通津)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.203624, 113.544566]},"url":"https://sketchfab.com/3d-models/5be70370727f4f83a7fda8e9e1ba1bcf", "properties":{"name":"土地公(義字街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.188704, 113.534892]},"url":"https://sketchfab.com/3d-models/920dd9c70da14192b97fe4836b5e91eb", "properties":{"name":"本宅門官土地福德正直之神(鄭家大屋內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194133, 113.538412]},"url":"https://sketchfab.com/3d-models/311f4e4223e4439196d164242dec9161", "properties":{"name":"宏隆坊&#12288;本坊社稷土地之神&#65288;桔仔街&#65289;"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194053, 113.538653]},"url":"https://sketchfab.com/3d-models/d7a1970b083c4154b834ed72d8bba183", "properties":{"name":"本圍門官土地福德正神(手肘圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.188281, 113.534193]},"url":"https://sketchfab.com/3d-models/b2fdb46cea0341bf95abba75255f7b95", "properties":{"name":"土地公(鄭家大屋水巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194760, 113.541462]},"url":"https://sketchfab.com/3d-models/d648da620c774e04b89c7ed7f91a17fb", "properties":{"name":"德香社(德香里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194690, 113.537787]},"url":"https://sketchfab.com/3d-models/c4937697230f4fc98cd020a532513560", "properties":{"name":"本圍土地福德正神(柴船尾街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193047, 113.536331]},"url":"https://sketchfab.com/3d-models/70d11f5e3ec24173b14ce29b9c1885b3", "properties":{"name":"土地公(安仿西巷)(完工後)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195150, 113.540941]},"url":"https://sketchfab.com/3d-models/89c8322a25bc4ce4888913be3f2e64d7", "properties":{"name":"本圍土地福德正神(草地圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194231, 113.541146]},"url":"https://sketchfab.com/3d-models/e31d9e1131614666a97825df4fe106ca", "properties":{"name":"門官土地福德正神(盧家大屋內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194931, 113.539176]},"url":"https://sketchfab.com/3d-models/e7bc339ccb0945199948b736ee7c5167", "properties":{"name":"本圍土地(鍾家圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194891, 113.539067]},"url":"https://sketchfab.com/3d-models/1a04644a7e16481eba8f351d5dfb935c", "properties":{"name":"土地公(趙家巷福德祠)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.213950, 113.545510]},"url":"https://sketchfab.com/3d-models/337e19ab5ce34b65a2fdc0a8c3e4c804", "properties":{"name":"台山蓮花村本坊土地社稷福神(菜園涌北街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193635, 113.537965]},"url":"https://sketchfab.com/3d-models/2c2a9feda1244ab9a66af6d596b1439b", "properties":{"name":"旺相土地福神位(公仔圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.197446, 113.538524]},"url":"https://sketchfab.com/3d-models/7471f87da6a24710a293117ef5faa157", "properties":{"name":"土地公(大碼頭街福德祠內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.199357, 113.540723]},"url":"https://sketchfab.com/3d-models/fc65c646760a4adab53c691951ed3cf0", "properties":{"name":"三多社稷(連勝街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194008, 113.543074]},"url":"https://sketchfab.com/3d-models/53a0c6ab31f74ba4ba5c6f5606ecc80f", "properties":{"name":"土地公(連丁圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195174, 113.542106]},"url":"https://sketchfab.com/3d-models/d6c41505d46546b99901ce7dde218aae", "properties":{"name":"永安坊土地財神(永安圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193778, 113.543017]},"url":"https://sketchfab.com/3d-models/9d9745b1208246cfa5d164e24c44b02c", "properties":{"name":"本坊威靈土地財神(善慶圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.190067, 113.535835]},"url":"https://sketchfab.com/3d-models/a9cb420c0aeb4ab7b5af5f9990d4bd8d", "properties":{"name":"土地福德正神位(水手西街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194277, 113.542866]},"url":"https://sketchfab.com/3d-models/ab0f447946d34ef1b9a81d42c6f080a6", "properties":{"name":"本坊土地(龍安圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.117407, 113.567002]},"url":"https://sketchfab.com/3d-models/71c401998f77479abadd3ab71547a00f", "properties":{"name":"土地公(黑沙村口)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195459, 113.540787]},"url":"https://sketchfab.com/3d-models/376fb16099c14482841609e3a5ecf9f4", "properties":{"name":"本坊土地福神(居仁里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.206496, 113.551706]},"url":"https://sketchfab.com/3d-models/382734821f62492989d01180a5f958fb", "properties":{"name":"本坊土地福神(區神父街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.206658, 113.556893]},"url":"https://sketchfab.com/3d-models/e1431248b0bc4dbdb3b165815405af10", "properties":{"name":"土地公(馬交石街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.208471, 113.548573]},"url":"https://sketchfab.com/3d-models/2f33dbc433ea48f0a7d4214dd41cc5a7", "properties":{"name":"土地公神位(蓮峰街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.208872, 113.550980]},"url":"https://sketchfab.com/3d-models/336798f95d2448e6abf09c6351a7a71f", "properties":{"name":"黑沙環區社稷之神(黑沙環第五街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.210679, 113.536813]},"url":"https://sketchfab.com/3d-models/4a9134783275479ab928d9ba54b5394e", "properties":{"name":"青洲山土地公公寶座(青洲山)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.188085, 113.537376]},"url":"https://sketchfab.com/3d-models/0ff566150cc84c028b1e7eb3ea995ad5", "properties":{"name":"定福社稷和本坊土地社稷福德之神(灰爐石級)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.185726, 113.531327]},"url":"https://sketchfab.com/3d-models/e632ebac86a247dbbf2e8907a4869dda", "properties":{"name":"中和社福德祠(媽閣上街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.158329, 113.559558]},"url":"https://sketchfab.com/3d-models/ade0a82012eb48b589f0f7da99bf26a6", "properties":{"name":"土地公(三家村)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.186102, 113.531375]},"url":"https://sketchfab.com/3d-models/e476afa085f9446e880bcfd92e7bdc03", "properties":{"name":"正直祠(媽閣廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.187945, 113.537094]},"url":"https://sketchfab.com/3d-models/cddef322580d44ef9c639336f42646db", "properties":{"name":"土地公(灰爐石級)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.190346, 113.533952]},"url":"https://sketchfab.com/3d-models/7a3cd3bca1f34313aa805add64acc9f9", "properties":{"name":"本街土地爺爺(鹽里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.205088, 113.556402]},"url":"https://sketchfab.com/3d-models/a8cbcf23d18843c7bfc6686608e19a82", "properties":{"name":"土地公(馬揸度博士大馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.134080, 113.581213]},"url":"https://sketchfab.com/3d-models/5c2e528d2de245039dd9f95f5e1046f2", "properties":{"name":"九澳土地廟"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.190111, 113.533529]},"url":"https://sketchfab.com/3d-models/5cb7da36923441979261047524ba84d2", "properties":{"name":"土地福德財神(帶水圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195503, 113.542383]},"url":"https://sketchfab.com/3d-models/577aa7eec7b245798d8ffac5b79f5257", "properties":{"name":"福德正神土地爺(連安圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195779, 113.541072]},"url":"https://sketchfab.com/3d-models/7d2e84a9ec6d47c4b60198e100b51f22", "properties":{"name":"土地公(刀里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195515, 113.542319]},"url":"https://sketchfab.com/3d-models/23c6bdc7e071431f924ff05b09a156d1", "properties":{"name":"土地爺爺之神位(哪咤廟斜巷哪咤廟內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.189931, 113.534198]},"url":"https://sketchfab.com/3d-models/501d1a433854412893173ea783aebae2", "properties":{"name":"旺相本坊土地福德正神(桂和里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.210477, 113.538837]},"url":"https://sketchfab.com/3d-models/e830bd0ae81b498ea47e88ad96fb2ca2", "properties":{"name":"土地公(青洲河邊馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.158430, 113.562034]},"url":"https://sketchfab.com/3d-models/b0bdd24afcc048dd81d528ebe9639112", "properties":{"name":"本村土地(司徒澤雄神父馬路)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200109, 113.537906]},"url":"https://sketchfab.com/3d-models/e678988979b245a59ea3dc3fa4d04c5c", "properties":{"name":"土地公(新圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.195166, 113.539464]},"url":"https://sketchfab.com/3d-models/7be8361e197f4c218ca6c4db161343af", "properties":{"name":"土地公(吉慶二圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194051, 113.537362]},"url":"https://sketchfab.com/3d-models/aeedc6108d644efcada301416e8be0fc", "properties":{"name":"福德社土地神位(夜呣里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.207399, 113.542505]},"url":"https://sketchfab.com/3d-models/26ccf09cc8194532a9495070e6d204e5", "properties":{"name":"福德祠(沙梨頭南街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.116335, 113.551373]},"url":"https://sketchfab.com/3d-models/157ae294fb4a4f8a9795a75920d691e8", "properties":{"name":"土地公(中街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.213226, 113.553957]},"url":"https://sketchfab.com/3d-models/5d96cc523820484c84ee06ad66f05adc", "properties":{"name":"土地公(順景廣場)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200249, 113.540490]},"url":"https://sketchfab.com/3d-models/b7078c56b6474ed3b774830cad1bd498", "properties":{"name":"永安社土地福神(石牆街福德祠內)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.208044, 113.549015]},"url":"https://sketchfab.com/3d-models/943dfea9334b4dc089de6693731f1ab4", "properties":{"name":"顯靈土地公神位(黑沙環巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.201560, 113.540348]},"url":"https://sketchfab.com/3d-models/fc7b749a5b8a44f39e97c13a3fe568e2", "properties":{"name":"迎龍社土地福神位(田螺石級)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194961, 113.536819]},"url":"https://sketchfab.com/3d-models/1ee3df6f94ea4c329a9c5245634e34d5", "properties":{"name":"福德祠(福寧里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.153059, 113.556661]},"url":"https://sketchfab.com/3d-models/442a335c1b3148419cf591378bacbc60", "properties":{"name":"門口土地財神(木鐸街)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.188799, 113.532705]},"url":"https://sketchfab.com/3d-models/c4f962588285475b83c423f0765e6a06", "properties":{"name":"土地公(聖尼各老圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196616, 113.538913]},"url":"https://sketchfab.com/3d-models/d1cc9b3b644545a2a7514b8873547762", "properties":{"name":"泰山石敢當(高樓里)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.189370, 113.533899]},"url":"https://sketchfab.com/3d-models/9e488ae82efd44d2a7bd571a743551cc", "properties":{"name":"土地公(草蓆圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200723, 113.538581]},"url":"https://sketchfab.com/3d-models/94b79e8a814945ce940c17fa96a089b9", "properties":{"name":"福德正神(大聖園)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200967, 113.538433]},"url":"https://sketchfab.com/3d-models/a94832c202cf4fd2bef174b677706081", "properties":{"name":"神壇(沙梨頭石級)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.189764, 113.533599]},"url":"https://sketchfab.com/3d-models/e30e6f1bc96e4bf4af9b27262a4bc066", "properties":{"name":"本坊土地福德正神(偶像圍)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194821, 113.544719]},"url":"https://sketchfab.com/3d-models/75608f9a923f4ef3a1f2b1dc8c73a1b7", "properties":{"name":"泰平社土地之神(雀仔園福德祠旁)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.202229, 113.543733]},"url":"https://sketchfab.com/3d-models/71adac2dcd2847db858754f9c0bd2a31", "properties":{"name":"土地福德正神(大纜巷)"}},
+         {"type":"Feature","geometry":{"type":"Point","coordinates":[22.210737, 113.544340]},"url":"https://sketchfab.com/3d-models/5e745b6988ec4ff596d1231a3595bb12", "properties":{"name":"本坊龍田社稷之神(青洲大馬路)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.208676, 113.546713]},"url":"https://sketchfab.com/3d-models/20c2d2068fbb4862b1d933d0835df8c4", "properties":{"name":"土地公(罅些喇提督大馬路)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.208209, 113.546911]},"url":"https://sketchfab.com/3d-models/9d7d7f3ada0f4a31b72dcd80cfb0fe83", "properties":{"name":"本坊土地(鏡湖殯儀館旁)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.198183, 113.541662]},"url":"https://sketchfab.com/3d-models/b4ab224237c74be69cc73e6caaa1d418", "properties":{"name":"盛福堂(茨林圍)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.204881, 113.544345]},"url":"https://sketchfab.com/3d-models/50e0032a324b4bdbb9740f2cbb8beef5", "properties":{"name":"天安土地神位(道咩卑利士里)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196267913096083, 113.5402861529046]},"url":"https://sketchfab.com/3d-models/51aff8dde0d349f3a5a986d2bdf7cb7f", "properties":{"name":"李安圍社稷土地之神位(李家圍)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.16106882649097, 113.55781554048905]},"url":"https://sketchfab.com/3d-models/8b872f941165468187de9fd55ded7ea5", "properties":{"name":"土地公(菜園路)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.204068288514282, 113.54465497247323]},"url":"https://sketchfab.com/3d-models/335f7d44308842778f9fc0133e2fabc9", "properties":{"name":"近蓮社(道咩卑利士街)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.187647371593684, 113.53291639481291]},"url":"https://sketchfab.com/3d-models/416694318ee04cc4aecc79a2924d48d5", "properties":{"name":"土地公(媽閣斜巷)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.19364153580781, 113.53898003397686]},"url":"https://sketchfab.com/3d-models/e7d40a8ff22b428a92840c9554405b4d", "properties":{"name":"土地公(天通里)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.20855855490427, 113.54784192285133]},"url":"https://sketchfab.com/3d-models/e35c9b91c549459d8f9b71dbac5b8102", "properties":{"name":"土地公(望廈山)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.209059051797613, 113.54758692148978]},"url":"https://sketchfab.com/3d-models/534b78d4691a454c9efa66a49d4de38c", "properties":{"name":"倪山後土之位(望廈山)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.18636796632539, 113.53139168207878]},"url":"https://sketchfab.com/3d-models/01b6a515144e41698dcd4c0fb17ee04f", "properties":{"name":"土地福德正神(媽閣廟石殿旁)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200198051719866, 113.53846142880532]},"url":"https://sketchfab.com/3d-models/0d1377176efb45fc8b61c7b165633742", "properties":{"name":"土地公(叢慶四巷)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.192736174083194, 113.5380892915399]},"url":"https://sketchfab.com/3d-models/813fbe9516904a5b92de3f157d9fe21c", "properties":{"name":"土地公(社福圍)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.188835071203833, 113.53383524078369]},"url":"https://sketchfab.com/3d-models/2511e90b293741b3ab4ae48fa2788cf0", "properties":{"name":"土地公(下環街)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.200958467017692, 113.5383138618598]},"url":"https://sketchfab.com/3d-models/8efb25d661de4342ac0068792c32359c", "properties":{"name":"平安社(惠愛里)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.193996323966967, 113.54073948415231]},"url":"https://sketchfab.com/3d-models/041f2cf0f93d42e68b3a166531017190", "properties":{"name":"福德祠(大堂新圍)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.19480552471614, 113.53948526661485]},"url":"https://sketchfab.com/3d-models/9f22886e3d71495ba85b2be0273a86cc", "properties":{"name":"土地公(門官圍)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.196837316656666, 113.55169789878862]},"url":"https://sketchfab.com/3d-models/50d0db06bf9e46c9b1d5ea55d7d0fbff", "properties":{"name":"土地公(海邊馬路)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.194786434964158, 113.55075748390888]},"url":"https://sketchfab.com/3d-models/d7b3275eef5b4ac68ff852ec3380b41c", "properties":{"name":"福地一坊社稷之神(羅理基博士大馬路)"}},
+          {"type":"Feature","geometry":{"type":"Point","coordinates":[22.16078581274983, 113.56801724734751]},"url":"https://sketchfab.com/3d-models/12082e15bcc4488b95e284a63bf9ed8f", "properties":{"name":"土地公像(氹仔孝思墳場內)"}},
+        ];
+      
+    window.onLoad  =   function(){
+		
+    	var map = new AMap.Map('container', {
+           mapStyle: 'amap://styles/6321e27db3e4d4a20102cd86ab63260d', //設置地圖的顯示樣式
+           resizeEnable: true,
+           center:[113.563822, 22.168311],
+           zoom:11,
+		   
+        });  
+      	infowindow = new AMap.InfoWindow({
+          content: 'this is inaciso',
+         	size: new AMap.Size(document.documentElement.clientWidth/3,document.documentElement.clientHeight/2.8),
+          //maxWidth: 250
+		});
+      
+      	
+      	
+      	var coordsArray = new Array();
+      	
+      	for (var l = 0; l< earthgodArray.length; l++){
+          
+          var tmpCoords = earthgodArray[l].geometry.coordinates;
+          var tmpLatLng = new AMap.LngLat(tmpCoords[1], tmpCoords[0]);
+          coordsArray.push(tmpLatLng);
+        }
+      	AMap.convertFrom(coordsArray, 'gps', function(status, result) {
+          if(result.info === 'ok'){
+            for (var i = 0; i < result.locations.length; i++){
+              var tmpZindex = 200-Math.round(1000*(earthgodArray[i].geometry.coordinates[0]-22));
+              var latLng = result.locations[i];
+              var godname = earthgodArray[i].properties.name;
+              var urlSketchfab = earthgodArray[i].url;
+    		  var marker = new AMap.Marker({
+                position: latLng,
+                extData: urlSketchfab,
+                map: map,
+                title: godname,
+                zIndex: tmpZindex,
+                icon: 'https://2.bp.blogspot.com/-6rIYNa8YnZU/Wk-o78s5EcI/AAAAAAAASkc/pXyFkEd0fbwbN9uateCyxeuAsCFiNEb0gCPcBGAYYCw/s1600/god_marker.png',
+                topWhenClick: true,
+              });         
+			  	map.add(marker);
+           var text = new AMap.Text({
+                text: godname,
+                anchor:'top-left', 
+                position: latLng,
+                zIndex: tmpZindex -1,
+             		cursor: 'grab',
+            });
+           text.setMap(map);
+           text.hide();
+              AMap.event.addListener(marker, 'click', function () {
+                //var script = document.createElement('script');
+                //script.src = 'https://json2jsonp.com/?url=https://sketchfab.com/oembed?url=' + this.getExtData() + '%26maxwidth=210&callback=gotJSON';
+                //script.type = 'text/javascript';
+                //document.getElementsByTagName('head')[0].appendChild(script);
+                infowindow.setContent("<iframe id='modelFrame' src='"+this.getExtData() +"/embed?autostart=1&camera=0&ui_hint=0'></iframe><br/>"+this.getTitle());          
+                infowindow.open(map, this.getPosition());       
+              });
+            }
+          }
+        });
+      
+       
+      
+
+    /*        
+		window.gotJSON = function(results) {
+       //console.log(results.html);
+        //var myHtml = results.query.results.json.html;
+
+        var myHtml = results.html;
+        myHtml = myHtml.replace("\n", "<br />");
+        var myTitle = results.title;
+        myTitle = '</iframe><br />'+myTitle + '</div>';
+        myHtml = myHtml.replace("</iframe></div>", myTitle);
+        infowindow.setContent(myHtml);
+        //console.log(results.query.results.json.title);
+
+       };
+	   */
+			document.getElementById('search').addEventListener('input', function() {
+ 				
+				var allMarkers = map.getAllOverlays('marker');
+           var allTexts = map.getAllOverlays('text');
+           for (var x = 0; x < allMarkers.length; x++){
+             var tmpMarker = allMarkers[x];
+             var tmpText = allTexts[x];
+             if(!this.value){
+               tmpText.hide();
+               tmpMarker.show();
+             }else if(tmpMarker.getTitle().match(this.value)){
+               tmpMarker.show();
+               tmpText.show();
+               
+               
+             }else{
+               tmpMarker.hide();
+               tmpText.hide();
+             }
+           }
+ 			});
+			
+    }
+
+    
+      
+      
+    var url = 'https://webapi.amap.com/maps?v=1.4.15&key=74f2eb5bc1bc4293b66743e2d4b7bb4b&callback=onLoad';
+    var jsapi = document.createElement('script');
+    jsapi.charset = 'utf-8';
+    jsapi.src = url;
+    document.head.appendChild(jsapi);
+      
+    
+      
+</script>
+<body>
+	<div>
+	<img style="display: none;" border="0" src="http://www.kingchigames.com/Games/earthgodjpg.jpg"  />
+		<h1>澳門土地公位置圖(高德地圖版本)</h1>
+		<p>高德地圖版本的土地公位置圖受流量限制和內地加密定位的影響，每天的使用次數會有所限制，定位誤差稍大。	
+		</p>
+	</div>
+	<div>
+		<p>過濾：<input type="text" placeholder="（請在此輸入篩選關鍵字(如美副將大馬路)，若不輸入則顯示全部土地公）" id="search" >
+		<div id="container" tabindex="0"  >
+		</div>
+		</p>
+		<p>
+		高德地圖版本的土地公位置圖受流量限制和內地加密定位的影響，每天的使用次數會有所限制，定位誤差稍大。</p>
+		<p>by inaciso 2022</p>
+	</div>
+</body>
+</html>
