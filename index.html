@@ -340,8 +340,9 @@
 								//console.log("tmpText"+ tmpText);
 								textArea1.setAttribute("style",  tmpText);
 								allSpheres[j].setAttribute("color", allSpheres[j].getAttribute("data-defaultColor"));
+								allSpheres[j].object3D.visible = true;
 							}else{
-								//allSpheres[i].object3D.visible = false;
+								allSpheres[j].object3D.visible = false;
 								allSpheres[j].setAttribute("color", "gray");
 							}
 						}
