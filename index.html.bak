@@ -363,8 +363,8 @@
 	<style>
 		.textArea {
 			position: fixed;
-			bottom: 0;
-			left: 0;
+			bottom: 0vh;
+			left: 0vw;
 			width: 100vw;
 			height: auto;
 			display: flex;
